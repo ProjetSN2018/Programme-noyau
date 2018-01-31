@@ -481,10 +481,16 @@
     <Compile Include="src\Header\error.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\Header\taskman.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\Source Files\error.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Source Files\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Source Files\taskman.c">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\config\conf_clock.h">

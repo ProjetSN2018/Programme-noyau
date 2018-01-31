@@ -58,9 +58,6 @@ int main (void)
 	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
 	/* Insert application code here, after the board has been initialized. */
 
-	t_param k;
-
-	Sablier(SABLIER_NEW, k);
 
 	
 }
