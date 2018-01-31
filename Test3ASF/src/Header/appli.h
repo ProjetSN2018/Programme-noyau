@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 typedef uint32_t(*t_ptf32) (uint32_t, ...);
-
+#include "asf.h"
 #include "error.h"
 
 

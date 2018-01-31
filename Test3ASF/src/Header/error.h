@@ -15,12 +15,12 @@
 
 
 //Prototype de la fonction concernée
-uint32_t ErrorLed(UINT32_C err, ...);
-uint32_t ErrorUART(UINT32_C err, ...);
+uint32_t ErrorLed(uint32_t err, ...);
+uint32_t ErrorUART(uint32_t err, ...);
 
 
 extern t_ptf32 pErrorFunc;
 
-#define Error(errc, sc)		pErrorFunc(errrc, sc)
+#define Error(errc, sc)		pErrorFunc(errc, sc)
 
 #endif /* ERROR_H_ */
