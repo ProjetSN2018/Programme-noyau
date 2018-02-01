@@ -44,7 +44,7 @@
 	}t_param;
 
 void Sablier(uint32_t sc, t_param i);
-
+void s(void);
 
 int main (void)
 {
@@ -57,7 +57,14 @@ int main (void)
 
 	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
 	/* Insert application code here, after the board has been initialized. */
+	Taskman(TASKMAN_NEW);
+	pushTask(Sablier, s,0 ,0);
 
+	for(;;)
+	{
+		Taskman(TASKMAN_POP_TASK);
+		
+	}
 
 	
 }
@@ -77,6 +84,7 @@ void Sablier(uint32_t sc, t_param i)
 			
 		case SABLIER_RUN:
 			gpio_toggle_pin(LED0_GPIO);
+			delay_ms(2000);
 			if(!beat[++i.k]) i.k=0;
 
 			break;
@@ -86,5 +94,13 @@ void Sablier(uint32_t sc, t_param i)
 
 		}
 
+
+}
+void s(void)
+{
+	gpio_toggle_pin(LED0_GPIO);
+	delay_ms(2000);
+	gpio_toggle_pin(LED0_GPIO);
+	delay_ms(2000);
 
 }

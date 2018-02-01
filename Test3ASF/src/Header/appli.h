@@ -19,4 +19,20 @@ typedef uint32_t(*t_ptf32) (uint32_t, ...);
 #include "taskman.h"
 
 
+
+//Accès aux contenus des paramètres optionnels des fonctions
+#define pa1         (*(&sc+1))
+#define pa2         (*(&sc+2))
+#define pa3         (*(&sc+3))
+#define pa4         (*(&sc+4))
+#define pa5         (*(&sc+5))
+
+//Accès aux adresses des paramètres optionnels des fonctions
+#define pPa1         (&sc+1)
+#define pPa2         (&sc+2)
+#define pPa3         (&sc+3)
+#define pPa4         (&sc+4)
+#define pPa5         (&sc+5)
+
+
 #endif /* APPLI_H_ */

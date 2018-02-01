@@ -6,6 +6,8 @@ src\Source Files\error.c
 
 src\Source Files\main.c
 
+src\Source Files\taskman.c
+
 src\ASF\common\services\clock\sam3x\sysclk.c
 
 src\ASF\common\services\delay\sam\cycle_counter.c

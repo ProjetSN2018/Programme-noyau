@@ -43,9 +43,9 @@
  }
 
  const char* errorMsg[] = {
-	"ERR_TASKMAN_SWITCH_BAD_SC",                  //11	//0
-	"ERR_SABLIER_SWITCH_BAD_SC"                   //12	//1
-
+	"ERR_TASKMAN_SWITCH_BAD_SC",					//11	//0
+	"ERR_SABLIER_SWITCH_BAD_SC",					//12	//1
+	 "ERR_TASKMAN_TASK_PUSH_BUFFER_FULL"			//21 //6
  };
 
  uint32_t ErrorUART(uint32_t err, ...)

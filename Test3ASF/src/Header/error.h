@@ -13,6 +13,8 @@
 #define ERR_TASKMAN_SWITCH_BAD_SC                   11
 #define ERR_SABLIER_SWITCH_BAD_SC                   12
 
+#define ERR_TASKMAN_TASK_PUSH_BUFFER_FULL           21
+
 
 //Prototype de la fonction concernée
 uint32_t ErrorLed(uint32_t err, ...);

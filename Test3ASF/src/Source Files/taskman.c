@@ -5,7 +5,7 @@
  *  Author: eleve
  */ 
 
- #include "appli.h"
+ #include "../Header/appli.h"
 
  //Déclaration de la liste des tâches à exécuter
  t_task tasks[TASKMAN_TASKS_LIST_LEN];
@@ -45,5 +45,31 @@
 #define delay_param     pa4
 
 		//
+		if(delay_param == 0)
+		{
+			taskman.pPush->pFunc = pFunc_param;
+			taskman.pPush->sc = sc_param;
+			taskman.pPush->param = pa_param;
+			taskman.pPush++;
+			//On rend le buffer circulaire => Implementation de la circularite du buffer de taches
+			if(taskman.pPush>=tasks+TASKMAN_TASKS_LIST_LEN) taskman.pPush = tasks;
+			//On test le debordement du buffer des teaches
+			if(taskman.pPush == taskman.pPop) Error(ERR_TASKMAN_TASK_PUSH_BUFFER_FULL, 0);
+		}
+		break;
+
+	case TASKMAN_POP_TASK:
+		//Task buffer empty?
+		if(taskman.pPop == taskman.pPush) return 0; //Buffer empty
+		//Task buffer not empty?
+		taskman.pPop->pFunc(taskman.pPop->sc, taskman.pPop->param);
+		//Buffer circulaire
+		taskman.pPop++;
+		if(taskman.pPop>=tasks+TASKMAN_TASKS_LIST_LEN) taskman.pPop = tasks;
+		break;
+
+	default:
+		Error(ERR_TASKMAN_SWITCH_BAD_SC, sc);
 	}
+	return 0;
  }

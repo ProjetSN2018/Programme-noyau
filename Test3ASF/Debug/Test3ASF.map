@@ -26,6 +26,8 @@ __lock___atexit_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
 __lock___arc4random_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+tasks               0xa0              src/Source Files/taskman.o
+taskman             0x8               src/Source Files/taskman.o
 __lock___env_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
 __lock___sinit_recursive_mutex
@@ -34,6 +36,7 @@ __lock___malloc_recursive_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
 __lock___at_quick_exit_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+delayedTasks        0xa0              src/Source Files/taskman.o
 __lock___dd_hash_mutex
                     0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
 __lock___tz_mutex   0x1               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
@@ -181,6 +184,7 @@ Discarded input sections
  .group         0x00000000        0x8 src/Source Files/error.o
  .group         0x00000000        0x8 src/Source Files/error.o
  .group         0x00000000        0x8 src/Source Files/error.o
+ .group         0x00000000        0x8 src/Source Files/error.o
  .text          0x00000000        0x0 src/Source Files/error.o
  .data          0x00000000        0x0 src/Source Files/error.o
  .bss           0x00000000        0x0 src/Source Files/error.o
@@ -191,9 +195,11 @@ Discarded input sections
  .bss.cpu_irq_prev_interrupt_state
                 0x00000000        0x1 src/Source Files/error.o
  .data.errorMsg
-                0x00000000        0x8 src/Source Files/error.o
+                0x00000000        0xc src/Source Files/error.o
  .rodata.str1.4
-                0x00000000       0x36 src/Source Files/error.o
+                0x00000000       0x5a src/Source Files/error.o
+ .group         0x00000000        0x8 src/Source Files/main.o
+ .group         0x00000000        0x8 src/Source Files/main.o
  .group         0x00000000        0x8 src/Source Files/main.o
  .group         0x00000000        0x8 src/Source Files/main.o
  .group         0x00000000        0x8 src/Source Files/main.o
@@ -456,7 +462,275 @@ Discarded input sections
  .debug_macro   0x00000000       0x40 src/Source Files/main.o
  .debug_macro   0x00000000       0x70 src/Source Files/main.o
  .debug_macro   0x00000000       0x34 src/Source Files/main.o
- .debug_macro   0x00000000       0x1c src/Source Files/main.o
+ .debug_macro   0x00000000       0x22 src/Source Files/main.o
+ .debug_macro   0x00000000       0x34 src/Source Files/main.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .group         0x00000000        0x8 src/Source Files/taskman.o
+ .text          0x00000000        0x0 src/Source Files/taskman.o
+ .data          0x00000000        0x0 src/Source Files/taskman.o
+ .bss           0x00000000        0x0 src/Source Files/taskman.o
+ .bss.cpu_irq_critical_section_counter
+                0x00000000        0x4 src/Source Files/taskman.o
+ .bss.cpu_irq_prev_interrupt_state
+                0x00000000        0x1 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x8ce src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x52 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x8d src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x35 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x9c src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x57 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x97 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x353 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xf6 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x10 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x58 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x1f src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x43 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x20 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x187 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x10 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x6a src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x1c src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x52 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x40 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x10 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x40 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xd7 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x18b src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x35 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x29 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x64b src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x76 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x6e4 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xef src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x1df src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x20 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x3a src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x2d src/Source Files/taskman.o
+ .debug_macro   0x00000000      0xbb1 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0xab6 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x569 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x2b5 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x31a src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x74f src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x82 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x57b src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x1c src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x6b7 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x52d src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xbe src/Source Files/taskman.o
+ .debug_macro   0x00000000     0x2342 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x85d src/Source Files/taskman.o
+ .debug_macro   0x00000000      0xdc9 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x7c src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x263 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x58 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x9a7 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x248 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x4df src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x6b3 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x59f src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x46 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x34d src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x28c src/Source Files/taskman.o
+ .debug_macro   0x00000000     0x14d7 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x7ba src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x76 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x82 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x76 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x4c src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x105 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x105 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x105 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x88 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x88 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x3b4 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xb8 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xb8 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xb8 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xb8 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x2b8 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x125 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x225 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x225 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x2e src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xac src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x14d src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x7c src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x205 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x64 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0xa6 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x7c src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x16 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x115 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x115 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x115 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x115 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x1c src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x2e src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x1c src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x58 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x10 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x273 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0xd43 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x131 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x75 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x45 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x3ca src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x34 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x2c6 src/Source Files/taskman.o
+ .debug_macro   0x00000000      0x790 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x5e src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x64 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x5f src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x90 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x28 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x23 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x94 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x40 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x70 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x34 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x22 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x34 src/Source Files/taskman.o
+ .debug_macro   0x00000000       0x40 src/Source Files/taskman.o
  .group         0x00000000        0x8 src/ASF/common/services/clock/sam3x/sysclk.o
  .group         0x00000000        0x8 src/ASF/common/services/clock/sam3x/sysclk.o
  .group         0x00000000        0x8 src/ASF/common/services/clock/sam3x/sysclk.o
@@ -3444,6 +3718,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/crt0.o
 LOAD src/Source Files/error.o
 LOAD src/Source Files/main.o
+LOAD src/Source Files/taskman.o
 LOAD src/ASF/common/services/clock/sam3x/sysclk.o
 LOAD src/ASF/common/services/delay/sam/cycle_counter.o
 LOAD src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
@@ -3469,7 +3744,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x00002000                __stack_size__ = DEFINED (__stack_size__)?__stack_size__:0x2000
                 0x20087ffc                __ram_end__ = ((ORIGIN (ram) + LENGTH (ram)) - 0x4)
 
-.text           0x00080000      0xac8
+.text           0x00080000      0xbdc
                 0x00080000                . = ALIGN (0x4)
                 0x00080000                _sfixed = .
  *(.vectors .vectors.*)
@@ -3480,233 +3755,237 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
  .text.ErrorLed
                 0x00080160       0x8c src/Source Files/error.o
                 0x00080160                ErrorLed
- .text.Sablier  0x000801ec       0x30 src/Source Files/main.o
+ .text.Sablier  0x000801ec       0x40 src/Source Files/main.o
                 0x000801ec                Sablier
- .text.main     0x0008021c       0x40 src/Source Files/main.o
-                0x0008021c                main
+ .text.s        0x0008022c       0x28 src/Source Files/main.o
+                0x0008022c                s
+ .text.main     0x00080254       0x5c src/Source Files/main.o
+                0x00080254                main
+ .text.Taskman  0x000802b0       0xc0 src/Source Files/taskman.o
+                0x000802b0                Taskman
  .text.sysclk_init
-                0x0008025c       0x64 src/ASF/common/services/clock/sam3x/sysclk.o
-                0x0008025c                sysclk_init
+                0x00080370       0x64 src/ASF/common/services/clock/sam3x/sysclk.o
+                0x00080370                sysclk_init
  .text.board_init
-                0x000802c0       0x80 src/ASF/sam/boards/arduino_due_x/init.o
-                0x000802c0                board_init
+                0x000803d4       0x80 src/ASF/sam/boards/arduino_due_x/init.o
+                0x000803d4                board_init
  .text.pio_set_peripheral
-                0x00080340       0x3e src/ASF/sam/drivers/pio/pio.o
-                0x00080340                pio_set_peripheral
+                0x00080454       0x3e src/ASF/sam/drivers/pio/pio.o
+                0x00080454                pio_set_peripheral
  .text.pio_set_input
-                0x0008037e       0x32 src/ASF/sam/drivers/pio/pio.o
-                0x0008037e                pio_set_input
+                0x00080492       0x32 src/ASF/sam/drivers/pio/pio.o
+                0x00080492                pio_set_input
  .text.pio_set_output
-                0x000803b0       0x26 src/ASF/sam/drivers/pio/pio.o
-                0x000803b0                pio_set_output
+                0x000804c4       0x26 src/ASF/sam/drivers/pio/pio.o
+                0x000804c4                pio_set_output
  .text.pio_get_interrupt_status
-                0x000803d6        0x4 src/ASF/sam/drivers/pio/pio.o
-                0x000803d6                pio_get_interrupt_status
+                0x000804ea        0x4 src/ASF/sam/drivers/pio/pio.o
+                0x000804ea                pio_get_interrupt_status
  .text.pio_get_interrupt_mask
-                0x000803da        0x4 src/ASF/sam/drivers/pio/pio.o
-                0x000803da                pio_get_interrupt_mask
+                0x000804ee        0x4 src/ASF/sam/drivers/pio/pio.o
+                0x000804ee                pio_get_interrupt_mask
  .text.pio_set_pin_high
-                0x000803de       0x1a src/ASF/sam/drivers/pio/pio.o
-                0x000803de                pio_set_pin_high
+                0x000804f2       0x1a src/ASF/sam/drivers/pio/pio.o
+                0x000804f2                pio_set_pin_high
  .text.pio_set_pin_low
-                0x000803f8       0x1a src/ASF/sam/drivers/pio/pio.o
-                0x000803f8                pio_set_pin_low
+                0x0008050c       0x1a src/ASF/sam/drivers/pio/pio.o
+                0x0008050c                pio_set_pin_low
  .text.pio_toggle_pin
-                0x00080412       0x20 src/ASF/sam/drivers/pio/pio.o
-                0x00080412                pio_toggle_pin
- *fill*         0x00080432        0x2 
+                0x00080526       0x20 src/ASF/sam/drivers/pio/pio.o
+                0x00080526                pio_toggle_pin
+ *fill*         0x00080546        0x2 
  .text.pio_configure_pin
-                0x00080434       0xd0 src/ASF/sam/drivers/pio/pio.o
-                0x00080434                pio_configure_pin
+                0x00080548       0xd0 src/ASF/sam/drivers/pio/pio.o
+                0x00080548                pio_configure_pin
  .text.pio_configure_pin_group
-                0x00080504       0x9c src/ASF/sam/drivers/pio/pio.o
-                0x00080504                pio_configure_pin_group
+                0x00080618       0x9c src/ASF/sam/drivers/pio/pio.o
+                0x00080618                pio_configure_pin_group
  .text.pio_handler_process
-                0x000805a0       0x50 src/ASF/sam/drivers/pio/pio_handler.o
-                0x000805a0                pio_handler_process
+                0x000806b4       0x50 src/ASF/sam/drivers/pio/pio_handler.o
+                0x000806b4                pio_handler_process
  .text.PIOA_Handler
-                0x000805f0       0x14 src/ASF/sam/drivers/pio/pio_handler.o
-                0x000805f0                PIOA_Handler
+                0x00080704       0x14 src/ASF/sam/drivers/pio/pio_handler.o
+                0x00080704                PIOA_Handler
  .text.PIOB_Handler
-                0x00080604       0x14 src/ASF/sam/drivers/pio/pio_handler.o
-                0x00080604                PIOB_Handler
+                0x00080718       0x14 src/ASF/sam/drivers/pio/pio_handler.o
+                0x00080718                PIOB_Handler
  .text.PIOC_Handler
-                0x00080618       0x14 src/ASF/sam/drivers/pio/pio_handler.o
-                0x00080618                PIOC_Handler
+                0x0008072c       0x14 src/ASF/sam/drivers/pio/pio_handler.o
+                0x0008072c                PIOC_Handler
  .text.PIOD_Handler
-                0x0008062c       0x14 src/ASF/sam/drivers/pio/pio_handler.o
-                0x0008062c                PIOD_Handler
+                0x00080740       0x14 src/ASF/sam/drivers/pio/pio_handler.o
+                0x00080740                PIOD_Handler
  .text.pmc_switch_mck_to_pllack
-                0x00080640       0x64 src/ASF/sam/drivers/pmc/pmc.o
-                0x00080640                pmc_switch_mck_to_pllack
+                0x00080754       0x64 src/ASF/sam/drivers/pmc/pmc.o
+                0x00080754                pmc_switch_mck_to_pllack
  .text.pmc_switch_mainck_to_xtal
-                0x000806a4       0x54 src/ASF/sam/drivers/pmc/pmc.o
-                0x000806a4                pmc_switch_mainck_to_xtal
+                0x000807b8       0x54 src/ASF/sam/drivers/pmc/pmc.o
+                0x000807b8                pmc_switch_mainck_to_xtal
  .text.pmc_osc_is_ready_mainck
-                0x000806f8       0x10 src/ASF/sam/drivers/pmc/pmc.o
-                0x000806f8                pmc_osc_is_ready_mainck
+                0x0008080c       0x10 src/ASF/sam/drivers/pmc/pmc.o
+                0x0008080c                pmc_osc_is_ready_mainck
  .text.pmc_disable_pllack
-                0x00080708       0x10 src/ASF/sam/drivers/pmc/pmc.o
-                0x00080708                pmc_disable_pllack
+                0x0008081c       0x10 src/ASF/sam/drivers/pmc/pmc.o
+                0x0008081c                pmc_disable_pllack
  .text.pmc_is_locked_pllack
-                0x00080718       0x10 src/ASF/sam/drivers/pmc/pmc.o
-                0x00080718                pmc_is_locked_pllack
+                0x0008082c       0x10 src/ASF/sam/drivers/pmc/pmc.o
+                0x0008082c                pmc_is_locked_pllack
  .text.pmc_enable_periph_clk
-                0x00080728       0x54 src/ASF/sam/drivers/pmc/pmc.o
-                0x00080728                pmc_enable_periph_clk
+                0x0008083c       0x54 src/ASF/sam/drivers/pmc/pmc.o
+                0x0008083c                pmc_enable_periph_clk
  .text.Dummy_Handler
-                0x0008077c        0x2 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
-                0x0008077c                DACC_Handler
-                0x0008077c                DebugMon_Handler
-                0x0008077c                DMAC_Handler
-                0x0008077c                TRNG_Handler
-                0x0008077c                HardFault_Handler
-                0x0008077c                TC2_Handler
-                0x0008077c                SysTick_Handler
-                0x0008077c                USART3_Handler
-                0x0008077c                TWI1_Handler
-                0x0008077c                PendSV_Handler
-                0x0008077c                NMI_Handler
-                0x0008077c                TC7_Handler
-                0x0008077c                ADC_Handler
-                0x0008077c                SMC_Handler
-                0x0008077c                USART0_Handler
-                0x0008077c                RTT_Handler
-                0x0008077c                EFC1_Handler
-                0x0008077c                RTC_Handler
-                0x0008077c                UsageFault_Handler
-                0x0008077c                TC6_Handler
-                0x0008077c                WDT_Handler
-                0x0008077c                CAN0_Handler
-                0x0008077c                TC4_Handler
-                0x0008077c                TC1_Handler
-                0x0008077c                HSMCI_Handler
-                0x0008077c                TC3_Handler
-                0x0008077c                Dummy_Handler
-                0x0008077c                TWI0_Handler
-                0x0008077c                USART1_Handler
-                0x0008077c                SSC_Handler
-                0x0008077c                EFC0_Handler
-                0x0008077c                PMC_Handler
-                0x0008077c                PWM_Handler
-                0x0008077c                CAN1_Handler
-                0x0008077c                MemManage_Handler
-                0x0008077c                SUPC_Handler
-                0x0008077c                SVC_Handler
-                0x0008077c                TC8_Handler
-                0x0008077c                USART2_Handler
-                0x0008077c                EMAC_Handler
-                0x0008077c                UART_Handler
-                0x0008077c                BusFault_Handler
-                0x0008077c                RSTC_Handler
-                0x0008077c                TC0_Handler
-                0x0008077c                TC5_Handler
-                0x0008077c                UOTGHS_Handler
-                0x0008077c                SPI0_Handler
- *fill*         0x0008077e        0x2 
+                0x00080890        0x2 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+                0x00080890                DACC_Handler
+                0x00080890                DebugMon_Handler
+                0x00080890                DMAC_Handler
+                0x00080890                TRNG_Handler
+                0x00080890                HardFault_Handler
+                0x00080890                TC2_Handler
+                0x00080890                SysTick_Handler
+                0x00080890                USART3_Handler
+                0x00080890                TWI1_Handler
+                0x00080890                PendSV_Handler
+                0x00080890                NMI_Handler
+                0x00080890                TC7_Handler
+                0x00080890                ADC_Handler
+                0x00080890                SMC_Handler
+                0x00080890                USART0_Handler
+                0x00080890                RTT_Handler
+                0x00080890                EFC1_Handler
+                0x00080890                RTC_Handler
+                0x00080890                UsageFault_Handler
+                0x00080890                TC6_Handler
+                0x00080890                WDT_Handler
+                0x00080890                CAN0_Handler
+                0x00080890                TC4_Handler
+                0x00080890                TC1_Handler
+                0x00080890                HSMCI_Handler
+                0x00080890                TC3_Handler
+                0x00080890                Dummy_Handler
+                0x00080890                TWI0_Handler
+                0x00080890                USART1_Handler
+                0x00080890                SSC_Handler
+                0x00080890                EFC0_Handler
+                0x00080890                PMC_Handler
+                0x00080890                PWM_Handler
+                0x00080890                CAN1_Handler
+                0x00080890                MemManage_Handler
+                0x00080890                SUPC_Handler
+                0x00080890                SVC_Handler
+                0x00080890                TC8_Handler
+                0x00080890                USART2_Handler
+                0x00080890                EMAC_Handler
+                0x00080890                UART_Handler
+                0x00080890                BusFault_Handler
+                0x00080890                RSTC_Handler
+                0x00080890                TC0_Handler
+                0x00080890                TC5_Handler
+                0x00080890                UOTGHS_Handler
+                0x00080890                SPI0_Handler
+ *fill*         0x00080892        0x2 
  .text.Reset_Handler
-                0x00080780       0x98 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
-                0x00080780                Reset_Handler
+                0x00080894       0x98 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+                0x00080894                Reset_Handler
  .text.SystemCoreClockUpdate
-                0x00080818      0x118 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
-                0x00080818                SystemCoreClockUpdate
+                0x0008092c      0x118 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+                0x0008092c                SystemCoreClockUpdate
  .text.__libc_init_array
-                0x00080930       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
-                0x00080930                __libc_init_array
+                0x00080a44       0x50 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
+                0x00080a44                __libc_init_array
  .text.startup.register_fini
-                0x00080980       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00080994        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
-                0x00080994                atexit
+                0x00080a94       0x14 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x00080aa8        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
+                0x00080aa8                atexit
  .text.__libc_fini_array
-                0x000809a0       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
-                0x000809a0                __libc_fini_array
+                0x00080ab4       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
+                0x00080ab4                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x000809d4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
-                0x000809d4                __retarget_lock_acquire_recursive
+                0x00080ae8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x00080ae8                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x000809d8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
-                0x000809d8                __retarget_lock_release_recursive
+                0x00080aec        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x00080aec                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x000809dc       0xc4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
-                0x000809dc                __register_exitproc
+                0x00080af0       0xc4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
+                0x00080af0                __register_exitproc
  *(.glue_7t)
- .glue_7t       0x00080aa0        0x0 linker stubs
+ .glue_7t       0x00080bb4        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00080aa0        0x0 linker stubs
+ .glue_7        0x00080bb4        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
  .rodata._global_impure_ptr
-                0x00080aa0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
-                0x00080aa0                _global_impure_ptr
+                0x00080bb4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
+                0x00080bb4                _global_impure_ptr
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00080aa4                . = ALIGN (0x4)
+                0x00080bb8                . = ALIGN (0x4)
  *(.init)
- .init          0x00080aa4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crti.o
-                0x00080aa4                _init
- .init          0x00080aa8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
-                0x00080ab0                . = ALIGN (0x4)
-                0x00080ab0                __preinit_array_start = .
+ .init          0x00080bb8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crti.o
+                0x00080bb8                _init
+ .init          0x00080bbc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
+                0x00080bc4                . = ALIGN (0x4)
+                0x00080bc4                __preinit_array_start = .
  *(.preinit_array)
-                0x00080ab0                __preinit_array_end = .
-                0x00080ab0                . = ALIGN (0x4)
-                0x00080ab0                __init_array_start = .
+                0x00080bc4                __preinit_array_end = .
+                0x00080bc4                . = ALIGN (0x4)
+                0x00080bc4                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x00080ab0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+                0x00080bc4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array)
- .init_array    0x00080ab4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
-                0x00080ab8                __init_array_end = .
-                0x00080ab8                . = ALIGN (0x4)
+ .init_array    0x00080bc8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+                0x00080bcc                __init_array_end = .
+                0x00080bcc                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00080ab8                . = ALIGN (0x4)
+                0x00080bcc                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00080ab8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crti.o
-                0x00080ab8                _fini
- .fini          0x00080abc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
-                0x00080ac4                . = ALIGN (0x4)
-                0x00080ac4                __fini_array_start = .
+ .fini          0x00080bcc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crti.o
+                0x00080bcc                _fini
+ .fini          0x00080bd0        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
+                0x00080bd8                . = ALIGN (0x4)
+                0x00080bd8                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00080ac4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+ .fini_array    0x00080bd8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00080ac8                __fini_array_end = .
+                0x00080bdc                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00080ac8                . = ALIGN (0x4)
-                0x00080ac8                _efixed = .
+                0x00080bdc                . = ALIGN (0x4)
+                0x00080bdc                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x00080ac8        0x0
- .vfp11_veneer  0x00080ac8        0x0 linker stubs
+.vfp11_veneer   0x00080bdc        0x0
+ .vfp11_veneer  0x00080bdc        0x0 linker stubs
 
-.v4_bx          0x00080ac8        0x0
- .v4_bx         0x00080ac8        0x0 linker stubs
+.v4_bx          0x00080bdc        0x0
+ .v4_bx         0x00080bdc        0x0 linker stubs
 
-.iplt           0x00080ac8        0x0
- .iplt          0x00080ac8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+.iplt           0x00080bdc        0x0
+ .iplt          0x00080bdc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
 
-.eh_frame       0x00080ac8        0x0
- .eh_frame      0x00080ac8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+.eh_frame       0x00080bdc        0x0
+ .eh_frame      0x00080bdc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
 
-.rel.dyn        0x00080ac8        0x0
- .rel.iplt      0x00080ac8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+.rel.dyn        0x00080bdc        0x0
+ .rel.iplt      0x00080bdc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
 
-.jcr            0x00080ac8        0x0
- .jcr           0x00080ac8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+.jcr            0x00080bdc        0x0
+ .jcr           0x00080bdc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
 
-.igot.plt       0x00080ac8        0x0
- .igot.plt      0x00080ac8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
+.igot.plt       0x00080bdc        0x0
+ .igot.plt      0x00080bdc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtbegin.o
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
                 [!provide]                PROVIDE (__exidx_end, .)
-                0x00080ac8                . = ALIGN (0x4)
-                0x00080ac8                _etext = .
+                0x00080bdc                . = ALIGN (0x4)
+                0x00080bdc                _etext = .
 
-.relocate       0x20070000      0x574 load address 0x00080ac8
+.relocate       0x20070000      0x574 load address 0x00080bdc
                 0x20070000                . = ALIGN (0x4)
                 0x20070000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -3736,7 +4015,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x20070574                . = ALIGN (0x4)
                 0x20070574                _erelocate = .
 
-.bss            0x20070574       0xb0 load address 0x0008103c
+.bss            0x20070574      0x1f8 load address 0x00081150
                 0x20070574                . = ALIGN (0x4)
                 0x20070574                _sbss = .
                 0x20070574                _szero = .
@@ -3745,31 +4024,35 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
  .bss.gs_interrupt_sources
                 0x20070590       0x70 src/ASF/sam/drivers/pio/pio_handler.o
  *(COMMON)
- COMMON         0x20070600       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
-                0x20070600                __lock___atexit_recursive_mutex
-                0x20070604                __lock___arc4random_mutex
-                0x20070608                __lock___env_recursive_mutex
-                0x2007060c                __lock___sinit_recursive_mutex
-                0x20070610                __lock___malloc_recursive_mutex
-                0x20070614                __lock___at_quick_exit_mutex
-                0x20070618                __lock___dd_hash_mutex
-                0x2007061c                __lock___tz_mutex
-                0x20070620                __lock___sfp_recursive_mutex
-                0x20070624                . = ALIGN (0x4)
- *fill*         0x20070621        0x3 
-                0x20070624                _ebss = .
-                0x20070624                _ezero = .
+ COMMON         0x20070600      0x148 src/Source Files/taskman.o
+                0x20070600                tasks
+                0x200706a0                taskman
+                0x200706a8                delayedTasks
+ COMMON         0x20070748       0x21 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x20070748                __lock___atexit_recursive_mutex
+                0x2007074c                __lock___arc4random_mutex
+                0x20070750                __lock___env_recursive_mutex
+                0x20070754                __lock___sinit_recursive_mutex
+                0x20070758                __lock___malloc_recursive_mutex
+                0x2007075c                __lock___at_quick_exit_mutex
+                0x20070760                __lock___dd_hash_mutex
+                0x20070764                __lock___tz_mutex
+                0x20070768                __lock___sfp_recursive_mutex
+                0x2007076c                . = ALIGN (0x4)
+ *fill*         0x20070769        0x3 
+                0x2007076c                _ebss = .
+                0x2007076c                _ezero = .
 
-.stack          0x20070624     0x2004 load address 0x000810ec
-                0x20070628                . = ALIGN (0x8)
- *fill*         0x20070624        0x4 
-                0x20070628                _sstack = .
-                0x20072628                . = (. + __stack_size__)
- *fill*         0x20070628     0x2000 
-                0x20072628                . = ALIGN (0x8)
-                0x20072628                _estack = .
-                0x20072628                . = ALIGN (0x4)
-                0x20072628                _end = .
+.stack          0x2007076c     0x2004 load address 0x00081348
+                0x20070770                . = ALIGN (0x8)
+ *fill*         0x2007076c        0x4 
+                0x20070770                _sstack = .
+                0x20072770                . = (. + __stack_size__)
+ *fill*         0x20070770     0x2000 
+                0x20072770                . = ALIGN (0x8)
+                0x20072770                _estack = .
+                0x20072770                . = ALIGN (0x4)
+                0x20072770                _end = .
 OUTPUT(Test3ASF.elf elf32-littlearm)
 
 .ARM.attributes
@@ -3783,46 +4066,49 @@ OUTPUT(Test3ASF.elf elf32-littlearm)
  .ARM.attributes
                 0x0000007d       0x33 src/Source Files/main.o
  .ARM.attributes
-                0x000000b0       0x33 src/ASF/common/services/clock/sam3x/sysclk.o
+                0x000000b0       0x33 src/Source Files/taskman.o
  .ARM.attributes
-                0x000000e3       0x33 src/ASF/common/services/delay/sam/cycle_counter.o
+                0x000000e3       0x33 src/ASF/common/services/clock/sam3x/sysclk.o
  .ARM.attributes
-                0x00000116       0x33 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+                0x00000116       0x33 src/ASF/common/services/delay/sam/cycle_counter.o
  .ARM.attributes
-                0x00000149       0x33 src/ASF/sam/boards/arduino_due_x/init.o
+                0x00000149       0x33 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .ARM.attributes
-                0x0000017c       0x33 src/ASF/sam/drivers/pio/pio.o
+                0x0000017c       0x33 src/ASF/sam/boards/arduino_due_x/init.o
  .ARM.attributes
-                0x000001af       0x33 src/ASF/sam/drivers/pio/pio_handler.o
+                0x000001af       0x33 src/ASF/sam/drivers/pio/pio.o
  .ARM.attributes
-                0x000001e2       0x33 src/ASF/sam/drivers/pmc/pmc.o
+                0x000001e2       0x33 src/ASF/sam/drivers/pio/pio_handler.o
  .ARM.attributes
-                0x00000215       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+                0x00000215       0x33 src/ASF/sam/drivers/pmc/pmc.o
  .ARM.attributes
-                0x00000248       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+                0x00000248       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
  .ARM.attributes
-                0x0000027b       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+                0x0000027b       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
  .ARM.attributes
-                0x000002ae       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
+                0x000002ae       0x33 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
  .ARM.attributes
-                0x000002db       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
+                0x000002e1       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000308       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+                0x0000030e       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
  .ARM.attributes
-                0x00000335       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
+                0x0000033b       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
  .ARM.attributes
-                0x00000362       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
+                0x00000368       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
  .ARM.attributes
-                0x0000038f       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+                0x00000395       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
  .ARM.attributes
-                0x000003bc       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
+                0x000003c2       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
  .ARM.attributes
-                0x000003e9       0x1d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
+                0x000003ef       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x0000041c       0x1d c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7-m/crtn.o
 
 .comment        0x00000000       0x59
  .comment       0x00000000       0x59 src/Source Files/error.o
                                  0x5a (size before relaxing)
  .comment       0x00000059       0x5a src/Source Files/main.o
+ .comment       0x00000059       0x5a src/Source Files/taskman.o
  .comment       0x00000059       0x5a src/ASF/common/services/clock/sam3x/sysclk.o
  .comment       0x00000059       0x5a src/ASF/common/services/delay/sam/cycle_counter.o
  .comment       0x00000059       0x5a src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
@@ -3834,297 +4120,310 @@ OUTPUT(Test3ASF.elf elf32-littlearm)
  .comment       0x00000059       0x5a src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
  .comment       0x00000059       0x5a src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_info     0x00000000     0xc32d
+.debug_info     0x00000000     0xd039
  .debug_info    0x00000000      0xc76 src/Source Files/error.o
- .debug_info    0x00000c76      0xc26 src/Source Files/main.o
- .debug_info    0x0000189c     0x11ad src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_info    0x00002a49      0xa45 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_info    0x0000348e      0xb01 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_info    0x00003f8f     0x108a src/ASF/sam/boards/arduino_due_x/init.o
- .debug_info    0x00005019     0x1c61 src/ASF/sam/drivers/pio/pio.o
- .debug_info    0x00006c7a     0x17be src/ASF/sam/drivers/pio/pio_handler.o
- .debug_info    0x00008438     0x19df src/ASF/sam/drivers/pmc/pmc.o
- .debug_info    0x00009e17      0xa39 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_info    0x0000a850      0xd1b src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_info    0x0000b56b      0xdc2 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_info    0x00000c76      0xd84 src/Source Files/main.o
+ .debug_info    0x000019fa      0xbae src/Source Files/taskman.o
+ .debug_info    0x000025a8     0x11ad src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_info    0x00003755      0xa45 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_info    0x0000419a      0xb01 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_info    0x00004c9b     0x108a src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_info    0x00005d25     0x1c61 src/ASF/sam/drivers/pio/pio.o
+ .debug_info    0x00007986     0x17be src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_info    0x00009144     0x19df src/ASF/sam/drivers/pmc/pmc.o
+ .debug_info    0x0000ab23      0xa39 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_info    0x0000b55c      0xd1b src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_info    0x0000c277      0xdc2 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_abbrev   0x00000000     0x1e0b
+.debug_abbrev   0x00000000     0x206c
  .debug_abbrev  0x00000000      0x28a src/Source Files/error.o
- .debug_abbrev  0x0000028a      0x2aa src/Source Files/main.o
- .debug_abbrev  0x00000534      0x330 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_abbrev  0x00000864      0x1b3 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_abbrev  0x00000a17      0x212 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_abbrev  0x00000c29      0x262 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_abbrev  0x00000e8b      0x3c7 src/ASF/sam/drivers/pio/pio.o
- .debug_abbrev  0x00001252      0x329 src/ASF/sam/drivers/pio/pio_handler.o
- .debug_abbrev  0x0000157b      0x306 src/ASF/sam/drivers/pmc/pmc.o
- .debug_abbrev  0x00001881      0x1a4 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_abbrev  0x00001a25      0x1f2 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_abbrev  0x00001c17      0x1f4 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_abbrev  0x0000028a      0x313 src/Source Files/main.o
+ .debug_abbrev  0x0000059d      0x1f8 src/Source Files/taskman.o
+ .debug_abbrev  0x00000795      0x330 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_abbrev  0x00000ac5      0x1b3 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_abbrev  0x00000c78      0x212 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_abbrev  0x00000e8a      0x262 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_abbrev  0x000010ec      0x3c7 src/ASF/sam/drivers/pio/pio.o
+ .debug_abbrev  0x000014b3      0x329 src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_abbrev  0x000017dc      0x306 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_abbrev  0x00001ae2      0x1a4 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_abbrev  0x00001c86      0x1f2 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_abbrev  0x00001e78      0x1f4 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_loc      0x00000000     0x1f16
+.debug_loc      0x00000000     0x1fca
  .debug_loc     0x00000000       0xea src/Source Files/error.o
- .debug_loc     0x000000ea       0xae src/Source Files/main.o
- .debug_loc     0x00000198      0x183 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_loc     0x0000031b       0x70 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_loc     0x0000038b      0xacc src/ASF/sam/drivers/pio/pio.o
- .debug_loc     0x00000e57      0x569 src/ASF/sam/drivers/pio/pio_handler.o
- .debug_loc     0x000013c0      0xaeb src/ASF/sam/drivers/pmc/pmc.o
- .debug_loc     0x00001eab       0x6b src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_loc     0x000000ea       0xda src/Source Files/main.o
+ .debug_loc     0x000001c4       0x88 src/Source Files/taskman.o
+ .debug_loc     0x0000024c      0x183 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_loc     0x000003cf       0x70 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_loc     0x0000043f      0xacc src/ASF/sam/drivers/pio/pio.o
+ .debug_loc     0x00000f0b      0x569 src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_loc     0x00001474      0xaeb src/ASF/sam/drivers/pmc/pmc.o
+ .debug_loc     0x00001f5f       0x6b src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
 
-.debug_aranges  0x00000000      0x508
+.debug_aranges  0x00000000      0x530
  .debug_aranges
                 0x00000000       0x28 src/Source Files/error.o
  .debug_aranges
-                0x00000028       0x28 src/Source Files/main.o
+                0x00000028       0x30 src/Source Files/main.o
  .debug_aranges
-                0x00000050       0x40 src/ASF/common/services/clock/sam3x/sysclk.o
+                0x00000058       0x20 src/Source Files/taskman.o
  .debug_aranges
-                0x00000090       0x20 src/ASF/common/services/delay/sam/cycle_counter.o
+                0x00000078       0x40 src/ASF/common/services/clock/sam3x/sysclk.o
  .debug_aranges
-                0x000000b0       0x28 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+                0x000000b8       0x20 src/ASF/common/services/delay/sam/cycle_counter.o
  .debug_aranges
-                0x000000d8       0x20 src/ASF/sam/boards/arduino_due_x/init.o
+                0x000000d8       0x28 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_aranges
-                0x000000f8      0x148 src/ASF/sam/drivers/pio/pio.o
+                0x00000100       0x20 src/ASF/sam/boards/arduino_due_x/init.o
  .debug_aranges
-                0x00000240       0x58 src/ASF/sam/drivers/pio/pio_handler.o
+                0x00000120      0x148 src/ASF/sam/drivers/pio/pio.o
  .debug_aranges
-                0x00000298      0x200 src/ASF/sam/drivers/pmc/pmc.o
+                0x00000268       0x58 src/ASF/sam/drivers/pio/pio_handler.o
  .debug_aranges
-                0x00000498       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+                0x000002c0      0x200 src/ASF/sam/drivers/pmc/pmc.o
  .debug_aranges
-                0x000004b8       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+                0x000004c0       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
  .debug_aranges
-                0x000004d8       0x30 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+                0x000004e0       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_aranges
+                0x00000500       0x30 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_ranges   0x00000000      0x478
+.debug_ranges   0x00000000      0x490
  .debug_ranges  0x00000000       0x18 src/Source Files/error.o
- .debug_ranges  0x00000018       0x18 src/Source Files/main.o
- .debug_ranges  0x00000030       0x30 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_ranges  0x00000060       0x10 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_ranges  0x00000070       0x18 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_ranges  0x00000088       0x10 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_ranges  0x00000098      0x150 src/ASF/sam/drivers/pio/pio.o
- .debug_ranges  0x000001e8       0x60 src/ASF/sam/drivers/pio/pio_handler.o
- .debug_ranges  0x00000248      0x1f0 src/ASF/sam/drivers/pmc/pmc.o
- .debug_ranges  0x00000438       0x10 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_ranges  0x00000448       0x10 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_ranges  0x00000458       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_ranges  0x00000018       0x20 src/Source Files/main.o
+ .debug_ranges  0x00000038       0x10 src/Source Files/taskman.o
+ .debug_ranges  0x00000048       0x30 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_ranges  0x00000078       0x10 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_ranges  0x00000088       0x18 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_ranges  0x000000a0       0x10 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_ranges  0x000000b0      0x150 src/ASF/sam/drivers/pio/pio.o
+ .debug_ranges  0x00000200       0x60 src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_ranges  0x00000260      0x1f0 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_ranges  0x00000450       0x10 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_ranges  0x00000460       0x10 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_ranges  0x00000470       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_macro    0x00000000    0x16f43
- .debug_macro   0x00000000      0x665 src/Source Files/error.o
- .debug_macro   0x00000665      0x8ce src/Source Files/error.o
- .debug_macro   0x00000f33       0x22 src/Source Files/error.o
- .debug_macro   0x00000f55       0x22 src/Source Files/error.o
- .debug_macro   0x00000f77       0x52 src/Source Files/error.o
- .debug_macro   0x00000fc9       0x8d src/Source Files/error.o
- .debug_macro   0x00001056       0x35 src/Source Files/error.o
- .debug_macro   0x0000108b       0x9c src/Source Files/error.o
- .debug_macro   0x00001127       0x16 src/Source Files/error.o
- .debug_macro   0x0000113d       0x57 src/Source Files/error.o
- .debug_macro   0x00001194       0x97 src/Source Files/error.o
- .debug_macro   0x0000122b      0x353 src/Source Files/error.o
- .debug_macro   0x0000157e       0xf6 src/Source Files/error.o
- .debug_macro   0x00001674       0x10 src/Source Files/error.o
- .debug_macro   0x00001684       0x58 src/Source Files/error.o
- .debug_macro   0x000016dc       0x1f src/Source Files/error.o
- .debug_macro   0x000016fb       0x43 src/Source Files/error.o
- .debug_macro   0x0000173e       0x20 src/Source Files/error.o
- .debug_macro   0x0000175e      0x187 src/Source Files/error.o
- .debug_macro   0x000018e5       0x10 src/Source Files/error.o
- .debug_macro   0x000018f5       0x6a src/Source Files/error.o
- .debug_macro   0x0000195f       0x1c src/Source Files/error.o
- .debug_macro   0x0000197b       0x52 src/Source Files/error.o
- .debug_macro   0x000019cd       0x40 src/Source Files/error.o
- .debug_macro   0x00001a0d       0x10 src/Source Files/error.o
- .debug_macro   0x00001a1d       0x40 src/Source Files/error.o
- .debug_macro   0x00001a5d       0xd7 src/Source Files/error.o
- .debug_macro   0x00001b34       0x16 src/Source Files/error.o
- .debug_macro   0x00001b4a      0x18b src/Source Files/error.o
- .debug_macro   0x00001cd5       0x16 src/Source Files/error.o
- .debug_macro   0x00001ceb       0x35 src/Source Files/error.o
- .debug_macro   0x00001d20       0x16 src/Source Files/error.o
- .debug_macro   0x00001d36       0x29 src/Source Files/error.o
- .debug_macro   0x00001d5f      0x64b src/Source Files/error.o
- .debug_macro   0x000023aa       0x76 src/Source Files/error.o
- .debug_macro   0x00002420       0x16 src/Source Files/error.o
- .debug_macro   0x00002436      0x6e4 src/Source Files/error.o
- .debug_macro   0x00002b1a       0xef src/Source Files/error.o
- .debug_macro   0x00002c09      0x1df src/Source Files/error.o
- .debug_macro   0x00002de8       0x20 src/Source Files/error.o
- .debug_macro   0x00002e08       0x3a src/Source Files/error.o
- .debug_macro   0x00002e42       0x2d src/Source Files/error.o
- .debug_macro   0x00002e6f      0xbb1 src/Source Files/error.o
- .debug_macro   0x00003a20      0xab6 src/Source Files/error.o
- .debug_macro   0x000044d6      0x569 src/Source Files/error.o
- .debug_macro   0x00004a3f      0x2b5 src/Source Files/error.o
- .debug_macro   0x00004cf4      0x31a src/Source Files/error.o
- .debug_macro   0x0000500e      0x74f src/Source Files/error.o
- .debug_macro   0x0000575d       0x82 src/Source Files/error.o
- .debug_macro   0x000057df      0x57b src/Source Files/error.o
- .debug_macro   0x00005d5a       0x1c src/Source Files/error.o
- .debug_macro   0x00005d76      0x6b7 src/Source Files/error.o
- .debug_macro   0x0000642d      0x52d src/Source Files/error.o
- .debug_macro   0x0000695a       0xbe src/Source Files/error.o
- .debug_macro   0x00006a18     0x2342 src/Source Files/error.o
- .debug_macro   0x00008d5a      0x85d src/Source Files/error.o
- .debug_macro   0x000095b7      0xdc9 src/Source Files/error.o
- .debug_macro   0x0000a380       0x7c src/Source Files/error.o
- .debug_macro   0x0000a3fc      0x263 src/Source Files/error.o
- .debug_macro   0x0000a65f       0x58 src/Source Files/error.o
- .debug_macro   0x0000a6b7      0x9a7 src/Source Files/error.o
- .debug_macro   0x0000b05e      0x248 src/Source Files/error.o
- .debug_macro   0x0000b2a6      0x4df src/Source Files/error.o
- .debug_macro   0x0000b785      0x6b3 src/Source Files/error.o
- .debug_macro   0x0000be38      0x59f src/Source Files/error.o
- .debug_macro   0x0000c3d7       0x46 src/Source Files/error.o
- .debug_macro   0x0000c41d      0x34d src/Source Files/error.o
- .debug_macro   0x0000c76a      0x28c src/Source Files/error.o
- .debug_macro   0x0000c9f6     0x14d7 src/Source Files/error.o
- .debug_macro   0x0000decd      0x7ba src/Source Files/error.o
- .debug_macro   0x0000e687       0x76 src/Source Files/error.o
- .debug_macro   0x0000e6fd       0x82 src/Source Files/error.o
- .debug_macro   0x0000e77f       0x76 src/Source Files/error.o
- .debug_macro   0x0000e7f5       0x4c src/Source Files/error.o
- .debug_macro   0x0000e841      0x105 src/Source Files/error.o
- .debug_macro   0x0000e946      0x105 src/Source Files/error.o
- .debug_macro   0x0000ea4b      0x105 src/Source Files/error.o
- .debug_macro   0x0000eb50       0x88 src/Source Files/error.o
- .debug_macro   0x0000ebd8       0x88 src/Source Files/error.o
- .debug_macro   0x0000ec60      0x3b4 src/Source Files/error.o
- .debug_macro   0x0000f014       0xb8 src/Source Files/error.o
- .debug_macro   0x0000f0cc       0xb8 src/Source Files/error.o
- .debug_macro   0x0000f184       0xb8 src/Source Files/error.o
- .debug_macro   0x0000f23c       0xb8 src/Source Files/error.o
- .debug_macro   0x0000f2f4      0x2b8 src/Source Files/error.o
- .debug_macro   0x0000f5ac      0x125 src/Source Files/error.o
- .debug_macro   0x0000f6d1      0x225 src/Source Files/error.o
- .debug_macro   0x0000f8f6      0x225 src/Source Files/error.o
- .debug_macro   0x0000fb1b       0x2e src/Source Files/error.o
- .debug_macro   0x0000fb49       0xac src/Source Files/error.o
- .debug_macro   0x0000fbf5      0x14d src/Source Files/error.o
- .debug_macro   0x0000fd42       0x7c src/Source Files/error.o
- .debug_macro   0x0000fdbe      0x205 src/Source Files/error.o
- .debug_macro   0x0000ffc3       0x64 src/Source Files/error.o
- .debug_macro   0x00010027       0xa6 src/Source Files/error.o
- .debug_macro   0x000100cd       0x7c src/Source Files/error.o
- .debug_macro   0x00010149       0x16 src/Source Files/error.o
- .debug_macro   0x0001015f       0x22 src/Source Files/error.o
- .debug_macro   0x00010181       0x22 src/Source Files/error.o
- .debug_macro   0x000101a3      0x115 src/Source Files/error.o
- .debug_macro   0x000102b8      0x115 src/Source Files/error.o
- .debug_macro   0x000103cd      0x115 src/Source Files/error.o
- .debug_macro   0x000104e2      0x115 src/Source Files/error.o
- .debug_macro   0x000105f7       0x1c src/Source Files/error.o
- .debug_macro   0x00010613       0x2e src/Source Files/error.o
- .debug_macro   0x00010641       0x22 src/Source Files/error.o
- .debug_macro   0x00010663       0x1c src/Source Files/error.o
- .debug_macro   0x0001067f       0x58 src/Source Files/error.o
- .debug_macro   0x000106d7       0x10 src/Source Files/error.o
- .debug_macro   0x000106e7      0x273 src/Source Files/error.o
- .debug_macro   0x0001095a      0xd43 src/Source Files/error.o
- .debug_macro   0x0001169d      0x131 src/Source Files/error.o
- .debug_macro   0x000117ce       0x75 src/Source Files/error.o
- .debug_macro   0x00011843       0x45 src/Source Files/error.o
- .debug_macro   0x00011888      0x3ca src/Source Files/error.o
- .debug_macro   0x00011c52       0x34 src/Source Files/error.o
- .debug_macro   0x00011c86      0x2c6 src/Source Files/error.o
- .debug_macro   0x00011f4c      0x790 src/Source Files/error.o
- .debug_macro   0x000126dc       0x5e src/Source Files/error.o
- .debug_macro   0x0001273a       0x64 src/Source Files/error.o
- .debug_macro   0x0001279e       0x5f src/Source Files/error.o
- .debug_macro   0x000127fd       0x90 src/Source Files/error.o
- .debug_macro   0x0001288d       0x28 src/Source Files/error.o
- .debug_macro   0x000128b5       0x23 src/Source Files/error.o
- .debug_macro   0x000128d8       0x94 src/Source Files/error.o
- .debug_macro   0x0001296c       0x40 src/Source Files/error.o
- .debug_macro   0x000129ac       0x70 src/Source Files/error.o
- .debug_macro   0x00012a1c       0x34 src/Source Files/error.o
- .debug_macro   0x00012a50       0x1c src/Source Files/error.o
- .debug_macro   0x00012a6c      0x666 src/Source Files/main.o
- .debug_macro   0x000130d2      0x5d1 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x000136a3      0x16d src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x00013810       0x87 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x00013897       0x51 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x000138e8       0x58 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x00013940      0x2c0 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_macro   0x00013c00      0x55f src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_macro   0x0001415f       0x22 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_macro   0x00014181      0x55a src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_macro   0x000146db       0x3f src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_macro   0x0001471a      0x616 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_macro   0x00014d30       0x16 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_macro   0x00014d46       0x6a src/ASF/sam/boards/arduino_due_x/init.o
- .debug_macro   0x00014db0      0x56b src/ASF/sam/drivers/pio/pio.o
- .debug_macro   0x0001531b       0x8e src/ASF/sam/drivers/pio/pio.o
- .debug_macro   0x000153a9      0x56f src/ASF/sam/drivers/pio/pio_handler.o
- .debug_macro   0x00015918      0x565 src/ASF/sam/drivers/pmc/pmc.o
- .debug_macro   0x00015e7d       0x58 src/ASF/sam/drivers/pmc/pmc.o
- .debug_macro   0x00015ed5      0x564 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_macro   0x00016439      0x572 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_macro   0x000169ab      0x572 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
- .debug_macro   0x00016f1d       0x26 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+.debug_macro    0x00000000    0x17661
+ .debug_macro   0x00000000      0x66f src/Source Files/error.o
+ .debug_macro   0x0000066f      0x8ce src/Source Files/error.o
+ .debug_macro   0x00000f3d       0x22 src/Source Files/error.o
+ .debug_macro   0x00000f5f       0x22 src/Source Files/error.o
+ .debug_macro   0x00000f81       0x52 src/Source Files/error.o
+ .debug_macro   0x00000fd3       0x8d src/Source Files/error.o
+ .debug_macro   0x00001060       0x35 src/Source Files/error.o
+ .debug_macro   0x00001095       0x9c src/Source Files/error.o
+ .debug_macro   0x00001131       0x16 src/Source Files/error.o
+ .debug_macro   0x00001147       0x57 src/Source Files/error.o
+ .debug_macro   0x0000119e       0x97 src/Source Files/error.o
+ .debug_macro   0x00001235      0x353 src/Source Files/error.o
+ .debug_macro   0x00001588       0xf6 src/Source Files/error.o
+ .debug_macro   0x0000167e       0x10 src/Source Files/error.o
+ .debug_macro   0x0000168e       0x58 src/Source Files/error.o
+ .debug_macro   0x000016e6       0x1f src/Source Files/error.o
+ .debug_macro   0x00001705       0x43 src/Source Files/error.o
+ .debug_macro   0x00001748       0x20 src/Source Files/error.o
+ .debug_macro   0x00001768      0x187 src/Source Files/error.o
+ .debug_macro   0x000018ef       0x10 src/Source Files/error.o
+ .debug_macro   0x000018ff       0x6a src/Source Files/error.o
+ .debug_macro   0x00001969       0x1c src/Source Files/error.o
+ .debug_macro   0x00001985       0x52 src/Source Files/error.o
+ .debug_macro   0x000019d7       0x40 src/Source Files/error.o
+ .debug_macro   0x00001a17       0x10 src/Source Files/error.o
+ .debug_macro   0x00001a27       0x40 src/Source Files/error.o
+ .debug_macro   0x00001a67       0xd7 src/Source Files/error.o
+ .debug_macro   0x00001b3e       0x16 src/Source Files/error.o
+ .debug_macro   0x00001b54      0x18b src/Source Files/error.o
+ .debug_macro   0x00001cdf       0x16 src/Source Files/error.o
+ .debug_macro   0x00001cf5       0x35 src/Source Files/error.o
+ .debug_macro   0x00001d2a       0x16 src/Source Files/error.o
+ .debug_macro   0x00001d40       0x29 src/Source Files/error.o
+ .debug_macro   0x00001d69      0x64b src/Source Files/error.o
+ .debug_macro   0x000023b4       0x76 src/Source Files/error.o
+ .debug_macro   0x0000242a       0x16 src/Source Files/error.o
+ .debug_macro   0x00002440      0x6e4 src/Source Files/error.o
+ .debug_macro   0x00002b24       0xef src/Source Files/error.o
+ .debug_macro   0x00002c13      0x1df src/Source Files/error.o
+ .debug_macro   0x00002df2       0x20 src/Source Files/error.o
+ .debug_macro   0x00002e12       0x3a src/Source Files/error.o
+ .debug_macro   0x00002e4c       0x2d src/Source Files/error.o
+ .debug_macro   0x00002e79      0xbb1 src/Source Files/error.o
+ .debug_macro   0x00003a2a      0xab6 src/Source Files/error.o
+ .debug_macro   0x000044e0      0x569 src/Source Files/error.o
+ .debug_macro   0x00004a49      0x2b5 src/Source Files/error.o
+ .debug_macro   0x00004cfe      0x31a src/Source Files/error.o
+ .debug_macro   0x00005018      0x74f src/Source Files/error.o
+ .debug_macro   0x00005767       0x82 src/Source Files/error.o
+ .debug_macro   0x000057e9      0x57b src/Source Files/error.o
+ .debug_macro   0x00005d64       0x1c src/Source Files/error.o
+ .debug_macro   0x00005d80      0x6b7 src/Source Files/error.o
+ .debug_macro   0x00006437      0x52d src/Source Files/error.o
+ .debug_macro   0x00006964       0xbe src/Source Files/error.o
+ .debug_macro   0x00006a22     0x2342 src/Source Files/error.o
+ .debug_macro   0x00008d64      0x85d src/Source Files/error.o
+ .debug_macro   0x000095c1      0xdc9 src/Source Files/error.o
+ .debug_macro   0x0000a38a       0x7c src/Source Files/error.o
+ .debug_macro   0x0000a406      0x263 src/Source Files/error.o
+ .debug_macro   0x0000a669       0x58 src/Source Files/error.o
+ .debug_macro   0x0000a6c1      0x9a7 src/Source Files/error.o
+ .debug_macro   0x0000b068      0x248 src/Source Files/error.o
+ .debug_macro   0x0000b2b0      0x4df src/Source Files/error.o
+ .debug_macro   0x0000b78f      0x6b3 src/Source Files/error.o
+ .debug_macro   0x0000be42      0x59f src/Source Files/error.o
+ .debug_macro   0x0000c3e1       0x46 src/Source Files/error.o
+ .debug_macro   0x0000c427      0x34d src/Source Files/error.o
+ .debug_macro   0x0000c774      0x28c src/Source Files/error.o
+ .debug_macro   0x0000ca00     0x14d7 src/Source Files/error.o
+ .debug_macro   0x0000ded7      0x7ba src/Source Files/error.o
+ .debug_macro   0x0000e691       0x76 src/Source Files/error.o
+ .debug_macro   0x0000e707       0x82 src/Source Files/error.o
+ .debug_macro   0x0000e789       0x76 src/Source Files/error.o
+ .debug_macro   0x0000e7ff       0x4c src/Source Files/error.o
+ .debug_macro   0x0000e84b      0x105 src/Source Files/error.o
+ .debug_macro   0x0000e950      0x105 src/Source Files/error.o
+ .debug_macro   0x0000ea55      0x105 src/Source Files/error.o
+ .debug_macro   0x0000eb5a       0x88 src/Source Files/error.o
+ .debug_macro   0x0000ebe2       0x88 src/Source Files/error.o
+ .debug_macro   0x0000ec6a      0x3b4 src/Source Files/error.o
+ .debug_macro   0x0000f01e       0xb8 src/Source Files/error.o
+ .debug_macro   0x0000f0d6       0xb8 src/Source Files/error.o
+ .debug_macro   0x0000f18e       0xb8 src/Source Files/error.o
+ .debug_macro   0x0000f246       0xb8 src/Source Files/error.o
+ .debug_macro   0x0000f2fe      0x2b8 src/Source Files/error.o
+ .debug_macro   0x0000f5b6      0x125 src/Source Files/error.o
+ .debug_macro   0x0000f6db      0x225 src/Source Files/error.o
+ .debug_macro   0x0000f900      0x225 src/Source Files/error.o
+ .debug_macro   0x0000fb25       0x2e src/Source Files/error.o
+ .debug_macro   0x0000fb53       0xac src/Source Files/error.o
+ .debug_macro   0x0000fbff      0x14d src/Source Files/error.o
+ .debug_macro   0x0000fd4c       0x7c src/Source Files/error.o
+ .debug_macro   0x0000fdc8      0x205 src/Source Files/error.o
+ .debug_macro   0x0000ffcd       0x64 src/Source Files/error.o
+ .debug_macro   0x00010031       0xa6 src/Source Files/error.o
+ .debug_macro   0x000100d7       0x7c src/Source Files/error.o
+ .debug_macro   0x00010153       0x16 src/Source Files/error.o
+ .debug_macro   0x00010169       0x22 src/Source Files/error.o
+ .debug_macro   0x0001018b       0x22 src/Source Files/error.o
+ .debug_macro   0x000101ad      0x115 src/Source Files/error.o
+ .debug_macro   0x000102c2      0x115 src/Source Files/error.o
+ .debug_macro   0x000103d7      0x115 src/Source Files/error.o
+ .debug_macro   0x000104ec      0x115 src/Source Files/error.o
+ .debug_macro   0x00010601       0x1c src/Source Files/error.o
+ .debug_macro   0x0001061d       0x2e src/Source Files/error.o
+ .debug_macro   0x0001064b       0x22 src/Source Files/error.o
+ .debug_macro   0x0001066d       0x1c src/Source Files/error.o
+ .debug_macro   0x00010689       0x58 src/Source Files/error.o
+ .debug_macro   0x000106e1       0x10 src/Source Files/error.o
+ .debug_macro   0x000106f1      0x273 src/Source Files/error.o
+ .debug_macro   0x00010964      0xd43 src/Source Files/error.o
+ .debug_macro   0x000116a7      0x131 src/Source Files/error.o
+ .debug_macro   0x000117d8       0x75 src/Source Files/error.o
+ .debug_macro   0x0001184d       0x45 src/Source Files/error.o
+ .debug_macro   0x00011892      0x3ca src/Source Files/error.o
+ .debug_macro   0x00011c5c       0x34 src/Source Files/error.o
+ .debug_macro   0x00011c90      0x2c6 src/Source Files/error.o
+ .debug_macro   0x00011f56      0x790 src/Source Files/error.o
+ .debug_macro   0x000126e6       0x5e src/Source Files/error.o
+ .debug_macro   0x00012744       0x64 src/Source Files/error.o
+ .debug_macro   0x000127a8       0x5f src/Source Files/error.o
+ .debug_macro   0x00012807       0x90 src/Source Files/error.o
+ .debug_macro   0x00012897       0x28 src/Source Files/error.o
+ .debug_macro   0x000128bf       0x23 src/Source Files/error.o
+ .debug_macro   0x000128e2       0x94 src/Source Files/error.o
+ .debug_macro   0x00012976       0x40 src/Source Files/error.o
+ .debug_macro   0x000129b6       0x70 src/Source Files/error.o
+ .debug_macro   0x00012a26       0x34 src/Source Files/error.o
+ .debug_macro   0x00012a5a       0x22 src/Source Files/error.o
+ .debug_macro   0x00012a7c       0x34 src/Source Files/error.o
+ .debug_macro   0x00012ab0      0x675 src/Source Files/main.o
+ .debug_macro   0x00013125       0x40 src/Source Files/main.o
+ .debug_macro   0x00013165      0x68b src/Source Files/taskman.o
+ .debug_macro   0x000137f0      0x5d1 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x00013dc1      0x16d src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x00013f2e       0x87 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x00013fb5       0x51 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x00014006       0x58 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x0001405e      0x2c0 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_macro   0x0001431e      0x55f src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_macro   0x0001487d       0x22 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_macro   0x0001489f      0x55a src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_macro   0x00014df9       0x3f src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_macro   0x00014e38      0x616 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_macro   0x0001544e       0x16 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_macro   0x00015464       0x6a src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_macro   0x000154ce      0x56b src/ASF/sam/drivers/pio/pio.o
+ .debug_macro   0x00015a39       0x8e src/ASF/sam/drivers/pio/pio.o
+ .debug_macro   0x00015ac7      0x56f src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_macro   0x00016036      0x565 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_macro   0x0001659b       0x58 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_macro   0x000165f3      0x564 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_macro   0x00016b57      0x572 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_macro   0x000170c9      0x572 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_macro   0x0001763b       0x26 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_line     0x00000000     0x9b08
- .debug_line    0x00000000      0xe56 src/Source Files/error.o
- .debug_line    0x00000e56      0xe38 src/Source Files/main.o
- .debug_line    0x00001c8e      0xcba src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_line    0x00002948      0xb4e src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_line    0x00003496      0xb62 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_line    0x00003ff8      0xd4d src/ASF/sam/boards/arduino_due_x/init.o
- .debug_line    0x00004d45      0xec9 src/ASF/sam/drivers/pio/pio.o
- .debug_line    0x00005c0e      0xc0d src/ASF/sam/drivers/pio/pio_handler.o
- .debug_line    0x0000681b     0x10c0 src/ASF/sam/drivers/pmc/pmc.o
- .debug_line    0x000078db      0xb23 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_line    0x000083fe      0xb6c src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_line    0x00008f6a      0xb9e src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+.debug_line     0x00000000     0xa991
+ .debug_line    0x00000000      0xe63 src/Source Files/error.o
+ .debug_line    0x00000e63      0xe66 src/Source Files/main.o
+ .debug_line    0x00001cc9      0xe4e src/Source Files/taskman.o
+ .debug_line    0x00002b17      0xcba src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_line    0x000037d1      0xb4e src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_line    0x0000431f      0xb62 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_line    0x00004e81      0xd4d src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_line    0x00005bce      0xec9 src/ASF/sam/drivers/pio/pio.o
+ .debug_line    0x00006a97      0xc0d src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_line    0x000076a4     0x10c0 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_line    0x00008764      0xb23 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_line    0x00009287      0xb6c src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_line    0x00009df3      0xb9e src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
 
-.debug_str      0x00000000    0x625ab
- .debug_str     0x00000000    0x60d68 src/Source Files/error.o
-                              0x61126 (size before relaxing)
- .debug_str     0x00060d68       0xa7 src/Source Files/main.o
-                              0x61098 (size before relaxing)
- .debug_str     0x00060e0f      0x3d7 src/ASF/common/services/clock/sam3x/sysclk.o
+.debug_str      0x00000000    0x62840
+ .debug_str     0x00000000    0x60ea8 src/Source Files/error.o
+                              0x61266 (size before relaxing)
+ .debug_str     0x00060ea8      0x13b src/Source Files/main.o
+                              0x61352 (size before relaxing)
+ .debug_str     0x00060fe3       0xcb src/Source Files/taskman.o
+                              0x612a6 (size before relaxing)
+ .debug_str     0x000610ae      0x3cd src/ASF/common/services/clock/sam3x/sysclk.o
                               0x60855 (size before relaxing)
- .debug_str     0x000611e6       0x35 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_str     0x0006147b       0x35 src/ASF/common/services/delay/sam/cycle_counter.o
                               0x5c91e (size before relaxing)
- .debug_str     0x0006121b       0x80 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_str     0x000614b0       0x80 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
                               0x5c7fa (size before relaxing)
- .debug_str     0x0006129b      0x2a3 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_str     0x00061530      0x2a3 src/ASF/sam/boards/arduino_due_x/init.o
                               0x60f37 (size before relaxing)
- .debug_str     0x0006153e      0x3d8 src/ASF/sam/drivers/pio/pio.o
+ .debug_str     0x000617d3      0x3d8 src/ASF/sam/drivers/pio/pio.o
                               0x5d14e (size before relaxing)
- .debug_str     0x00061916      0x44e src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_str     0x00061bab      0x44e src/ASF/sam/drivers/pio/pio_handler.o
                               0x5d247 (size before relaxing)
- .debug_str     0x00061d64      0x591 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_str     0x00061ff9      0x591 src/ASF/sam/drivers/pmc/pmc.o
                               0x5d1ca (size before relaxing)
- .debug_str     0x000622f5       0x4d src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_str     0x0006258a       0x4d src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
                               0x5c7c3 (size before relaxing)
- .debug_str     0x00062342       0xd4 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_str     0x000625d7       0xd4 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
                               0x5c8bf (size before relaxing)
- .debug_str     0x00062416      0x195 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_str     0x000626ab      0x195 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
                               0x5ca9b (size before relaxing)
 
-.debug_frame    0x00000000      0xb94
+.debug_frame    0x00000000      0xbf4
  .debug_frame   0x00000000       0x70 src/Source Files/error.o
- .debug_frame   0x00000070       0x40 src/Source Files/main.o
- .debug_frame   0x000000b0       0x88 src/ASF/common/services/clock/sam3x/sysclk.o
- .debug_frame   0x00000138       0x20 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_frame   0x00000158       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_frame   0x00000188       0x28 src/ASF/sam/boards/arduino_due_x/init.o
- .debug_frame   0x000001b0      0x2b8 src/ASF/sam/drivers/pio/pio.o
- .debug_frame   0x00000468       0xf8 src/ASF/sam/drivers/pio/pio_handler.o
- .debug_frame   0x00000560      0x3ec src/ASF/sam/drivers/pmc/pmc.o
- .debug_frame   0x0000094c       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
- .debug_frame   0x0000096c       0x28 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
- .debug_frame   0x00000994       0x40 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
- .debug_frame   0x000009d4       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
- .debug_frame   0x00000a00       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00000a5c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x00000a7c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00000ab0       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
- .debug_frame   0x00000b60       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000070       0x5c src/Source Files/main.o
+ .debug_frame   0x000000cc       0x44 src/Source Files/taskman.o
+ .debug_frame   0x00000110       0x88 src/ASF/common/services/clock/sam3x/sysclk.o
+ .debug_frame   0x00000198       0x20 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_frame   0x000001b8       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_frame   0x000001e8       0x28 src/ASF/sam/boards/arduino_due_x/init.o
+ .debug_frame   0x00000210      0x2b8 src/ASF/sam/drivers/pio/pio.o
+ .debug_frame   0x000004c8       0xf8 src/ASF/sam/drivers/pio/pio_handler.o
+ .debug_frame   0x000005c0      0x3ec src/ASF/sam/drivers/pmc/pmc.o
+ .debug_frame   0x000009ac       0x20 src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
+ .debug_frame   0x000009cc       0x28 src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+ .debug_frame   0x000009f4       0x40 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
+ .debug_frame   0x00000a34       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00000a60       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000abc       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x00000adc       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00000b10       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x00000bc0       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-__atexit.o)
 
 Cross Reference Table
 
@@ -4222,6 +4521,8 @@ TWI0_Handler                                      src/ASF/sam/utils/cmsis/sam3x/
                                                   src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
 TWI1_Handler                                      src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
                                                   src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
+Taskman                                           src/Source Files/taskman.o
+                                                  src/Source Files/main.o
 UART_Handler                                      src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
                                                   src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
 UOTGHS_Handler                                    src/ASF/sam/utils/cmsis/sam3x/source/templates/exceptions.o
@@ -4324,6 +4625,7 @@ board_init                                        src/ASF/sam/boards/arduino_due
                                                   src/Source Files/main.o
 cpu_irq_enter_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
 cpu_irq_leave_critical                            src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+delayedTasks                                      src/Source Files/taskman.o
 errorMsg                                          src/Source Files/error.o
 exception_table                                   src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.o
 exit                                              c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-exit.o)
@@ -4341,6 +4643,7 @@ malloc                                            c:/program files (x86)/atmel/s
 memset                                            c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-memset.o)
                                                   c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/crt0.o
 pErrorFunc                                        src/Source Files/error.o
+                                                  src/Source Files/taskman.o
                                                   src/Source Files/main.o
 pio_clear                                         src/ASF/sam/drivers/pio/pio.o
 pio_configure                                     src/ASF/sam/drivers/pio/pio.o
@@ -4479,7 +4782,9 @@ pmc_switch_udpck_to_upllck                        src/ASF/sam/drivers/pmc/pmc.o
                                                   src/ASF/common/services/clock/sam3x/sysclk.o
 pmc_wait_wakeup_clocks_restore                    src/ASF/sam/drivers/pmc/sleep.o
 portable_delay_cycles                             src/ASF/common/services/delay/sam/cycle_counter.o
+                                                  src/Source Files/main.o
                                                   src/Source Files/error.o
+s                                                 src/Source Files/main.o
 software_init_hook                                c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/crt0.o
 sysclk_disable_usb                                src/ASF/common/services/clock/sam3x/sysclk.o
 sysclk_enable_usb                                 src/ASF/common/services/clock/sam3x/sysclk.o
@@ -4489,3 +4794,5 @@ sysclk_set_prescalers                             src/ASF/common/services/clock/
 sysclk_set_source                                 src/ASF/common/services/clock/sam3x/sysclk.o
 system_init_flash                                 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.o
                                                   src/ASF/common/services/clock/sam3x/sysclk.o
+taskman                                           src/Source Files/taskman.o
+tasks                                             src/Source Files/taskman.o
