@@ -13,10 +13,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 typedef uint32_t(*t_ptf32) (uint32_t, ...);
-#include "asf.h"
+#include "../asf.h"
 #include "error.h"
 #include "taskman.h"
+#include "config_uart.h"
 
 
 
@@ -34,5 +36,13 @@ typedef uint32_t(*t_ptf32) (uint32_t, ...);
 #define pPa4         (&sc+4)
 #define pPa5         (&sc+5)
 
+
+#define mBitsSet(flags,mask)     (flags|=(mask))
+#define mBitsClr(flags,mask)     (flags&=~(mask))
+#define mBitsTgl(flags,mask)     (flags^=(mask))
+#define mBitsMsk(flags,mask)     (flags&(mask))
+
+#define mIsBitsSet(flags,mask)   (( (flags&(mask)))==(mask))
+#define mIsBitsClr(flags,mask)   ((~flags&(mask)))==(mask))
 
 #endif /* APPLI_H_ */

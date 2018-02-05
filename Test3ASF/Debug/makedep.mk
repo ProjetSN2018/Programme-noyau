@@ -2,6 +2,12 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\sam\drivers\usart\usart.c
+
+src\Source Files\config_uart.c
+
+src\Source Files\CRC16MODBUS.c
+
 src\Source Files\error.c
 
 src\Source Files\main.c
