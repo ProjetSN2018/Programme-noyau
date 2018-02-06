@@ -34,103 +34,72 @@
 #define SABLIER_NEW		100
 #define SABLIER_RUN		102
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-#define USART_SERIAL					USART0
-#define USART_SERIAL_ID					ID_USART0
-#define USART_SERIAL_BAUDRATE			115200
-#define USART_SERIAL_CHAR_LENGTH		US_MR_CHRL_8_BIT
-#define USART_SERIAL_PARITY				US_MR_PAR_NO
-#define USART_SERIAL_STOP_BIT			US_MR_NBSTOP_1_BIT
-
-#define USART_SERIAL_TXD_PIN			PIN_USART0_TXD
-#define USART_SERIAL_TXD_IDX			PIN_USART0_TXD_IDX
-#define USART_SERIAL_TXD_FLAGS			PIN_USART0_TXD_FLAGS
-
-#define USART_SERIAL_RXD_PIN			PIN_USART0_RXD
-#define USART_SERIAL_RXD_IDX			PIN_USART0_RXD_IDX
-#define USART_SERIAL_RXD_FLAGS			PIN_USART0_RXD_FLAGS
-
-const sam_usart_opt_t usart_console_settings = {
-	USART_SERIAL_BAUDRATE,
-	USART_SERIAL_CHAR_LENGTH,
-	USART_SERIAL_PARITY,
-	USART_SERIAL_STOP_BIT,
-	US_MR_CHMODE_NORMAL
-};
 
 
 
 
+void Sablier(uint32_t sc, uint32_t i);
+void Prompt(uint32_t sc, uint32_t i);
 
-////////////////////////////////////////////////////////////////
+char buf[256];
 
-
-
-void Sablier(uint32_t sc, int i);
 
 int main (void)
 {
 	/* Insert system clock initialization code here (sysclk_init()). */
+		
+	cpu_irq_disable();
 	sysclk_init();
 	board_init();
 	delay_init(sysclk_get_cpu_hz());
-	////////////////////////////////////////////////
-	sysclk_enable_peripheral_clock(USART_SERIAL_ID);
-	usart_init_rs232(USART_SERIAL, &usart_console_settings,	sysclk_get_cpu_hz());
-	usart_enable_tx(USART_SERIAL);
-	usart_enable_rx(USART_SERIAL);
-	gpio_configure_pin(USART_SERIAL_TXD_IDX,USART_SERIAL_TXD_FLAGS);
-	gpio_configure_pin(USART_SERIAL_RXD_IDX,USART_SERIAL_RXD_FLAGS);
-	usart_enable_interrupt(USART_SERIAL, US_IER_RXRDY);
-	NVIC_EnableIRQ(USART_SERIAL_ID);
-
+	//////////////////////////////////////////////////////////////////
 	
-
-
 	Taskman(TASKMAN_NEW);
+	Shell(SHELL_NEW);
+
+
 	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
 	gpio_set_pin_low(LED0_GPIO);
 
-	pushTask(Sablier, SABLIER_NEW, 0, 0);
-	const char str []= "Hello world";
-	for(int i = 0; str[i] != NULL; i++)
-	{
-		usart_putchar(USART_SERIAL,str[i]);
-	}
+	PushTask(Sablier, SABLIER_NEW, 0, 0);
+	PushTask(Prompt, 0, 0, 800);
 	
-	
+	cpu_irq_enable();
+
+	Putstr("\r\n\n\tATMEL ATSAM3U STARTED\r\n\n");
 
 	for(;;)
 	{
-		Taskman(TASKMAN_POP_TASK);
-		//usart_putchar(USART_SERIAL,'x');
-		
+		PopTask();
 	}
-
-
-	/* Insert application code here, after the board has been initialized. */
 }
 
-void Sablier(uint32_t sc, int i)
+const uint32_t flashSequ[]={
+	50,500,50,1200,0
+};
+
+void Sablier(uint32_t sc, uint32_t i)
 {
 	switch(sc)
 	{
 	case SABLIER_NEW:
 		gpio_set_pin_low(LED0_GPIO);
-	
 	case SABLIER_RUN:
-		
-		if(i%450000 == 0) gpio_set_pin_high(LED0_GPIO);
-		if(i%450000 == 18000)gpio_set_pin_low(LED0_GPIO);
-		if(i%450000 == 45000) gpio_set_pin_high(LED0_GPIO);
-		if(i%450000 == 63000)gpio_set_pin_low(LED0_GPIO);
-
-
-		pushTask(Sablier, SABLIER_RUN, ++i, 0);
+		i++; if(flashSequ[i]==0) i=0;
+		if(i%2==0) gpio_set_pin_high(LED0_GPIO);
+		else gpio_set_pin_low(LED0_GPIO);
+		PushTask(Sablier,SABLIER_RUN,i,flashSequ[i]);
 		break;
-		default:
-			Error(ERR_SABLIER_SWITCH_BAD_SC, sc);
-			break;
+	default:
+		Error(ERR_SABLIER_SWITCH_BAD_SC, sc);
+		break;
 	}
+}
 
+
+void Prompt(uint32_t sc, uint32_t i)
+{
+	sprintf(buf,"\rTimer:%06d",i++);
+	Putstr(buf);
+	PushTask(Prompt,0,i,2000);
 }

@@ -28,16 +28,16 @@ typedef void (*t_ptf)(uint32_t, void*);
 
 //Défintion structure pour une tâche
 typedef struct tt_task{
-	t_ptf   pFunc;
-	uint32_t  sc;
-	void*   param;
-	uint32_t  delay;
+	t_ptf		pFunc;
+	uint32_t	sc;
+	void*		pParam;
+	uint32_t	delay;
 }t_task;
 
 //Prototype de la fonction concernée
 uint32_t Taskman(uint32_t sc,...);
 
-#define pushTask(pFunc,sc,param,delay)       Taskman(TASKMAN_PUSH_TASK,(uint32_t)pFunc,(uint32_t)sc,(uint32_t)param,(uint32_t)delay)
-
+#define PushTask(pFunc,sc,param,delay)			Taskman(TASKMAN_PUSH_TASK,(uint32_t)pFunc,(uint32_t)sc,(uint32_t)param,(uint32_t)delay)
+#define PopTask()								Taskman(TASKMAN_POP_TASK)
 
 #endif /* TASKMAN_H_ */

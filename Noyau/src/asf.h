@@ -87,6 +87,9 @@
 // From module: System Clock Control - SAM3X/A implementation
 #include <sysclk.h>
 
+// From module: TC - Timer Counter
+#include <tc.h>
+
 // From module: USART - Univ. Syn Async Rec/Trans
 #include <usart.h>
 

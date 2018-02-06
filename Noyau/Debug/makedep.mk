@@ -2,13 +2,19 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\sam\drivers\tc\tc.c
+
 src\ASF\sam\drivers\usart\usart.c
 
-src\Sources files\error.c
+src\Kernel\error.c
+
+src\Kernel\shell.c
+
+src\Kernel\shellcom.c
+
+src\Kernel\taskman.c
 
 src\Sources files\main.c
-
-src\Sources files\taskman.c
 
 src\ASF\common\services\delay\sam\cycle_counter.c
 
