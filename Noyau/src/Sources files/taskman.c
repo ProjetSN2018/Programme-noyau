@@ -5,7 +5,7 @@
  *  Author: eleve
  */ 
 
- #include "../Header/appli.h"
+ #include "../Headers/appli.h"
 
  //Déclaration de la liste des tâches à exécuter
  t_task tasks[TASKMAN_TASKS_LIST_LEN];
@@ -25,7 +25,7 @@
 
  uint32_t Taskman(uint32_t sc, ...)
  {
-	uint8_t criticalStatus;
+//	uint8_t criticalStatus;
 	
 	switch(sc)
 	{

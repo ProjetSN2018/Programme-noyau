@@ -80,20 +80,18 @@ SUBDIRS :=  \
 ../src/ASF/thirdparty/CMSIS/Lib/ \
 ../src/ASF/thirdparty/CMSIS/Lib/GCC/ \
 ../src/config/ \
-../src/Header \
-../src/Source\ Files
+../src/Headers \
+../src/Sources\ files
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../src/ASF/sam/drivers/usart/usart.c \
-../src/Source\ Files/config_uart.c \
-../src/Source\ Files/CRC16MODBUS.c \
-../src/Source\ Files/error.c \
-../src/Source\ Files/main.c \
-../src/Source\ Files/taskman.c \
-../src/ASF/common/services/clock/sam3x/sysclk.c \
+../src/Sources\ files/error.c \
+../src/Sources\ files/main.c \
+../src/Sources\ files/taskman.c \
 ../src/ASF/common/services/delay/sam/cycle_counter.c \
+../src/ASF/common/services/clock/sam3x/sysclk.c \
 ../src/ASF/common/utils/interrupt/interrupt_sam_nvic.c \
 ../src/ASF/sam/boards/arduino_due_x/init.c \
 ../src/ASF/sam/drivers/pio/pio.c \
@@ -114,13 +112,11 @@ ASM_SRCS +=
 
 OBJS +=  \
 src/ASF/sam/drivers/usart/usart.o \
-src/Source\ Files/config_uart.o \
-src/Source\ Files/CRC16MODBUS.o \
-src/Source\ Files/error.o \
-src/Source\ Files/main.o \
-src/Source\ Files/taskman.o \
-src/ASF/common/services/clock/sam3x/sysclk.o \
+src/Sources\ files/error.o \
+src/Sources\ files/main.o \
+src/Sources\ files/taskman.o \
 src/ASF/common/services/delay/sam/cycle_counter.o \
+src/ASF/common/services/clock/sam3x/sysclk.o \
 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o \
 src/ASF/sam/boards/arduino_due_x/init.o \
 src/ASF/sam/drivers/pio/pio.o \
@@ -134,13 +130,11 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o
 
 OBJS_AS_ARGS +=  \
 src/ASF/sam/drivers/usart/usart.o \
-"src/Source Files/config_uart.o" \
-"src/Source Files/CRC16MODBUS.o" \
-"src/Source Files/error.o" \
-"src/Source Files/main.o" \
-"src/Source Files/taskman.o" \
-src/ASF/common/services/clock/sam3x/sysclk.o \
+"src/Sources files/error.o" \
+"src/Sources files/main.o" \
+"src/Sources files/taskman.o" \
 src/ASF/common/services/delay/sam/cycle_counter.o \
+src/ASF/common/services/clock/sam3x/sysclk.o \
 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o \
 src/ASF/sam/boards/arduino_due_x/init.o \
 src/ASF/sam/drivers/pio/pio.o \
@@ -154,13 +148,11 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o
 
 C_DEPS +=  \
 src/ASF/sam/drivers/usart/usart.d \
-src/Source\ Files/config_uart.d \
-src/Source\ Files/CRC16MODBUS.d \
-src/Source\ Files/error.d \
-src/Source\ Files/main.d \
-src/Source\ Files/taskman.d \
-src/ASF/common/services/clock/sam3x/sysclk.d \
+src/Sources\ files/error.d \
+src/Sources\ files/main.d \
+src/Sources\ files/taskman.d \
 src/ASF/common/services/delay/sam/cycle_counter.d \
+src/ASF/common/services/clock/sam3x/sysclk.d \
 src/ASF/common/utils/interrupt/interrupt_sam_nvic.d \
 src/ASF/sam/boards/arduino_due_x/init.d \
 src/ASF/sam/drivers/pio/pio.d \
@@ -174,13 +166,11 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.d
 
 C_DEPS_AS_ARGS +=  \
 src/ASF/sam/drivers/usart/usart.d \
-"src/Source Files/config_uart.d" \
-"src/Source Files/CRC16MODBUS.d" \
-"src/Source Files/error.d" \
-"src/Source Files/main.d" \
-"src/Source Files/taskman.d" \
-src/ASF/common/services/clock/sam3x/sysclk.d \
+"src/Sources files/error.d" \
+"src/Sources files/main.d" \
+"src/Sources files/taskman.d" \
 src/ASF/common/services/delay/sam/cycle_counter.d \
+src/ASF/common/services/clock/sam3x/sysclk.d \
 src/ASF/common/utils/interrupt/interrupt_sam_nvic.d \
 src/ASF/sam/boards/arduino_due_x/init.d \
 src/ASF/sam/drivers/pio/pio.d \
@@ -192,9 +182,9 @@ src/ASF/sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.d \
 src/ASF/sam/utils/cmsis/sam3x/source/templates/system_sam3x.d \
 src/ASF/sam/utils/syscalls/gcc/syscalls.d
 
-OUTPUT_FILE_PATH +=Test3ASF.elf
+OUTPUT_FILE_PATH +=Noyau.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=Test3ASF.elf
+OUTPUT_FILE_PATH_AS_ARGS +=Noyau.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -209,35 +199,21 @@ LINKER_SCRIPT_DEP+=  \
 # AVR32/GNU C Compiler
 
 
-src/Source\ Files/config_uart.o: ../src/Source\ Files/config_uart.c
+src/Sources\ files/error.o: ../src/Sources\ files/error.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/Source\ Files/CRC16MODBUS.o: ../src/Source\ Files/CRC16MODBUS.c
+src/Sources\ files/main.o: ../src/Sources\ files/main.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/Source\ Files/error.o: ../src/Source\ Files/error.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/Source\ Files/main.o: ../src/Source\ Files/main.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/Source\ Files/taskman.o: ../src/Source\ Files/taskman.c
+src/Sources\ files/taskman.o: ../src/Sources\ files/taskman.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -276,14 +252,7 @@ src/ASF/sam/drivers/usart/%.o: ../src/ASF/sam/drivers/usart/%.c
 	@echo Finished building: $<
 	
 
-src/Source\ Files/%.o: ../src/Source\ Files/%.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/ASF/common/services/clock/sam3x/%.o: ../src/ASF/common/services/clock/sam3x/%.c
+src/Sources\ files/%.o: ../src/Sources\ files/%.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -291,6 +260,13 @@ src/ASF/common/services/clock/sam3x/%.o: ../src/ASF/common/services/clock/sam3x/
 	
 
 src/ASF/common/services/delay/sam/%.o: ../src/ASF/common/services/delay/sam/%.c
+	@echo Building file: $<
+	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/ASF/common/services/clock/sam3x/%.o: ../src/ASF/common/services/clock/sam3x/%.c
 	@echo Building file: $<
 	@echo Invoking: ARM/GNU C Compiler : 6.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAM3X8E__ -DDEBUG -DBOARD=ARDUINO_DUE_X -Dscanf=iscanf -DARM_MATH_CM3=true -Dprintf=iprintf -D__SAM3X8E__  -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src/ASF/sam/utils/cmsis/sam3x/source/templates" -I"../src/ASF/sam/utils/cmsis/sam3x/include" -I"../src/ASF/sam/boards" -I"../src/ASF/sam/boards/arduino_due_x" -I"../src/ASF/common/services/gpio" -I"../src/ASF/sam/drivers/pio" -I"../src/ASF/common/services/ioport" -I"../src/ASF/common/services/clock" -I"../src/ASF/sam/drivers/pmc" -I"../src" -I"../src/config" -I"../src/ASF/common/services/delay" -I"../src/ASF/sam/drivers/usart"  -O1 -fdata-sections -ffunction-sections -mlong-calls -g3 -Wall -mcpu=cortex-m3 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -371,14 +347,14 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: ARM/GNU Linker : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="Test3ASF.map" -Wl,--start-group -larm_cortexM3l_math -lm  -Wl,--end-group -L"../src/ASF/thirdparty/CMSIS/Lib/GCC"  -Wl,--gc-sections -mcpu=cortex-m3 -Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="Noyau.map" -Wl,--start-group -larm_cortexM3l_math -lm  -Wl,--end-group -L"../src/ASF/thirdparty/CMSIS/Lib/GCC"  -Wl,--gc-sections -mcpu=cortex-m3 -Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "Test3ASF.elf" "Test3ASF.bin"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "Test3ASF.elf" "Test3ASF.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "Test3ASF.elf" "Test3ASF.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "Test3ASF.elf" > "Test3ASF.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "Test3ASF.elf" "Test3ASF.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "Test3ASF.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "Noyau.elf" "Noyau.bin"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "Noyau.elf" "Noyau.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O binary "Noyau.elf" "Noyau.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objdump.exe" -h -S "Noyau.elf" > "Noyau.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "Noyau.elf" "Noyau.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-size.exe" "Noyau.elf"
 	
 	
 
@@ -390,5 +366,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Test3ASF.elf" "Test3ASF.a" "Test3ASF.hex" "Test3ASF.bin" "Test3ASF.lss" "Test3ASF.eep" "Test3ASF.map" "Test3ASF.srec"
+	rm -rf "Noyau.elf" "Noyau.a" "Noyau.hex" "Noyau.bin" "Noyau.lss" "Noyau.eep" "Noyau.map" "Noyau.srec"
 	

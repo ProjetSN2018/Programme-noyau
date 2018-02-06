@@ -4,19 +4,15 @@
 
 src\ASF\sam\drivers\usart\usart.c
 
-src\Source Files\config_uart.c
+src\Sources files\error.c
 
-src\Source Files\CRC16MODBUS.c
+src\Sources files\main.c
 
-src\Source Files\error.c
-
-src\Source Files\main.c
-
-src\Source Files\taskman.c
-
-src\ASF\common\services\clock\sam3x\sysclk.c
+src\Sources files\taskman.c
 
 src\ASF\common\services\delay\sam\cycle_counter.c
+
+src\ASF\common\services\clock\sam3x\sysclk.c
 
 src\ASF\common\utils\interrupt\interrupt_sam_nvic.c
 
