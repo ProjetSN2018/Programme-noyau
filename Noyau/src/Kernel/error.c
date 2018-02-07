@@ -17,27 +17,30 @@
 	 {
 	 
 		gpio_set_pin_high(LED0_GPIO);
-		delay_s(2);
+		delay_ms(2000);
 		gpio_set_pin_low(LED0_GPIO);
 		delay_ms(500);
 
 		//Display tens of error code
 		for(i=0; i<err/10; i++)
 		{
-			
+			gpio_set_pin_high(LED0_GPIO);
+			delay_ms(200);
+			gpio_set_pin_low(LED0_GPIO);
+			delay_ms(200);
 		}
-		delay_ms(400);
+		delay_ms(500);
 
 		//Display units of error code
 		for(i=0; i<err%10; i++)
 		{
 
 			gpio_set_pin_high(LED0_GPIO);
-			delay_s(2);
+			delay_ms(200);
 			gpio_set_pin_low(LED0_GPIO);
-			delay_ms(500);
+			delay_ms(200);
 		}
-		delay_s(2);
+		delay_ms(1000);
 	 }
 	 return 0;
  }

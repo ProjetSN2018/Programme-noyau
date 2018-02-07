@@ -6,9 +6,13 @@ src\ASF\sam\drivers\tc\tc.c
 
 src\ASF\sam\drivers\usart\usart.c
 
+src\Kernel\CRC16MODBUS.c
+
 src\Kernel\error.c
 
 src\Kernel\shell.c
+
+src\Kernel\shellcmd.c
 
 src\Kernel\shellcom.c
 

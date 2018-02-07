@@ -105,7 +105,7 @@
 			taskman.pPush->pParam=_pParam;
 			taskman.pPush++;
 			if(taskman.pPush>=tasks+TASKMAN_TASKS_LIST_LEN) taskman.pPush=tasks;
-			if(taskman.pPush==taskman.pPop) Error(ERROR_TASKMAN_TASKLIST_FULL, (uint32_t)0);
+			if(taskman.pPush==taskman.pPop) Error(ERR_TASKMAN_TASKLIST_FULL, (uint32_t)0);
 		}
 		cpu_irq_leave_critical();
 #undef _func

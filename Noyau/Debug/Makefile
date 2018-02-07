@@ -90,8 +90,10 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../src/ASF/sam/drivers/tc/tc.c \
 ../src/ASF/sam/drivers/usart/usart.c \
+../src/Kernel/CRC16MODBUS.c \
 ../src/Kernel/error.c \
 ../src/Kernel/shell.c \
+../src/Kernel/shellcmd.c \
 ../src/Kernel/shellcom.c \
 ../src/Kernel/taskman.c \
 ../src/Sources\ files/main.c \
@@ -118,8 +120,10 @@ ASM_SRCS +=
 OBJS +=  \
 src/ASF/sam/drivers/tc/tc.o \
 src/ASF/sam/drivers/usart/usart.o \
+src/Kernel/CRC16MODBUS.o \
 src/Kernel/error.o \
 src/Kernel/shell.o \
+src/Kernel/shellcmd.o \
 src/Kernel/shellcom.o \
 src/Kernel/taskman.o \
 src/Sources\ files/main.o \
@@ -139,8 +143,10 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o
 OBJS_AS_ARGS +=  \
 src/ASF/sam/drivers/tc/tc.o \
 src/ASF/sam/drivers/usart/usart.o \
+src/Kernel/CRC16MODBUS.o \
 src/Kernel/error.o \
 src/Kernel/shell.o \
+src/Kernel/shellcmd.o \
 src/Kernel/shellcom.o \
 src/Kernel/taskman.o \
 "src/Sources files/main.o" \
@@ -160,8 +166,10 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o
 C_DEPS +=  \
 src/ASF/sam/drivers/tc/tc.d \
 src/ASF/sam/drivers/usart/usart.d \
+src/Kernel/CRC16MODBUS.d \
 src/Kernel/error.d \
 src/Kernel/shell.d \
+src/Kernel/shellcmd.d \
 src/Kernel/shellcom.d \
 src/Kernel/taskman.d \
 src/Sources\ files/main.d \
@@ -181,8 +189,10 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.d
 C_DEPS_AS_ARGS +=  \
 src/ASF/sam/drivers/tc/tc.d \
 src/ASF/sam/drivers/usart/usart.d \
+src/Kernel/CRC16MODBUS.d \
 src/Kernel/error.d \
 src/Kernel/shell.d \
+src/Kernel/shellcmd.d \
 src/Kernel/shellcom.d \
 src/Kernel/taskman.d \
 "src/Sources files/main.d" \
@@ -214,6 +224,10 @@ LINKER_SCRIPT_DEP+=  \
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

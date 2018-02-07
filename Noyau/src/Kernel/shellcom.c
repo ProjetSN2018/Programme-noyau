@@ -35,13 +35,6 @@
  ///////////////////////////////////////////////////////////////////////////////////////////////////
  char shellcomTxBuf[SHELLCOM_TXBUF_LEN];
  
- typedef enum { 
-	 IDLE		= 0, 
-	 EDITION, 
-	 EXECUTION, 
-	 ESC_KBHIT, 
-	 ESC_SEQUENCE_PROC 
- } t_state;
 
 
  ///////// Shell object model /////////////////////////////////
@@ -75,15 +68,7 @@
 		usart_enable_rx(USART_SERIAL);
 		/////////////////////////////////////////////////////////
 
-		//////////////////////////////////////////////////////////////////////////////////////
-		//const char str2[]  = "CONFIG USART\r\n";
-//#define k sc
-		//for(k =0; str2[k] != '\0'; k++)
-		//{
-			//usart_putchar(USART_SERIAL, str2[k]);
-		//}
-//#undef k
-		//////////////////////////////////////////////////////////////////////////////////////
+
 		
 		break;
 	case SHELLCOM_PUTC:
@@ -143,12 +128,12 @@
 
 	if(dw_status & US_CSR_RXRDY)
 	{
-		Putc('*');
 		PushTask(Shell, _SHELL_KBHIT, USART_SERIAL->US_RHR & US_RHR_RXCHR_Msk, 0);
 	}
 
 	if(dw_status & US_CSR_TXRDY)
 	{
+				
 		if(pTxRead!=pTxWrite)
 		{
 			USART_SERIAL->US_THR = US_THR_TXCHR(*pTxRead++);

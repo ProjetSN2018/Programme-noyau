@@ -16,6 +16,6 @@ uint32_t Shell(uint32_t sc, ...);
 #define SHELL_NEW			100
 
 #include "shellcom.h"
-#define Putc(c)				Shellcom(SHELLCOM_PUTC,(uint32_t)c)
+#define Putch(c)			Shellcom(SHELLCOM_PUTC,(uint32_t)c)
 #define Putstr(str)			Shellcom(SHELLCOM_PUTSTR,(uint32_t)str)
 #define Putstrlen(str,len)	Shellcom(SHELLCOM_PUTSTRLEN,(uint32_t)str,(uint32_t)len)
