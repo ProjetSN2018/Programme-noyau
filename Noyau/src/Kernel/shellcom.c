@@ -36,7 +36,6 @@
  char shellcomTxBuf[SHELLCOM_TXBUF_LEN];
  
 
-
  ///////// Shell object model /////////////////////////////////
  struct {
 	char		*pTxWrite;
@@ -47,7 +46,7 @@
  ////// Nicely shortcuts .............. ///////////////////////
  #define pTxWrite		shellcom.pTxWrite
  #define pTxRead		shellcom.pTxRead
-
+ 
  uint32_t Shellcom(uint32_t sc , ...)
  {
 	switch(sc)
@@ -67,7 +66,9 @@
 		usart_enable_tx(USART_SERIAL);
 		usart_enable_rx(USART_SERIAL);
 		/////////////////////////////////////////////////////////
+		ioport_init();
 
+		
 
 		
 		break;
@@ -114,7 +115,6 @@
 
 	return 0;
  }
-
 
 
  enum{

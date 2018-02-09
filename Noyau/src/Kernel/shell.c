@@ -47,6 +47,7 @@ const uint32_t flashSequ[]={
 enum{
 	_SHELL_KBHIT = 1,
 	_SHELL_HEARTBEAT,
+	_SHELL_ESC_KBHIT
 };
 
  uint32_t Shell(uint32_t sc, ...)
@@ -101,6 +102,7 @@ enum{
 			switch(_kbhitChar)
 			{
 			case '\e':
+				//state = _SHELL_KBHIT;
 				break;
 			case '\t':
 			case '\b':
@@ -144,7 +146,6 @@ enum{
 				}
 				else
 				{
-					
 					sprintf(buf,"\r\nunknown cmd: %04X\r\n",crc);
 					Putstr(buf);
 				}

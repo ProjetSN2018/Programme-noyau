@@ -77,6 +77,7 @@
 
 		//Enable the waveform channel interrupt ///////////////////////////////////
 		tc_enable_interrupt(TC, TC_CHANNEL_WAVEFORM, TC_IER_CPAS);
+		
 
 #undef k
 		break;
