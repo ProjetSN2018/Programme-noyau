@@ -47,13 +47,22 @@ const uint32_t flashSequ[]={
 enum{
 	_SHELL_KBHIT = 1,
 	_SHELL_HEARTBEAT,
-	_SHELL_ESC_KBHIT
-};
+	_SHELL_ESC_KBHIT,
+	_SHELL_PROMPT
+}; 
+
+uint8_t __RTCdayByDate(uint32_t date, uint32_t month, uint32_t centYear);
+bool	__RTCIsLeapYear(uint32_t centYear);
+bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hours);
+
 
  uint32_t Shell(uint32_t sc, ...)
  {
 	 uint32_t u1;
-	 
+	 uint32_t hh;
+	 uint32_t mn;
+	 uint32_t sec;
+
 	switch(sc)
 	{
 	case SHELL_NEW:
@@ -61,11 +70,15 @@ enum{
 		gpio_set_pin_low(LED0_GPIO);
 		Shellcom(SHELLCOM_NEW);
 		state = IDLE;
+		
+		sysclk_enable_peripheral_clock(ID_RTC);
+		rtc_set_hour_mode(RTC, 0);
+		rtc_set_time(RTC, 1, 2, 3);
+		//rtc_enable_interrupt(RTC,RTC_TIMR_SEC_Msk);
 		PushTask(Shell,_SHELL_HEARTBEAT,0,0);
+		PushTask(Shell,_SHELL_PROMPT,0,500);
+		PushTask(Appli, APPLI_NEW, 0, 500);
 		break;
-
-
-
 
 	////Private services implementation ///////////////////////////////
 	case _SHELL_KBHIT:
@@ -163,7 +176,7 @@ enum{
 		break;
 		
 		
-
+		
 	case _SHELL_HEARTBEAT:
 #define k	pa1
 		k++; if(flashSequ[k]==0) k=0;
@@ -171,6 +184,27 @@ enum{
 		else gpio_set_pin_low(LED0_GPIO);
 		PushTask(Shell,_SHELL_HEARTBEAT,k,flashSequ[k]);
 #undef k
+		break;
+
+	case _SHELL_PROMPT:
+		if(state==IDLE)
+		{
+			rtc_get_time(RTC, &hh, &mn, &sec);
+			sprintf(buf, "\r\e[k\r%02d:%02d:%02d", hh, mn, sec);
+			Putstr(buf);
+#define yr	u1
+#define mm	hh
+#define dd	mn
+#define wk	sec
+			rtc_get_date(RTC, &yr, &mm, &dd, &wk);
+			sprintf(buf, "	%02d:%02d:%02d:%02d", yr, mm, dd, wk);
+			Putstr(buf);
+#undef  yr
+#undef	mm
+#undef	dd
+#undef	wk
+		}
+		PushTask(Shell,_SHELL_PROMPT,0,300);
 		break;
 		
 		
@@ -180,4 +214,26 @@ enum{
 	}
 
 	return 0;
+ }
+
+
+ void RTC_Handler(void )
+ {
+	//PushTask(Shell,_SHELL_PROMPT,0,0);
+ }
+  
+ uint8_t __RTCdayByDate(uint32_t date, uint32_t month, uint32_t centYear)
+ {
+	
+ }
+
+ bool	__RTCIsLeapYear(uint32_t centYear)
+ {
+
+ }
+
+ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hours)
+ {
+
+
  }

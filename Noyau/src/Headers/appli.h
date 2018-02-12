@@ -12,3 +12,8 @@
 
 
 extern char buf[];
+
+uint32_t Appli(uint32_t sc,...);
+
+#define APPLI_NEW		100
+#define APPLI_RUN		102

@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\sam\drivers\rtc\rtc.c
+
 src\ASF\sam\drivers\tc\tc.c
 
 src\ASF\sam\drivers\usart\usart.c
@@ -17,6 +19,8 @@ src\Kernel\shellcmd.c
 src\Kernel\shellcom.c
 
 src\Kernel\taskman.c
+
+src\Sources files\appli.c
 
 src\Sources files\main.c
 
