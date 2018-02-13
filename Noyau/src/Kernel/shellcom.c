@@ -46,6 +46,8 @@
  ////// Nicely shortcuts .............. ///////////////////////
  #define pTxWrite		shellcom.pTxWrite
  #define pTxRead		shellcom.pTxRead
+
+ void pin_edge_handler();
  
  uint32_t Shellcom(uint32_t sc , ...)
  {
@@ -56,6 +58,15 @@
 		//ON ATTIRBUT LES PARAMETRES DU NOYAU/////////////////////
 		pTxWrite = pTxRead = shellcomTxBuf;
 		/////////////////////////////////////////////////////////
+		//////////////////////////////////////INTERRUPT PIN/////////////////////////////
+		pmc_enable_periph_clk(ID_PIOA);
+		pio_set_output(PIOA, PIO_PA23, LOW, DISABLE, ENABLE);
+		pio_set_output(PIOA, PIO_PA24, LOW, DISABLE, ENABLE);
+		pio_set_input(PIOA, PIO_PA16, PIO_PULLUP);
+		pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_EDGE, pin_edge_handler);
+		pio_enable_interrupt(PIOA, PIO_PA16);
+		NVIC_EnableIRQ(PIOA_IRQn);
+		////////////////////////////////////////////////////////////////////////////////
 		//ON CONFIGURE LE PORT SERIE/////////////////////////////
 		sysclk_enable_peripheral_clock(USART_SERIAL_ID);
 		usart_init_rs232(USART_SERIAL, &usart_console_settings,	sysclk_get_cpu_hz());
@@ -65,7 +76,7 @@
 		NVIC_EnableIRQ(USART_SERIAL_ID);
 		usart_enable_tx(USART_SERIAL);
 		usart_enable_rx(USART_SERIAL);
-		/////////////////////////////////////////////////////////
+
 		ioport_init();
 
 		
@@ -107,7 +118,15 @@
 	break;
 
 	///////////Shellcom private services implementation /////////////////////////////
-	
+	case _SHELL_BUTTON:
+		 if (pio_get(PIOA, PIO_TYPE_PIO_INPUT, PIO_PA16))
+		 {
+			 pio_clear(PIOA, PIO_PA23);
+			 
+		 }
+		 
+		 else	pio_set(PIOA, PIO_PA23);
+		break;
 	////////////////// STALL APPLICATION IF NO CASE HIT /////////////////////////////
 	default:
 		Error(ERR_SHELLCOM_SWITCH_BAD_SC,sc);
@@ -118,7 +137,8 @@
 
 
  enum{
-	 _SHELL_KBHIT = 1
+	 _SHELL_KBHIT = 1,
+	 _SHELL_BUTTON = 2
  };
 
  
@@ -145,3 +165,14 @@
 		}
 	}
  }
+
+  int i = 0;
+  void pin_edge_handler()
+  {
+
+	  PushTask()
+	  i++;
+	  sprintf(buf,"%d\r\n", i);
+	  Putstr(buf);
+	  
+  }

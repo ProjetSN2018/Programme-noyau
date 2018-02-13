@@ -51,14 +51,76 @@ enum{
 	_SHELL_PROMPT
 }; 
 
+////////////////////RTC//////////////////////////////////////////////////////////////
+enum { JANUARY=0, 
+	FEBRUARY, 
+	MARCH, 
+	APRIL, 
+	MAY, 
+	JUNE, 
+	JULY, 
+	AUGUST, 
+	SEPTEMBER, 
+	OCTOBER, 
+	NOVEMBER, 
+	DECEMBER 
+};
+
+enum { SUNDAY=0, 
+	MONDAY, 
+	TUESDAY, 
+	WEDNESDAY, 
+	THURSDAY, 
+	FRIDAY, 
+	SATURDAY 
+};
+
+const uint8_t nbDaysInMonth[] ={31,28,31,30,31,30,31,31,30,31,30,31};
+
+const char* daysOfWeek[] ={
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday"
+};
+
+const char* months[] ={
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December"
+};
+
+const char* thhh[]={
+	"th",
+	"st",
+	"nd",
+	"rd"
+};
+
+
 uint8_t __RTCdayByDate(uint32_t date, uint32_t month, uint32_t centYear);
 bool	__RTCIsLeapYear(uint32_t centYear);
 bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hours);
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////
  uint32_t Shell(uint32_t sc, ...)
  {
 	 uint32_t u1;
+	 uint32_t u2;
 	 uint32_t hh;
 	 uint32_t mn;
 	 uint32_t sec;
@@ -72,6 +134,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 		state = IDLE;
 		
 		sysclk_enable_peripheral_clock(ID_RTC);
+		
 		rtc_set_hour_mode(RTC, 0);
 		rtc_set_time(RTC, 1, 2, 3);
 		//rtc_enable_interrupt(RTC,RTC_TIMR_SEC_Msk);
@@ -189,16 +252,19 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 	case _SHELL_PROMPT:
 		if(state==IDLE)
 		{
+			
 			rtc_get_time(RTC, &hh, &mn, &sec);
 			sprintf(buf, "\r\e[k\r%02d:%02d:%02d", hh, mn, sec);
-			Putstr(buf);
+			//Putstr(buf);
 #define yr	u1
 #define mm	hh
 #define dd	mn
 #define wk	sec
+#define day	u2
 			rtc_get_date(RTC, &yr, &mm, &dd, &wk);
-			sprintf(buf, "	%02d:%02d:%02d:%02d", yr, mm, dd, wk);
-			Putstr(buf);
+			day = __RTCdayByDate(dd, mm, yr/100);
+			sprintf(buf, "	%s %02d %s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
+			//Putstr(buf);
 #undef  yr
 #undef	mm
 #undef	dd
@@ -224,12 +290,24 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
   
  uint8_t __RTCdayByDate(uint32_t date, uint32_t month, uint32_t centYear)
  {
-	
+	uint8_t  D; //Day of the week
+#define y   centYear
+	//Mike Keith algorithme ----------------------------------------------------------------//
+	if(month>=3)
+	{
+		D = ( ((uint16_t)month*23)/9 + date + 4 + y + y/4 - y/100 + y/400 - 2 ) % 7 + 1;
+	}
+	else
+	{
+		D = ( ((uint16_t)month*23)/9 + date + 4 + y + (y-1)/4 - (y-1)/100 + (y-1)/400 ) % 7 + 1;
+	}
+#undef y
+	return D; //Normaly 1 to 7 !!!!
  }
 
  bool	__RTCIsLeapYear(uint32_t centYear)
  {
-
+	 return (((centYear%4==0)&&(centYear%100!=0)) || (centYear%400==0));
  }
 
  bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hours)
@@ -237,3 +315,4 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 
 
  }
+

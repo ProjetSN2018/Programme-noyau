@@ -44,6 +44,7 @@ void _cmd_set(uint32_t sc, void* pParam)
 			pToken = strtok(NULL, " : \r\n");
 			if(pToken) sec = atoi(pToken);
 			rtc_set_time(RTC, hh, mn, sec);
+			gpio_set_pin_high(PIO_PA16_IDX);
 #undef  hh
 #undef	mn
 #undef	sec
