@@ -137,9 +137,9 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 		
 		rtc_set_hour_mode(RTC, 0);
 		rtc_set_time(RTC, 1, 2, 3);
-		//rtc_enable_interrupt(RTC,RTC_TIMR_SEC_Msk);
+		rtc_enable_interrupt(RTC, RTC_IER_SECEN);
 		PushTask(Shell,_SHELL_HEARTBEAT,0,0);
-		PushTask(Shell,_SHELL_PROMPT,0,500);
+		//PushTask(Shell,_SHELL_PROMPT,0,500);
 		PushTask(Appli, APPLI_NEW, 0, 500);
 		break;
 
@@ -252,10 +252,9 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 	case _SHELL_PROMPT:
 		if(state==IDLE)
 		{
-			
 			rtc_get_time(RTC, &hh, &mn, &sec);
 			sprintf(buf, "\r\e[k\r%02d:%02d:%02d", hh, mn, sec);
-			//Putstr(buf);
+			Putstr(buf);
 #define yr	u1
 #define mm	hh
 #define dd	mn
@@ -264,7 +263,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 			rtc_get_date(RTC, &yr, &mm, &dd, &wk);
 			day = __RTCdayByDate(dd, mm, yr/100);
 			sprintf(buf, "	%s %02d %s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
-			//Putstr(buf);
+			Putstr(buf);
 #undef  yr
 #undef	mm
 #undef	dd
@@ -285,7 +284,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 
  void RTC_Handler(void )
  {
-	//PushTask(Shell,_SHELL_PROMPT,0,0);
+	PushTask(Shell,_SHELL_PROMPT,0,0);
  }
   
  uint8_t __RTCdayByDate(uint32_t date, uint32_t month, uint32_t centYear)

@@ -9,6 +9,7 @@
 #define SHELL_ESC_TIMEOUT		10
 #define SHELL_EDIT_TIMEOUT		0
 
+
 #define SHELLCOM_TXBUF_LEN		256
 
 uint32_t Shellcom(uint32_t sc, ...);
@@ -17,6 +18,7 @@ uint32_t Shellcom(uint32_t sc, ...);
 #define SHELLCOM_PUTC			102
 #define SHELLCOM_PUTSTR			103
 #define SHELLCOM_PUTSTRLEN		104
+#define SHELLCOM_BUTTON			105
 
 
 

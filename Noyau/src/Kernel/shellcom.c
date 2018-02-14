@@ -47,8 +47,17 @@
  #define pTxWrite		shellcom.pTxWrite
  #define pTxRead		shellcom.pTxRead
 
+
+ /////////////////////////////////INTERRUPT TEST//////////////
  void pin_edge_handler();
- 
+  const char* tabl[] = {
+	  ("\r\nBONJOUR,\r\n"),
+	  ("\r\ncomment\r\n"),
+	  ("\r\naller\r\n"),
+	  ("\r\nvous?\r\n")
+  };
+  int i = 0;
+
  uint32_t Shellcom(uint32_t sc , ...)
  {
 	switch(sc)
@@ -63,7 +72,7 @@
 		pio_set_output(PIOA, PIO_PA23, LOW, DISABLE, ENABLE);
 		pio_set_output(PIOA, PIO_PA24, LOW, DISABLE, ENABLE);
 		pio_set_input(PIOA, PIO_PA16, PIO_PULLUP);
-		pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_EDGE, pin_edge_handler);
+		pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_FALL_EDGE, pin_edge_handler);
 		pio_enable_interrupt(PIOA, PIO_PA16);
 		NVIC_EnableIRQ(PIOA_IRQn);
 		////////////////////////////////////////////////////////////////////////////////
@@ -118,14 +127,13 @@
 	break;
 
 	///////////Shellcom private services implementation /////////////////////////////
-	case _SHELL_BUTTON:
-		 if (pio_get(PIOA, PIO_TYPE_PIO_INPUT, PIO_PA16))
-		 {
-			 pio_clear(PIOA, PIO_PA23);
-			 
-		 }
+	case SHELLCOM_BUTTON:
+		 pio_toggle_pin(PIO_PA23_IDX);
+		 i++;
+		 if(i >=4) i =0;
+		 sprintf(buf, tabl[i]);
+		 Putstr(buf);
 		 
-		 else	pio_set(PIOA, PIO_PA23);
 		break;
 	////////////////// STALL APPLICATION IF NO CASE HIT /////////////////////////////
 	default:
@@ -138,7 +146,6 @@
 
  enum{
 	 _SHELL_KBHIT = 1,
-	 _SHELL_BUTTON = 2
  };
 
  
@@ -166,13 +173,8 @@
 	}
  }
 
-  int i = 0;
+  
   void pin_edge_handler()
-  {
-
-	  PushTask()
-	  i++;
-	  sprintf(buf,"%d\r\n", i);
-	  Putstr(buf);
-	  
+  { 
+	  PushTask(Shellcom,SHELLCOM_BUTTON,0,0); 
   }
