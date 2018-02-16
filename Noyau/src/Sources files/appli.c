@@ -26,6 +26,7 @@ uint32_t Appli(uint32_t sc,...)
 		if(k%2==0) gpio_set_pin_high(PIO_PC1_IDX);
 		else gpio_set_pin_low(PIO_PC1_IDX);
 		PushTask(Appli,APPLI_RUN,k,flashSequApp[k]);
+
 #undef k
 		break;
 

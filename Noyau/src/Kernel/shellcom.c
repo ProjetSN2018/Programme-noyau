@@ -48,15 +48,7 @@
  #define pTxRead		shellcom.pTxRead
 
 
- /////////////////////////////////INTERRUPT TEST//////////////
- void pin_edge_handler();
-  const char* tabl[] = {
-	  ("\r\nBONJOUR,\r\n"),
-	  ("\r\ncomment\r\n"),
-	  ("\r\naller\r\n"),
-	  ("\r\nvous?\r\n")
-  };
-  int i = 0;
+
 
  uint32_t Shellcom(uint32_t sc , ...)
  {
@@ -67,15 +59,7 @@
 		//ON ATTIRBUT LES PARAMETRES DU NOYAU/////////////////////
 		pTxWrite = pTxRead = shellcomTxBuf;
 		/////////////////////////////////////////////////////////
-		//////////////////////////////////////INTERRUPT PIN/////////////////////////////
-		pmc_enable_periph_clk(ID_PIOA);
-		pio_set_output(PIOA, PIO_PA23, LOW, DISABLE, ENABLE);
-		pio_set_output(PIOA, PIO_PA24, LOW, DISABLE, ENABLE);
-		pio_set_input(PIOA, PIO_PA16, PIO_PULLUP);
-		pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_FALL_EDGE, pin_edge_handler);
-		pio_enable_interrupt(PIOA, PIO_PA16);
-		NVIC_EnableIRQ(PIOA_IRQn);
-		////////////////////////////////////////////////////////////////////////////////
+		
 		//ON CONFIGURE LE PORT SERIE/////////////////////////////
 		sysclk_enable_peripheral_clock(USART_SERIAL_ID);
 		usart_init_rs232(USART_SERIAL, &usart_console_settings,	sysclk_get_cpu_hz());
@@ -128,11 +112,7 @@
 
 	///////////Shellcom private services implementation /////////////////////////////
 	case SHELLCOM_BUTTON:
-		 pio_toggle_pin(PIO_PA23_IDX);
-		 i++;
-		 if(i >=4) i =0;
-		 sprintf(buf, tabl[i]);
-		 Putstr(buf);
+		
 		 
 		break;
 	////////////////// STALL APPLICATION IF NO CASE HIT /////////////////////////////
@@ -174,7 +154,4 @@
  }
 
   
-  void pin_edge_handler()
-  { 
-	  PushTask(Shellcom,SHELLCOM_BUTTON,0,0); 
-  }
+ 

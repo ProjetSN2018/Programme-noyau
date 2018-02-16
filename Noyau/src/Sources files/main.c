@@ -46,7 +46,10 @@ int main (void)
 	//////////////////////////////////////////////////////////////////
 	
 	Taskman(TASKMAN_NEW);
-	Shell(SHELL_NEW);
+		
+	PushTask(Shell,SHELL_NEW, 0, 0);
+	PushTask(Menu, MENU_NEW,0 , 0);
+
 	Putstr("\r\n\n\tATMEL ATSAM3U STARTED\r\n\n");
 
 

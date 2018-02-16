@@ -130,7 +130,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 	case SHELL_NEW:
 		gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
 		gpio_set_pin_low(LED0_GPIO);
-		Shellcom(SHELLCOM_NEW);
+		PushTask(Shellcom,SHELLCOM_NEW, 0, 0);
 		state = IDLE;
 		
 		sysclk_enable_peripheral_clock(ID_RTC);
@@ -138,8 +138,9 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 		rtc_set_hour_mode(RTC, 0);
 		rtc_set_time(RTC, 1, 2, 3);
 		rtc_enable_interrupt(RTC, RTC_IER_SECEN);
+			
 		PushTask(Shell,_SHELL_HEARTBEAT,0,0);
-		//PushTask(Shell,_SHELL_PROMPT,0,500);
+		PushTask(Shell,_SHELL_PROMPT,0,500);
 		PushTask(Appli, APPLI_NEW, 0, 500);
 		break;
 

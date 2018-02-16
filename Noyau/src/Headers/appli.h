@@ -6,9 +6,12 @@
  */ 
 
 #include "./asf.h"
-
+#include <stdint.h>
 //FICHIER H NOYAU//////////////////////////////////////////////////
+
+
 #include "./Kernel/kernel.h"
+#include "menu.h"
 
 
 extern char buf[];
