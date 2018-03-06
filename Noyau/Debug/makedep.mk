@@ -6,6 +6,8 @@ src\ASF\sam\drivers\rtc\rtc.c
 
 src\Sources files\menu.c
 
+src\Sources files\sas.c
+
 src\ASF\sam\drivers\tc\tc.c
 
 src\ASF\sam\drivers\usart\usart.c

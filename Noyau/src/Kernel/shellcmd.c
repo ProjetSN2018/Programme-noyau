@@ -12,8 +12,9 @@
 
 
 const t_cmdEntry _cmdEntries[] ={
-	{ 0x6CAB, _cmd_set		},
-	{ 0xAAF6, _cmd_show		},
+	{ 0x6CAB, _cmd_set		},		//set	
+	{ 0xAAF6, _cmd_show		},		//show
+	{ 0x10E1, _cmd_menu },			//menu
 	
 
 	//////////////////LIST TERMINATOR ////////////////////////////
@@ -78,7 +79,7 @@ void _cmd_set(uint32_t sc, void* pParam)
 	}
 	
 
-
+	
 }
 
 void _cmd_show(uint32_t sc, void* pParam)
@@ -99,3 +100,31 @@ void _cmd_show(uint32_t sc, void* pParam)
 	//sprintf(buf, "Hello!!! \r\n");
 	//Putstr(buf);
  }
+
+ void _cmd_menu(uint32_t sc, void* pParam)
+ {
+	uint16_t crc;
+#define pToken sc
+	pToken = (uint32_t)strtok(pParam, " \r\n");
+	if(pToken)
+	{
+		crc = CRC16MODBUSFRAME((unsigned char*)pToken, strlen((char*)pToken));
+		switch(crc)
+		{
+		case 0x8B8B:			//switch
+			Menu(MENU_SWITCH_BUTTON);
+			break;
+		case 0x8862:			//select
+			Menu(MENU_SELECT_BUTTON);
+			break;	
+		default:
+			Error(ERR_SHELL_CMD_MENU_SWITCH_BAD_SC, sc);
+			break;		
+		}
+#undef pToken
+	}
+	
+
+ }
+
+ 

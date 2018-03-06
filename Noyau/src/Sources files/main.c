@@ -38,7 +38,7 @@ char buf[256];
 int main (void)
 {
 	/* Insert system clock initialization code here (sysclk_init()). */
-		
+
 	cpu_irq_disable();
 	sysclk_init();
 	board_init();
@@ -52,17 +52,17 @@ int main (void)
 
 	Putstr("\r\n\n\tATMEL ATSAM3U STARTED\r\n\n");
 
-
+	
 
 	//PushTask(Sablier, SABLIER_NEW, 0, 0);
 	//PushTask(Prompt, 0, 0, 800);
 	
 	cpu_irq_enable();
-
-
-
+	
 	for(;;)
 	{
+	
+
 		PopTask();
 	}
 }

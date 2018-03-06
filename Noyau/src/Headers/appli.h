@@ -12,6 +12,7 @@
 
 #include "./Kernel/kernel.h"
 #include "menu.h"
+#include "sas.h"
 
 
 extern char buf[];

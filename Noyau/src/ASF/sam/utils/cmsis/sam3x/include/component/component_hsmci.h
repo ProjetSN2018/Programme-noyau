@@ -220,7 +220,7 @@ typedef struct {
 #define HSMCI_SR_SDIOIRQforSlotB (0x1u << 9) /**< \brief (HSMCI_SR)  */
 #define HSMCI_SR_SDIOWAIT (0x1u << 12) /**< \brief (HSMCI_SR) SDIO Read Wait Operation Status */
 #define HSMCI_SR_CSRCV (0x1u << 13) /**< \brief (HSMCI_SR) CE-ATA Completion Signal Received */
-#define HSMCI_SR_RINDE (0x1u << 16) /**< \brief (HSMCI_SR) Response Index Error */
+#define HSMCI_SR_RINDE (0x1u << 16) /**< \brief (HSMCI_SR) Response menuParam.iIndice Error */
 #define HSMCI_SR_RDIRE (0x1u << 17) /**< \brief (HSMCI_SR) Response Direction Error */
 #define HSMCI_SR_RCRCE (0x1u << 18) /**< \brief (HSMCI_SR) Response CRC Error */
 #define HSMCI_SR_RENDE (0x1u << 19) /**< \brief (HSMCI_SR) Response End Bit Error */
@@ -247,7 +247,7 @@ typedef struct {
 #define HSMCI_IER_SDIOIRQforSlotB (0x1u << 9) /**< \brief (HSMCI_IER)  */
 #define HSMCI_IER_SDIOWAIT (0x1u << 12) /**< \brief (HSMCI_IER) SDIO Read Wait Operation Status Interrupt Enable */
 #define HSMCI_IER_CSRCV (0x1u << 13) /**< \brief (HSMCI_IER) Completion Signal Received Interrupt Enable */
-#define HSMCI_IER_RINDE (0x1u << 16) /**< \brief (HSMCI_IER) Response Index Error Interrupt Enable */
+#define HSMCI_IER_RINDE (0x1u << 16) /**< \brief (HSMCI_IER) Response menuParam.iIndice Error Interrupt Enable */
 #define HSMCI_IER_RDIRE (0x1u << 17) /**< \brief (HSMCI_IER) Response Direction Error Interrupt Enable */
 #define HSMCI_IER_RCRCE (0x1u << 18) /**< \brief (HSMCI_IER) Response CRC Error Interrupt Enable */
 #define HSMCI_IER_RENDE (0x1u << 19) /**< \brief (HSMCI_IER) Response End Bit Error Interrupt Enable */
@@ -274,7 +274,7 @@ typedef struct {
 #define HSMCI_IDR_SDIOIRQforSlotB (0x1u << 9) /**< \brief (HSMCI_IDR)  */
 #define HSMCI_IDR_SDIOWAIT (0x1u << 12) /**< \brief (HSMCI_IDR) SDIO Read Wait Operation Status Interrupt Disable */
 #define HSMCI_IDR_CSRCV (0x1u << 13) /**< \brief (HSMCI_IDR) Completion Signal received interrupt Disable */
-#define HSMCI_IDR_RINDE (0x1u << 16) /**< \brief (HSMCI_IDR) Response Index Error Interrupt Disable */
+#define HSMCI_IDR_RINDE (0x1u << 16) /**< \brief (HSMCI_IDR) Response menuParam.iIndice Error Interrupt Disable */
 #define HSMCI_IDR_RDIRE (0x1u << 17) /**< \brief (HSMCI_IDR) Response Direction Error Interrupt Disable */
 #define HSMCI_IDR_RCRCE (0x1u << 18) /**< \brief (HSMCI_IDR) Response CRC Error Interrupt Disable */
 #define HSMCI_IDR_RENDE (0x1u << 19) /**< \brief (HSMCI_IDR) Response End Bit Error Interrupt Disable */
@@ -301,7 +301,7 @@ typedef struct {
 #define HSMCI_IMR_SDIOIRQforSlotB (0x1u << 9) /**< \brief (HSMCI_IMR)  */
 #define HSMCI_IMR_SDIOWAIT (0x1u << 12) /**< \brief (HSMCI_IMR) SDIO Read Wait Operation Status Interrupt Mask */
 #define HSMCI_IMR_CSRCV (0x1u << 13) /**< \brief (HSMCI_IMR) Completion Signal Received Interrupt Mask */
-#define HSMCI_IMR_RINDE (0x1u << 16) /**< \brief (HSMCI_IMR) Response Index Error Interrupt Mask */
+#define HSMCI_IMR_RINDE (0x1u << 16) /**< \brief (HSMCI_IMR) Response menuParam.iIndice Error Interrupt Mask */
 #define HSMCI_IMR_RDIRE (0x1u << 17) /**< \brief (HSMCI_IMR) Response Direction Error Interrupt Mask */
 #define HSMCI_IMR_RCRCE (0x1u << 18) /**< \brief (HSMCI_IMR) Response CRC Error Interrupt Mask */
 #define HSMCI_IMR_RENDE (0x1u << 19) /**< \brief (HSMCI_IMR) Response End Bit Error Interrupt Mask */

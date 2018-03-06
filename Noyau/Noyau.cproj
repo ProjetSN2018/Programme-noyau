@@ -512,7 +512,13 @@
     <Compile Include="src\Headers\menu.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\Headers\sas.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\Sources files\menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Sources files\sas.c">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\sam\drivers\rtc\rtc.h">

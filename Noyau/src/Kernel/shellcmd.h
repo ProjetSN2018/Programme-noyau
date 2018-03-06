@@ -16,3 +16,5 @@ extern const t_cmdEntry _cmdEntries[];
 void _cmd_set(uint32_t sc, void* pParam);
 
 void _cmd_show(uint32_t sc, void* pParam);
+
+void _cmd_menu(uint32_t sc, void* pParam);
