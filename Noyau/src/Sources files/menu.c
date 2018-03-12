@@ -66,18 +66,19 @@ int Menu(int sc, ...)
 		break;
 	case MENU_SWITCH_BUTTON:
 		pio_toggle_pin(PIO_PA23_IDX);
-		menuParam.iIndexY = 0;
 		menuParam.iIndexX++;
 		
 		if(menuParam.iIndexX >=4) menuParam.iIndexX = 0;
+		if(menuParam.iIndexY >=2) menuParam.iIndexY = 0;
 		break;
 	case MENU_SELECT_BUTTON:
 		menuParam.iIndexY++;
-
 		break;
 	case MENU_PROMPT:
 		sprintf(buf, tabl[menuParam.iIndexX][menuParam.iIndexY]);
 		Putstr(buf);
+		//Lcd(LCD_CLEAR);
+		//LcdPutstr(buf, 2,0);
 		break;
 	default:
 		Error(ERR_MENU_SWITCH_BAD_SC, sc);

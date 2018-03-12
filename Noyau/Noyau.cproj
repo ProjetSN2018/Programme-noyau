@@ -515,6 +515,12 @@
     <Compile Include="src\Headers\sas.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\Kernel\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Kernel\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\Sources files\menu.c">
       <SubType>compile</SubType>
     </Compile>

@@ -4,6 +4,8 @@
 
 src\ASF\sam\drivers\rtc\rtc.c
 
+src\Kernel\LCD.c
+
 src\Sources files\menu.c
 
 src\Sources files\sas.c

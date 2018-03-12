@@ -13,6 +13,7 @@ typedef void (*t_ptf)(uint32_t, void*);
 #include "error.h"
 #include "taskman.h"
 #include "shell.h"
+#include "LCD.h"
 
 //Accès aux contenus des paramètres optionnels des fonctions
 #define pa1         (*(uint32_t*)(&sc+1))

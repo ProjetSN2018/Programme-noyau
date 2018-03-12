@@ -262,16 +262,17 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 #define day	u2
 			rtc_get_date(RTC, &yr, &mm, &dd, &wk);
 			day = __RTCdayByDate(dd, mm, yr/100);
-			sprintf(buf,"\r%s %02d %s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
+			sprintf(buf,"%.3s %02d %.3s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
 			Putstr(buf);
+			LcdPutstr(buf, 0, 2);
 #undef  yr
 #undef	mm
 #undef	dd
 #undef	wk
 			rtc_get_time(RTC, &hh, &mn, &sec);
-			sprintf(buf, "	%02d:%02d:%02d ", hh, mn, sec);
+			sprintf(buf, "%02d:%02d:%02d ", hh, mn, sec);
 			Putstr(buf);
-
+			LcdPutstr(buf, 1, 5);
 			Menu(MENU_PROMPT);
 		}
 		PushTask(Shell,_SHELL_PROMPT,0,300);
