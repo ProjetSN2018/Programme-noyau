@@ -4,6 +4,7 @@
  * Created: 07/02/2018 17:28:59
  *  Author: Mod_loc
  */ 
+ #define TEST_ADDRESS_INT (IFLASH_ADDR + IFLASH_SIZE- IFLASH_PAGE_SIZE*8)
 
 typedef struct tt_cmdEntry {
 	uint16_t	cmdCode;

@@ -17,9 +17,7 @@ uint32_t Appli(uint32_t sc,...)
 	{
 	case APPLI_NEW:
 		gpio_configure_pin(PIO_PC1_IDX, (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT));
-		gpio_configure_pin(PIO_PC2_IDX, (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT));
 		Lcd(LCD_NEW);
-		
 		PushTask(Appli, APPLI_RUN, 0, 800);
 		break;
 	case APPLI_RUN:

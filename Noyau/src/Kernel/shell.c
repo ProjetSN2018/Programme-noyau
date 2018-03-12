@@ -24,13 +24,16 @@ typedef enum {
 	ED_ESCAPE_SEQ
 } t_state;
 
+
  struct{
-	t_state		state;
-	uint32_t	nStatus;
-	char*		pEdit;
-	uint32_t	nbChar;
-	uint16_t	crc;
+	 t_state		state;
+	 uint32_t	nStatus;
+	 char*		pEdit;
+	 uint32_t	nbChar;
+	 uint16_t	crc;
+	 int		iIndex;
  }shell;
+
 
 const uint32_t flashSequ[]={
 	50,500,50,1200,0
@@ -136,13 +139,21 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 		sysclk_enable_peripheral_clock(ID_RTC);
 		
 		rtc_set_hour_mode(RTC, 0);
-		rtc_set_time(RTC, 1, 2, 3);
+		uint32_t data_read[4];
+		if(nvm_read(INT_FLASH, TEST_ADDRESS_INT, (void *)data_read, sizeof(data_read))
+		== STATUS_OK)	rtc_set_date(RTC, data_read[0], data_read[1], data_read[2], data_read[3]);
+
+		uint32_t data_read1[3];
+		if(nvm_read(INT_FLASH, TEST_ADDRESS_INT + shell.iIndex, (void *)data_read1, sizeof(data_read1))
+		== STATUS_OK)	rtc_set_time(RTC, data_read1[0], data_read1[1], data_read1[2]);
 		rtc_enable_interrupt(RTC, RTC_IER_SECEN);
 			
 		PushTask(Shell,_SHELL_HEARTBEAT,0,0);
 		PushTask(Shell,_SHELL_PROMPT,0,500);
 		PushTask(Appli, APPLI_NEW, 0, 500);
+
 		
+
 		break;
 
 	////Private services implementation ///////////////////////////////
@@ -265,6 +276,10 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 			sprintf(buf,"%.3s %02d %.3s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
 			Putstr(buf);
 			LcdPutstr(buf, 0, 2);
+			uint32_t bufferDate[] = {yr, mm, dd, wk};
+			if(nvm_write(INT_FLASH, TEST_ADDRESS_INT, (void *)bufferDate, sizeof(bufferDate)) ==
+			STATUS_OK);//		sprintf(buf, "SAVE OK\r\n");
+			shell.iIndex = sizeof(bufferDate);
 #undef  yr
 #undef	mm
 #undef	dd
@@ -273,6 +288,9 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 			sprintf(buf, "%02d:%02d:%02d ", hh, mn, sec);
 			Putstr(buf);
 			LcdPutstr(buf, 1, 5);
+			uint32_t bufferTime[] = {hh, mn, sec};
+			if(nvm_write(INT_FLASH, TEST_ADDRESS_INT + sizeof(bufferDate), (void *)bufferTime, sizeof(bufferTime)) ==
+			STATUS_OK);//		sprintf(buf, "SAVE OK\r\n");
 			Menu(MENU_PROMPT);
 		}
 		PushTask(Shell,_SHELL_PROMPT,0,300);
@@ -286,6 +304,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 
 	return 0;
  }
+ 
 
 
  void RTC_Handler(void )

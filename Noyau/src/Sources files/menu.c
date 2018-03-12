@@ -8,7 +8,7 @@
 /////////////////////////////////INTERRUPT TEST//////////////
 void ButtonSwitch_ISR_Handler(void);
 void ButtonSelect_ISR_Handler(void);
-const char* tabl[4][4];
+const char* tabl[INT_MENU_MAX][INT_SUB_MENU_MAX];
 
 
 
@@ -16,6 +16,7 @@ const char* tabl[4][4];
 struct { 
 	int iIndexX;
 	int iIndexY;
+	int IndexMenu;
 }menuParam;
  
 
@@ -47,17 +48,16 @@ int Menu(int sc, ...)
 		menuParam.iIndexY = 0;
 		//////////////////////////////////////INTERRUPT PIN/////////////////////////////
 		pmc_enable_periph_clk(ID_PIOA);
-		pio_set_output(PIOA, PIO_PA23, LOW, DISABLE, ENABLE);
+		pio_set_output(PIOA, PIN_LED, LOW, DISABLE, ENABLE);
 		
 		
+		pio_set_input(PIOA, PIN_BUTTON_SELECT, PIO_PULLUP);
+		pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SELECT, PIO_IT_FALL_EDGE, ButtonSelect_ISR_Handler);
+		pio_enable_interrupt(PIOA, PIN_BUTTON_SELECT);
 		
-		pio_set_input(PIOA, PIO_PA24, PIO_PULLUP);
-		pio_handler_set(PIOA, ID_PIOA, PIO_PA24, PIO_IT_FALL_EDGE, ButtonSelect_ISR_Handler);
-		pio_enable_interrupt(PIOA, PIO_PA24);
-		
-		pio_set_input(PIOA, PIO_PA16, PIO_PULLUP);
-		pio_handler_set(PIOA, ID_PIOA, PIO_PA16, PIO_IT_FALL_EDGE, ButtonSwitch_ISR_Handler);
-		pio_enable_interrupt(PIOA, PIO_PA16);
+		pio_set_input(PIOA, PIN_BUTTON_SWITCH, PIO_PULLUP);
+		pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SWITCH, PIO_IT_FALL_EDGE, ButtonSwitch_ISR_Handler);
+		pio_enable_interrupt(PIOA, PIN_BUTTON_SWITCH);
 		
 		
 		NVIC_EnableIRQ(PIOA_IRQn);
@@ -65,11 +65,11 @@ int Menu(int sc, ...)
 		////////////////////////////////////////////////////////////////////////////////
 		break;
 	case MENU_SWITCH_BUTTON:
-		pio_toggle_pin(PIO_PA23_IDX);
+		pio_toggle_pin(PIN_LED_IDX);
 		menuParam.iIndexX++;
 		
-		if(menuParam.iIndexX >=4) menuParam.iIndexX = 0;
-		if(menuParam.iIndexY >=2) menuParam.iIndexY = 0;
+		if(menuParam.iIndexX >=INT_MENU_MAX) menuParam.iIndexX = 0;
+		if(menuParam.iIndexY >=INDEX_MENU) menuParam.iIndexY = 0;
 		break;
 	case MENU_SELECT_BUTTON:
 		menuParam.iIndexY++;

@@ -69,12 +69,8 @@
 		NVIC_EnableIRQ(USART_SERIAL_ID);
 		usart_enable_tx(USART_SERIAL);
 		usart_enable_rx(USART_SERIAL);
-
 		ioport_init();
 
-		
-
-		
 		break;
 	case SHELLCOM_PUTC:
 #define _ch ((char)pa1)
@@ -110,11 +106,6 @@
 #undef _len
 	break;
 
-	///////////Shellcom private services implementation /////////////////////////////
-	case SHELLCOM_BUTTON:
-		
-		 
-		break;
 	////////////////// STALL APPLICATION IF NO CASE HIT /////////////////////////////
 	default:
 		Error(ERR_SHELLCOM_SWITCH_BAD_SC,sc);

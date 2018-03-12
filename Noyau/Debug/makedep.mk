@@ -2,7 +2,13 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+src\ASF\common\drivers\nvm\sam\sam_nvm.c
+
+src\ASF\sam\drivers\efc\efc.c
+
 src\ASF\sam\drivers\rtc\rtc.c
+
+src\ASF\sam\services\flash_efc\flash_efc.c
 
 src\Kernel\LCD.c
 
