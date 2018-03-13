@@ -139,13 +139,21 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 		sysclk_enable_peripheral_clock(ID_RTC);
 		
 		rtc_set_hour_mode(RTC, 0);
-		uint32_t data_read[4];
+		/////////////////////////////////FLASH MEMORY////////////////////////////////////////////////////////
+		//EITHER KNOW THE RIGHT SAVE ORDER IN THE BUFFER MEMORY//////////////////////////////////////////////
+		//OR READ FROM DE RIGHT ADRESS/////////////////////////////////////////////////////////////////////
+		uint32_t data_read[7];
 		if(nvm_read(INT_FLASH, TEST_ADDRESS_INT, (void *)data_read, sizeof(data_read))
-		== STATUS_OK)	rtc_set_date(RTC, data_read[0], data_read[1], data_read[2], data_read[3]);
-
-		uint32_t data_read1[3];
-		if(nvm_read(INT_FLASH, TEST_ADDRESS_INT + shell.iIndex, (void *)data_read1, sizeof(data_read1))
-		== STATUS_OK)	rtc_set_time(RTC, data_read1[0], data_read1[1], data_read1[2]);
+		== STATUS_OK)	
+		{
+			rtc_set_date(RTC, data_read[0], data_read[1], data_read[2], data_read[3]);
+			rtc_set_time(RTC, data_read[4], data_read[5], data_read[6]);
+		}
+		else
+		{
+			rtc_set_date(RTC, 0000, 0, 0, 0);
+			rtc_set_time(RTC, 0, 0, 0);
+		}
 		rtc_enable_interrupt(RTC, RTC_IER_SECEN);
 			
 		PushTask(Shell,_SHELL_HEARTBEAT,0,0);

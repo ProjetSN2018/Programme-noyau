@@ -22,11 +22,12 @@ const t_cmdEntry _cmdEntries[] ={
 };
 
 
-uint32_t u1, u2, u3, u4;
 
 void _cmd_set(uint32_t sc, void* pParam)
 {
 	uint16_t crc;
+	uint32_t u1, u2, u3, u4;
+
 #define pToken sc
 	pToken = (uint32_t)strtok(pParam, " \r\n");
 	if(pToken)
@@ -78,9 +79,6 @@ void _cmd_set(uint32_t sc, void* pParam)
 		}		
 #undef pToken
 	}
-	
-
-	
 }
 
 void _cmd_show(uint32_t sc, void* pParam)
@@ -97,26 +95,6 @@ void _cmd_show(uint32_t sc, void* pParam)
 	ioport_set_pin_level(PIN_LED_IDX,1);
 	Putstr(buf);
 
-	}
-	//sprintf(buf, "Hello!!! \r\n");
-	//Putstr(buf);
-	uint32_t data_read[4];
-	//if(nvm_init(INT_FLASH) == STATUS_OK);
-	if(nvm_read(INT_FLASH, TEST_ADDRESS_INT, (void *)data_read, sizeof(data_read))
-	== STATUS_OK) {
-		//Check read content
-		if(data_read[0] == 0xAA)
-		{
-			sprintf(buf, "NO DATA FOUND\r\n");
-			Putstr(buf);
-			LcdPutstr(buf, 2, 0);
-		}
-		else
-		{
-			sprintf(buf, "%d/%d/%d/%d\r\n",data_read[0], data_read[1], data_read[2], data_read[3]);
-			Putstr(buf);
-			LcdPutstr(buf, 2, 0);
-		}
 	}
  }
 
