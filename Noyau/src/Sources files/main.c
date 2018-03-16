@@ -49,6 +49,12 @@ int main (void)
 	PushTask(Shell,SHELL_NEW, 0, 0);
 	PushTask(Menu, MENU_NEW,0 , 0);
 	Putstr("\r\n\n\tATMEL ATSAM3U STARTED\r\n\n");
+<<<<<<< Updated upstream
+=======
+
+
+	
+>>>>>>> Stashed changes
 	cpu_irq_enable();
 	
 	for(;;)

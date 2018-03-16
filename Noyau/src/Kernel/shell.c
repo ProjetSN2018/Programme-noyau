@@ -14,15 +14,7 @@
  char shellBuf[SHELL_EDIT_BUFFER_LEN];
  char shellEscSeq[SHELL_ESCSEQ_BUFFER_LEN];
  
-typedef enum { 
-	IDLE = 0, 
-	EDITION, 
-	EXECUTION, 
-	ESCAPE, 
-	ESCAPE_SEQ,
-	ED_ESCAPE,
-	ED_ESCAPE_SEQ
-} t_state;
+
 
 
  struct{
@@ -282,7 +274,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 			rtc_get_date(RTC, &yr, &mm, &dd, &wk);
 			day = __RTCdayByDate(dd, mm, yr/100);
 			sprintf(buf,"%.3s %02d %.3s %02d", daysOfWeek[day - 3], dd, months[mm-1], yr);
-			Putstr(buf);
+			//Putstr(buf);
 			LcdPutstr(buf, 0, 2);
 			uint32_t bufferDate[] = {yr, mm, dd, wk};
 			if(nvm_write(INT_FLASH, TEST_ADDRESS_INT, (void *)bufferDate, sizeof(bufferDate)) ==
@@ -294,11 +286,18 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 #undef	wk
 			rtc_get_time(RTC, &hh, &mn, &sec);
 			sprintf(buf, "%02d:%02d:%02d ", hh, mn, sec);
-			Putstr(buf);
+			//Putstr(buf);
 			LcdPutstr(buf, 1, 5);
+<<<<<<< Updated upstream
 			uint32_t bufferTime[] = {hh, mn, sec};
 			if(nvm_write(INT_FLASH, TEST_ADDRESS_INT + sizeof(bufferDate), (void *)bufferTime, sizeof(bufferTime)) ==
 			STATUS_OK);//		sprintf(buf, "SAVE OK\r\n");
+=======
+			
+		}
+		if(state == SWITCH)
+		{
+>>>>>>> Stashed changes
 			Menu(MENU_PROMPT);
 		}
 		PushTask(Shell,_SHELL_PROMPT,0,300);
@@ -348,3 +347,13 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 
  }
 
+ void ShellSetState(t_state setState)
+ {
+	state = setState;
+
+ }
+
+ t_state ShellGetState(void)
+ {
+	return state;
+ }

@@ -15,6 +15,7 @@
  #define MENU_NEW				100
  #define MENU_SWITCH_BUTTON		101
  #define MENU_SELECT_BUTTON		102
+<<<<<<< Updated upstream
  #define MENU_SELECTED			103
  #define MENU_PROMPT			104
 
@@ -25,5 +26,16 @@
 
 
  
+=======
+ #define MENU_CLEAR_BUTTON		103
+ #define MENU_SELECTED			104
+ #define MENU_PROMPT			105
+ #define MENU_LANGUAGE			106
+
+ typedef struct tt_menuEntry {
+	 char*				pStrTable;
+	 const char*		pTable;
+ }t_menuEntry;
+>>>>>>> Stashed changes
 
  int Menu(int sc, ...);

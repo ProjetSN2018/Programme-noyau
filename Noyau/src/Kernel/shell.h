@@ -11,10 +11,21 @@
 #define CONFIG_RTC_PRESCALER			RTC_PRESCALER_DIV1024_gc
 #define	CONFIG_RTC_SOURCE				SYSCLK_RTCSRC_ULP
 
-
+typedef enum {
+	IDLE = 0,
+	EDITION,
+	EXECUTION,
+	ESCAPE,
+	ESCAPE_SEQ,
+	ED_ESCAPE,
+	ED_ESCAPE_SEQ,
+	SWITCH
+} t_state;
 
 
 uint32_t Shell(uint32_t sc, ...);
+void ShellSetState(t_state setState);
+t_state ShellGetState(void);
 
 #define SHELL_NEW			100
 

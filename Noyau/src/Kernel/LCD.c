@@ -1,18 +1,9 @@
-/*
- * LCD.c
- *
- * Created: 12/02/2018 17:20:12
- *  Author: Mod_loc
- */ 
-
 #include "./Headers/appli.h"
 
 /////LCD PRIVATE SERVICES CODES ///////////////////////////////////////////
 enum{
 	_LCD_PUT_DATA=1,
 	_LCD_NYBBLE,
-	_LCD_NOCHK,
-	_LCD_ONCE,
 	_LCD_CURSOR_HOME,
 	_LCD_COMMAND,
 	_LCD_WRITE_DATA,
@@ -21,9 +12,7 @@ enum{
 
 #define _LcdPutData(data)			Lcd(_LCD_PUT_DATA,(uint32_t)data)
 #define _LcdNybble()				Lcd(_LCD_NYBBLE)
-#define _LcdNochk()					Lcd(_LCD_NOCHK)
-#define _LcdOnce()					Lcd(_LCD_ONCE)
-#define _LcdCursorHome()			Lcd(_LCD_CURSOR_HOME)		
+#define _LcdCursorHome()			Lcd(_LCD_CURSOR_HOME)	
 #define _LcdCommand(cmd)			Lcd(_LCD_COMMAND,(uint32_t)cmd)
 #define _LcdWriteData(data)			Lcd(_LCD_WRITE_DATA,(uint32_t)data)
 #define _LcdSetCursor(nline,nCol)	Lcd(_LCD_SET_RAM_ADDRESS, (uint32_t)nline,(uint32_t)nCol)
@@ -51,14 +40,9 @@ const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 #undef _line
 #undef _col
 		break;
-	case LCD_CLEAR:
-		LcdPutstr(" ",0,0);
-		LcdPutstr(" ",1,0);
-		LcdPutstr(" ",2,0);
-		LcdPutstr(" ",3,0);
-		break;
+	
 	case LCD_NEW:
-		Putstr("lcd new \r\n");
+		Putstr("LCD NEW \r\n");
 		gpio_configure_pin(LCD_DATA4, LCD_PIN_FLAGS);
 		gpio_configure_pin(LCD_DATA5, LCD_PIN_FLAGS);
 		gpio_configure_pin(LCD_DATA6, LCD_PIN_FLAGS);
@@ -72,9 +56,6 @@ const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 		gpio_set_pin_low(LCD_DATA7);
 		gpio_set_pin_low(LCD_RS);
 		gpio_set_pin_low(LCD_E);
-		//_LcdNybble();
-		//_LcdNybble();
-		//delay_ms(100);
 		
 		delay_ms(100);			// SEQUENCE DISPLAY HAVEN
 		//_LcdPutData(0x20);		//pas la valeur 0x30 !!!!!
@@ -86,74 +67,12 @@ const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 		//delay_ms(10);
 		//_LcdPutData(0x20);
 		//_LcdNybble();
-		_LcdCommand(0x20);		 //Function Set
-		_LcdCommand(0x10);		 //Cursor or display shift
-		_LcdCommand(0x0E);		 //Display On/Off
-		_LcdCommand(0x06);		 //Entry Mode
-		_LcdCommand(0x01);		 //Clear Display
+		_LcdCommand(LCD_FUNCTION_SET);   //Function Set
+		_LcdCommand(LCD_CURSOR_SHIFT);	 //Cursor or display shift
+		_LcdCommand(0x0E);			     //Display On/Off
+		_LcdCommand(LCD_ENTRY_MODE_SET); //Entry Mode
+		_LcdCommand(LCD_CLEAR_DISPLAY);  //Clear Display
 
-		//delay_ms(100);			// SEQUENCE DISPLAY HAVEN
-		//_LcdPutData(0x20);		//pas la valeur 0x30 !!!!!
-		//_LcdNybble();
-		//delay_ms(10);
-		//_LcdNybble();
-		//delay_ms(10);
-		//_LcdNybble();
-		//delay_ms(10);
-		//_LcdPutData(0x20);
-		//_LcdNybble();
-		//_LcdCommand(0x28);
-		//_LcdCommand(0x10);
-		//_LcdCommand(0x0F);
-		//_LcdCommand(0x06);
-
-
-		////////////// SEQUENCE DISPLAYTECH /////
-		//delay_ms(40);	
-		//_LcdPutData(0x30);
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x20);
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x80);		//NF 0x80
-		//_LcdNybble();
-		//delay_ms(1);
-		//////
-		//_LcdPutData(0x80);
-		//_LcdNybble();
-		//delay_ms(10);
-//////////////////////////
-		//_LcdPutData(0x20);		//NF 0x80
-		//_LcdNybble();
-		//delay_ms(10);
-/////////////////////////
-		//_LcdPutData(0x00);
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0xF0);		//DCB
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x00);
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x10);		//DISPLAY CLEAR
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x00);
-		//_LcdNybble();
-		//delay_ms(1);
-////
-		//_LcdPutData(0x70);		//ENTRY MODE SET
-		//_LcdNybble();
-		//delay_ms(1);
-//
 		break;
 
 	//////// Private Services Implementation //////////////////////////////////////
@@ -205,6 +124,10 @@ const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 		gpio_set_pin_low(LCD_RS);
 
 		break;
+	case LCD_CLEAR:
+		_LcdCommand(LCD_CLEAR_DISPLAY);
+		delay_ms(1000);
+		break;
 
 	case _LCD_SET_RAM_ADDRESS:
 #define _nLine	(pa1)
@@ -213,7 +136,6 @@ const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 #undef _nLine
 #undef _nCol
 		break;
-
 
 	default:
 		Error(ERR_LCD_SWITCH_BAD_SC, sc);
