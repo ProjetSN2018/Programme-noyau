@@ -9,6 +9,4 @@
  #define SAS_FERMER_PORTE1		21
  #define SAS_FERMER_PORTE2		22
 
- int Sas(int sc, ...);
- extern const t_menu _menu[];
- extern const t_menu _menuOptionSas[];
+ uint32_t Sas(uint32_t sc, ...);

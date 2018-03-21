@@ -17,13 +17,9 @@
  #define PIN_BUTTON_SWITCH		PIO_PA10
  #define PIN_BUTTON_SELECT		PIO_PA9
  #define PIN_BUTTON_CLEAR		PIO_PA8
- typedef struct tt_menu {
-	 char*				pMenuStr;
-	 int	pSubMenu;
-	 t_pFunc				pMenuFunc;
- }t_menu;
 
- int Menu(int sc, ...);
+
+ uint32_t Menu(uint32_t sc, ...);
 
  #define NB_MENU		3
  #define NB_SUB_MENU	3

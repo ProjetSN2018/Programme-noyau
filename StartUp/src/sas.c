@@ -6,7 +6,7 @@
 #include "./kernel/kernel.h"
 #include <string.h>
 
-int Sas(int sc, ...)
+uint32_t Sas(uint32_t sc, ...)
 {
 	switch(sc)
 	{
@@ -29,5 +29,5 @@ int Sas(int sc, ...)
 		Error(ERROR_SAS_SWITCH_BAD_SC, sc);
 		break;
 	}
-
+	return 0;
 }

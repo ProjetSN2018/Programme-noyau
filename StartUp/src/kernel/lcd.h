@@ -7,9 +7,10 @@
 
 
 
+#define LCD_USE_8_BIT_INTERFACE
+
 
 uint32_t Lcd(uint32_t sc,...);
-uint8_t	LcdFindHalf(uint32_t len);
 
 #define LCD_NEW				100
 #define LCD_DEL				101
@@ -24,3 +25,5 @@ uint8_t	LcdFindHalf(uint32_t len);
 
 
 #define LCD_BUSY_TRY		20
+
+uint8_t	LcdFindHalf(uint32_t len);
