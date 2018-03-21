@@ -123,7 +123,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 	switch(sc)
 	{
 	case SHELL_NEW:
-		gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
+		gpio_configure_pin(LED0_GPIO, LED0_FLAGS);///////!!!!!!!!!!!!!!!!!!!!///////////////////////////
 		gpio_set_pin_low(LED0_GPIO);
 		PushTask(Shellcom,SHELLCOM_NEW, 0, 0);
 		state = IDLE;
@@ -346,6 +346,7 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
 
 
  }
+<<<<<<< Updated upstream
 
  void ShellSetState(t_state setState)
  {
@@ -357,3 +358,5 @@ bool __RTCIsSummerTime(uint32_t day, uint32_t date, uint32_t month, uint32_t hou
  {
 	return state;
  }
+=======
+>>>>>>> Stashed changes

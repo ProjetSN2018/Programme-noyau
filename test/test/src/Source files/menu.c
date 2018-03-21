@@ -102,14 +102,14 @@
 		 PushTask(Menu, MENU_PROMPT,0,0);
 		 break;
 		 case MENU_CLEAR_BUTTON:			//Quand press bouton Droite
-		 Lcd(LCD_CLEAR);
+		
 		 PushTask(Menu, MENU_PROMPT,0,0);
 		 break;
 		 case MENU_PROMPT:					//Disp a faire
 		 sprintf(buf, tab1[menuParam.iIndexX][menuParam.iIndexY]);
 		 
 		 Putstr(buf);
-		 Lcd(LCD_CLEAR);
+		
 		 LcdPutstr(buf, 3,0);
 		 break;
 

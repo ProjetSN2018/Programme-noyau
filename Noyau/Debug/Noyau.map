@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/lib/thumb/v7-m\libc.a(lib_a-atoi.o)
@@ -11429,5 +11428,3 @@ usart_stop_tx_break                               src/ASF/sam/drivers/usart/usar
 usart_write                                       src/ASF/sam/drivers/usart/usart.o
 usart_write_line                                  src/ASF/sam/drivers/usart/usart.o
 wCRCTable                                         src/Kernel/CRC16MODBUS.o
-=======
->>>>>>> Stashed changes

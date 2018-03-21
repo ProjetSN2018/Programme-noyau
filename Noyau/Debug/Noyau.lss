@@ -3242,7 +3242,7 @@ unsigned int CRC16MODBUSFRAME (unsigned char *nData, unsigned int wLength)
    80ccc:	f000 81c2 	beq.w	81054 <Shell+0x39c>
    80cd0:	2964      	cmp	r1, #100	; 0x64
    80cd2:	f040 8235 	bne.w	81140 <Shell+0x488>
-		gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
+		gpio_configure_pin(LED0_GPIO, LED0_FLAGS);///////!!!!!!!!!!!!!!!!!!!!///////////////////////////
    80cd6:	f04f 5160 	mov.w	r1, #939524096	; 0x38000000
    80cda:	203b      	movs	r0, #59	; 0x3b
    80cdc:	4bad      	ldr	r3, [pc, #692]	; (80f94 <Shell+0x2dc>)

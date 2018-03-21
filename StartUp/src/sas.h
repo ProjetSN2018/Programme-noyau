@@ -1,0 +1,14 @@
+/*
+ * sas.h
+ *
+ * Created: 19/03/2018 15:06:46
+ *  Author: eleve
+ */ 
+
+ #define SAS_FERMER_SAS			10
+ #define SAS_FERMER_PORTE1		21
+ #define SAS_FERMER_PORTE2		22
+
+ int Sas(int sc, ...);
+ extern const t_menu _menu[];
+ extern const t_menu _menuOptionSas[];
