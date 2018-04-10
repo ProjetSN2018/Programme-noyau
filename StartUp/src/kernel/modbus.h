@@ -9,17 +9,11 @@
 
 #define MODBUS_SYNCRONIZATION_TOKEN		0x1000
 
-
-
-
-
 uint32_t Modbus(uint32_t sc,...);
 
 #define MODBUS_NEW								100
 #define MODBUS_WRITE_MULTIPLE_REGISTERS			102
 #define	MODBUS_WRITE_SINGLE_COIL				103
-
-
 
 #define ModbusNew(moduleAddr)		Modbus(MODBUS_NEW,(uint32_t)moduleAddr)
 
@@ -31,10 +25,3 @@ uint32_t Modbus(uint32_t sc,...);
 
 #define WriteSingleCoilAck(functionCode, outputAddr, outputValue)\
 		Modbus(_MODBUS_COMMAND_ACKNOWNLEDGING_WRITE_SINGLE_COIL, (uint32_t)functionCode, (uint32_t)outputAddr, (uint32_t)outputValue)
-
-
-
-
-
-
-

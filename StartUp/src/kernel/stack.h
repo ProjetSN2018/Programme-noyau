@@ -5,7 +5,6 @@
  *  Author: Thierry
  */
 
-
 typedef struct tt_stack{
 	char		*sp;
 	char		*org;

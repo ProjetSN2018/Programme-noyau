@@ -113,7 +113,6 @@ uint32_t Modbus(uint32_t sc,...)
 			Putstr(buf);
 			if(IsAckReq())
 			{
-
 				sc=rs485_GetBufPtr();
 				switch(_pModbusRxFramePtr->functionCode)
 				{
@@ -241,8 +240,6 @@ uint32_t Modbus(uint32_t sc,...)
 		Putstr("\r\n\nWRITE SINGLE COIL ACK!!\r\n");
 		rs485_Send(modbus.frameLen = MODBUS_WRITE_SINGLE_COIL_FRAME_LEN, 0);
 		break;
-
-	
 		
 #undef _pModbusRxFramePtr;
 		break;
@@ -258,8 +255,5 @@ uint32_t Modbus(uint32_t sc,...)
 	default:
 		Error(ERROR_MODBUS_SWITCH_BAD_SC,sc);
 	}
-
-
 	return 0;
 }
-

@@ -8,8 +8,6 @@
 
 #include "kernel.h"
 
-
-
 extern char buf[];
 void Error(uint32_t sc, ...)
 {

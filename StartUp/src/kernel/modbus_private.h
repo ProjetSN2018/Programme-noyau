@@ -36,14 +36,12 @@ struct{
 	uint16_t	startAddr;
 	uint16_t	regQty;
 	uint16_t	frameLen;
-
 }modbus;
 
 #define	ST_MODULE_IS_MASTER		0x01
 #define IsMaster()		mIsBitsSet(modbus.status,ST_MODULE_IS_MASTER)
 #define ST_FRAME_ACK_REQ		0x02
 #define IsAckReq()		mIsBitsSet(modbus.status, ST_FRAME_ACK_REQ)
-
 
 /// MODBUS PRIVATE SERVICE CODES //////////////////////////////////////////////
 enum{
@@ -54,7 +52,6 @@ enum{
 	_MODBUS_COMMAND_ACKNOWNLEDGING_WRITE_SINGLE_COIL,
 	_MODBUS_COMMAND_ACKNOWNLEDGING_WRITE_MULTIPLE_REGISTER,
 };
-
 
 typedef struct  __attribute__ ((packed)) tt_modbusFrame{
 	uint8_t		moduleAddr;
@@ -85,5 +82,3 @@ typedef struct  __attribute__ ((packed)) tt_modbusFrame{
 		};
 	};
 }t_modbusFrame;
-
-

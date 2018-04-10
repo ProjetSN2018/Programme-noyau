@@ -21,8 +21,7 @@
 		_stack->sp = _org;
 		_stack->elemSize = _elemSize;
 		_stack->status = STACK_SIGNATURE; 
-		
-	
+			
 		break;
 #undef _org
 #undef _size
@@ -64,8 +63,7 @@
 #undef _stack
 
 	default:
-		Error(ERROR_STACK_SWITCH_BAD_SC, sc);
-		
+		Error(ERROR_STACK_SWITCH_BAD_SC, sc);	
 	}
 	return 0;
  }

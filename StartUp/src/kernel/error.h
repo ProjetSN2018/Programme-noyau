@@ -4,8 +4,6 @@
  * Created: 10/03/2018 07:26:29
  *  Author: Thierry
  */
-
-
 void Error(uint32_t er, ...);
 
 #define ERROR_TASKMAN_SWITCH_BAD_SC						11
@@ -27,17 +25,14 @@ void Error(uint32_t er, ...);
 #define ERROR_STACK_PUSH_OVERFLOW						28
 #define ERROR_STACK_POP_UNDERFLOW						29
 
-
 #define ERROR_STACK_SWITCH_BAD_SC						31	
 #define ERROR_COMRS485_SWITCH_BAD_SC					32
 #define ERROR_MODBUS_SWITCH_BAD_SC						33
 #define ERROR_COMRS485_TX_BUFFER_FULL					34
 #define ERROR_COMRS485_RX_BUFFER_FULL					35
 
-
 #define ERROR_SHELL_TIMER_ESC_BAD_SATE					41
 
-
-#define ERROR_STACK_NOT_INIT						51
-#define ERROR_STACK_PUSH_FULL						52
-#define ERROR_STACK_UNDERFLOW						53
+#define ERROR_STACK_NOT_INIT							51
+#define ERROR_STACK_PUSH_FULL							52
+#define ERROR_STACK_UNDERFLOW							53

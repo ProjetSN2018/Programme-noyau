@@ -32,7 +32,6 @@ struct {
 	uint16_t	nChar;
 	uint8_t		nbTries;
 	uint16_t	frameLen;
-
 }comRS485;
 
 #define COMRS485_BUFFER_GUARD	2
@@ -54,7 +53,6 @@ enum{
 };
 
 #define _rs485_Flush()					ComRS485(_COMRS485_FLUSH)
-
 
 uint32_t ComRS485(uint32_t sc, ...)
 {
@@ -178,11 +176,8 @@ uint32_t ComRS485(uint32_t sc, ...)
 	default:
 		Error(ERROR_COMRS485_SWITCH_BAD_SC, sc);
 	}
-
-
 	return 0;
 }
-
 
 void COMRS485_Handler()
 {
