@@ -9,9 +9,9 @@
 //
 //      void MyCommandFunc(uint32_t sc, void*pParam);
 
-extern char buf[];
 
 void set(uint32_t sc, void*pParam);
 void start(uint32_t sc, void*pParam);
 void stop(uint32_t sc, void*pParam);
+void send(uint32_t sc, void*pParam);
 

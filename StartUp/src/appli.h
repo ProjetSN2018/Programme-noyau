@@ -2,13 +2,27 @@
  * appli.h
  *
  * Created: 10/03/2018 06:59:40
- *  Author: Thierry
+ *  Author: Damien
  */
 
+#include "module.h"
+#ifdef MASTER
+#define MODULE_ADDR						0
+#define WELCOME_MSG						"\r\n\n\t*______________ CPU.ACX-ATSAM3U4CA-AU ______MASTER_____*\r\n\n"
+#else
+#define MODULE_ADDR						MODBUS_PUPITRE_ADDRESS
+#define WELCOME_MSG						"\r\n\n\t*______________ CPU.ACX-ATSAM3U4CA-AU ______SLAVE_____*\r\n\n"
 
+#endif	
 #include <asf.h>
 #include ".\kernel\kernel.h"
+#include "menu.h"
 
+#define SW1_PUSHBUTTON					(PIO_PB22_IDX)
+#define SW2_PUSHBUTTON					(PIO_PB23_IDX)
+#define SW3_PUSHBUTTON					(PIO_PB24_IDX)
+#define SWS_PUSHBUTTON_FLAGS			(PIO_TYPE_PIO_INPUT | PIO_PULLUP)
+#define SWS_PUSHBUTTON_ACTIVE_LEVEL		0
 
 #define BLUETOOTH_PWR					(PIO_PB21_IDX)
 #define BLUETOOTH_FLAGS					(PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
@@ -105,7 +119,7 @@
 uint32_t Appli(uint32_t sc, ...);
 
 #define APPLI_NEW					100
-
+#define APPLI_RS485					102
 
 
 

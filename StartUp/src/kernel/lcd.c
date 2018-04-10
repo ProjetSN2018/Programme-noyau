@@ -152,6 +152,17 @@ uint32_t Lcd(uint32_t sc, ...)
 		return (uint32_t)(mIsBitsSet(lcd.status,ST_LCD_ON));
 		//no break;
 
+	case LCD_PUTCH:
+#define _ch			pa1
+#define _line		pa2
+#define _col		pa3
+		_LcdSetCursor(_line,_col);
+		_LcdWriteData(_ch);
+#undef _ch
+#undef _line
+#undef _col
+break;
+
 	case LCD_PUTSTR:
 #define _str		pa1
 #define _line		pa2

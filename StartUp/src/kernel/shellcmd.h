@@ -17,7 +17,7 @@ void _cmd_show(uint32_t sc, void*pParam);
 void _cmd_hide(uint32_t sc, void*pParam);
 void _cmd_restart(uint32_t sc, void*pParam);
 void _cmd_infos(uint32_t sc, void*pParam);
-void _cmd_menu(uint32_t sc, void*pParam);
+
 
 extern const t_command_entry cmdEntries[];
 ///////////////////////////////////////////////////////////////////////////////////////////

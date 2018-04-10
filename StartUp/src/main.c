@@ -7,6 +7,7 @@
  */
 #include "appli.h"
 #include <stdio.h>
+#include "menu.h"
 
 char buf[256];
 
@@ -20,6 +21,7 @@ int main (void)
 	//osc_enable(OSC_MAINCK_XTAL);
 	/* Insert system clock initialization code here (sysclk_init()). */
 	cpu_irq_disable();
+	//rstc_enable_user_reset(RSTC);
 	wdt_disable(WDT);
 	sysclk_init();
 	board_init();

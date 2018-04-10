@@ -3,9 +3,12 @@
  *
  * Created: 14/03/2018 08:20:14
  *  Author: Thierry
- */ 
+ */
 
 #include "appli.h"
+
+
+
 
 
 uint32_t Appli(uint32_t sc, ...)
@@ -18,10 +21,10 @@ uint32_t Appli(uint32_t sc, ...)
 		gpio_configure_pin(CMD_RELAIS,			CMD_RELAIS_FLAGS);
 		gpio_configure_pin(CMD_RELAIS_1,		CMD_RELAIS_1_FLAGS);
 		gpio_configure_pin(CMD_RELAIS_2,		CMD_RELAIS_2_FLAGS);
-		
+
 		pmc_enable_periph_clk(ID_PIOA);
 		pmc_enable_periph_clk(ID_PIOB);
-		
+
 		gpio_configure_pin(PENE_OUVERT,			PENE_OUVERT_FLAGS);
 		gpio_configure_pin(PENE_FERME,			PENE_FERME_FLAGS);
 		gpio_configure_pin(IN_ILS,				IN_ILS_FLAGS);
@@ -32,12 +35,39 @@ uint32_t Appli(uint32_t sc, ...)
 		gpio_configure_pin(IN_DVU_GENERAL,		IN_DVU_GENERAL_FLAGS);
 		gpio_configure_pin(IN_ENTREE_LIBRE,		IN_ENTREE_OPTION_FLAGS);
 		gpio_configure_pin(IN_ENTREE_OPTION,	IN_ENTREE_OPTION_FLAGS);
-		
-		Putstr("\r\n\n\t*______________ CPU.ACX-ATSAM3U4CA-AU ______________*\r\n\n");
+
+
+		gpio_configure_pin(SW1_PUSHBUTTON,		SWS_PUSHBUTTON_FLAGS);
+		gpio_configure_pin(SW2_PUSHBUTTON,		SWS_PUSHBUTTON_FLAGS);
+		gpio_configure_pin(SW2_PUSHBUTTON,		SWS_PUSHBUTTON_FLAGS);
+
+		Putstr(WELCOME_MSG);
 		LcdPutstr("CPU.ACX  ATSAM3U4C",2,1);
-		LcdPutstr("www.a-2-s.net",3,4);
-		
+
+		Menu(MENU_NEW);
+		ComRS485(COMRS485_NEW);
+		ModbusNew(MODULE_ADDR);
+		//PushTask(Appli,APPLI_RS485,'A',1000);
 		break;
+
+	case APPLI_RS485:
+//#ifdef MASTER
+//#define _ch	pa1
+		////Putstr("  RS485 Putch("); Putch(_ch); Putch(')');
+		//rs485_Putch(_ch);
+		//LcdPutch(_ch,3,0);
+		//_ch++; if(_ch>'z') _ch='A';
+		//PushTask(Appli,APPLI_RS485,_ch,1000);
+//#undef _ch
+//#else
+//#define _ch	sc
+		//if((_ch=rs485_Getch())!=-1) LcdPutch(_ch,3,0);
+		//PushTask(Appli,APPLI_RS485,0,500);
+//#undef _ch
+//#endif
+		break;
+
+
 	default:
 		Error(ERROR_APPLI_SWITCH_BAD_SC,sc);
 	}

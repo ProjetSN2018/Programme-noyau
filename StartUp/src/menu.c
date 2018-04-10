@@ -1,8 +1,9 @@
 #include <string.h>
 
-#include "./kernel/kernel.h"
 
+#include "appli.h"
 
+#include "./kernel/modbus_private.h"
 ///////////////////////////////ON CREE LE MENU!!!//////////////////////////////////////////
 
  typedef struct tt_menu {
@@ -57,11 +58,11 @@ void ButtonSelect_ISR_Handler(void);
 void ButtonClear_ISR_Handler(void);
 
 struct {
-	int		iIndexMenu;
+	int				iIndexMenu;
 	const t_menu	*pCurrentMenu;
-}menu;
+}menuElem,menus[MENU_DEPTH_VALUE];
 
-
+t_stack menuStack;
 
 
 uint32_t Menu(uint32_t sc, ...)
@@ -69,7 +70,7 @@ uint32_t Menu(uint32_t sc, ...)
 	switch(sc)
 	{
 		case MENU_NEW:
-			Putstr("MENU_NEW\r");
+			Putstr("\r\nMENU_NEW\r\n");
 
 			//Init ButtonSwitch
 			pio_set_input(PIOA, PIN_BUTTON_SWITCH, PIO_PULLUP); //A0 (Bouton Gauche)
@@ -87,47 +88,51 @@ uint32_t Menu(uint32_t sc, ...)
 			NVIC_EnableIRQ(PIOA_IRQn);
 			
 			
-			
+			stackNew(&menuStack, menus, MENU_DEPTH_VALUE, MENU_ELEM_SIZE);
 
-			sprintf(buf, "MENU NEW FINISHED \r\n");
-			Putstr(buf);
-			menu.iIndexMenu = 0;
-			menu.pCurrentMenu = _mainMenu;
+			menuElem.iIndexMenu = 0;
+			menuElem.pCurrentMenu = _mainMenu;
 			break;
 		case MENU_SWITCH_BUTTON:			//Quand press bouton Gauche
-			menu.iIndexMenu++;
-			if(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel == NULL) menu.iIndexMenu = 0;
+			WriteSingleCoil(0x18, 0x01, 0x01);
+			//WriteMultipleRegisters(0x20, READ_COIL, 0, 0);
+			menuElem.iIndexMenu++;
+			//gpio_toggle_pin(CMD_MOSFET);
+			//gpio_toggle_pin(CMD_MOT_SERRURE);
+			//WriteMultipleRegisters(1, READ_COILS, 6, "Hello there!");
+			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel == NULL) menuElem.iIndexMenu = 0;
 			Menu(MENU_PROMPT);
 			break;
 		case MENU_SELECT_BUTTON:			//Quand press bouton Milieu
-			if(menu.pCurrentMenu[menu.iIndexMenu].pMenuFunc)
+			WriteSingleCoil(0x20, 0x01, 0x01);
+			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuFunc)
 			{
-				menu.pCurrentMenu[menu.iIndexMenu].pMenuFunc(0);
+				menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuFunc(0);
 			}
-			else if(menu.pCurrentMenu[menu.iIndexMenu].pSubMenu)
+			else if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pSubMenu)
 			{
-				menu.pCurrentMenu = menu.pCurrentMenu[menu.iIndexMenu].pSubMenu;
-				menu.iIndexMenu = 0;
+				stackPush(&menuStack, &menuElem);
+				menuElem.pCurrentMenu = menuElem.pCurrentMenu[menuElem.iIndexMenu].pSubMenu;
+				menuElem.iIndexMenu = 0;
 				Menu(MENU_PROMPT);
 			}
 			break;
 		case MENU_CLEAR_BUTTON:			//Quand press bouton Droite
-			if(menu.pCurrentMenu[menu.iIndexMenu].pParentMenu)
+			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pParentMenu)
 			{
-				menu.pCurrentMenu = menu.pCurrentMenu[menu.iIndexMenu].pParentMenu;
-				menu.iIndexMenu = 0;
+				stackPop(&menuStack, &menuElem);
 				Menu(MENU_PROMPT);
 			}
+	
+			WriteSingleCoil(0x16, 0x01, 0x01);
 			
 			break;
 		case MENU_PROMPT:
 			LcdPutstr("                    ", 2, 0);
-			Putstr(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel);
-			LcdPutstr(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel,2,LcdFindHalf(strlen(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel)));
+			LcdPutstr((menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel),2,LcdFindHalf(strlen(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel)));
 			break;
 		case MENU_INIT:
-		
-		
+
 			break;
 		default:
 			Error(ERROR_MENU_SWITCH_BAD_SC, sc);

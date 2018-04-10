@@ -164,11 +164,16 @@ enum{
 	_SHELL_TIMER = 3
 };
 
+enum{
+	_COMRS485_TIMER = 1
+};
+
 void TC0_Handler(void)
 {
 	tc_get_status(TC, TC_CHANNEL_WAVEFORM);
 	Taskman(_TASKMAN_DELAYED_TASK_PROC);
 	Shell(_SHELL_TIMER);
+	ComRS485(_COMRS485_TIMER);
 }
 
 

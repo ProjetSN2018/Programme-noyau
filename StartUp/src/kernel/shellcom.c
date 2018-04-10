@@ -54,8 +54,7 @@ const sam_uart_opt_t uart_opt={
 #define UART_RX_PIN					(PIO_PA11_IDX)
 #define UART_RX_PIN_FLAGS			(PIO_TYPE_PIO_PERIPH_A | PIO_PULLUP)
 
-
-
+extern const char hexDigits[];
 char shellcomTxBuf[SHELLCOM_TXBUF_LEN];
 
 struct{
@@ -122,6 +121,25 @@ uint32_t Shellcom(uint32_t sc, ...)
 #undef _strLen
 #undef _nChar
 		//no break;
+
+	case SHELLCOM_PUTHEXACODE:
+#define _pStr	pa1
+#define _strLen	pa2
+#define _nChar	sc
+		_nChar=0;
+		while(_strLen)
+		{
+			Putch(hexDigits[(*(char*)_pStr)>>4]);
+			Putch(hexDigits[(*(char*)_pStr)&0x0F]);
+			Putch(' ');
+			 _pStr++; _strLen--; _nChar++;
+		}
+		return _nChar;
+#undef _pStr
+#undef _strLen
+#undef _nChar
+		//no break;
+
 
 	/////// INVALID SC CODE TRAP ERROR /////////////////////////////////////////////////////////////////
 	default:

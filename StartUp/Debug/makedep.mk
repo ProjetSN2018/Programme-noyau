@@ -6,9 +6,15 @@ src\appli.c
 
 src\ASF\sam\drivers\chipid\chipid.c
 
-src\menu.c
+src\ASF\sam\drivers\usart\usart.c
 
-src\sas.c
+src\kernel\comRS485.c
+
+src\kernel\modbus.c
+
+src\kernel\stack.c
+
+src\menu.c
 
 src\ASF\sam\drivers\pio\pio_handler.c
 

@@ -10,11 +10,15 @@
 
 
 
-
+extern char buf[];
 void Error(uint32_t sc, ...)
 {
 	uint32_t i,k;
 #define er sc
+#define exEr	pa1
+	sprintf(buf, "\r\n\t*****ERROR:%d\tSC:%d*****\r\n", (int)er, (int)exEr);
+	Putstr(buf);
+	delay_ms(1000);
 	cpu_irq_disable();
 	gpio_configure_pin(ERROR_LED, ERROR_LED_FLAGS);
 	//gpio_configure_pin(HEART_LED, HEART_LED_FLAGS);

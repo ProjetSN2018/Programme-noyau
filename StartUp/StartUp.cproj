@@ -24,8 +24,8 @@
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
     <OverrideVtorValue>exception_table</OverrideVtorValue>
-    <BootSegment>1</BootSegment>
-    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data>
         <options>
@@ -37,13 +37,14 @@
           <option id="sam.drivers.chipid" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.pio" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.pmc" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.drivers.pwm" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.rstc" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.rtc" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.tc.appnote" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.uart" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.drivers.wdt" value="Add" config="" content-id="Atmel.ASF" />
-          <option id="sam.drivers.pwm" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="sam.drivers.usart" value="Add" config="" content-id="Atmel.ASF" />
           <option id="sam.utils.linker_scripts#atsam3u4" value="Add" config="" content-id="Atmel.ASF" />
         </options>
         <configurations>
@@ -197,6 +198,8 @@
           <file path="src/ASF/sam/drivers/rstc/example1/rstc_example1.h" framework="" version="3.34.1" source="sam\drivers\rstc\example1\rstc_example1.h" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/sam/drivers/pwm/pwm.c" framework="" version="3.34.1" source="sam\drivers\pwm\pwm.c" changed="False" content-id="Atmel.ASF" />
           <file path="src/ASF/sam/drivers/pwm/pwm.h" framework="" version="3.34.1" source="sam\drivers\pwm\pwm.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/usart/usart.c" framework="" version="3.34.1" source="sam\drivers\usart\usart.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/sam/drivers/usart/usart.h" framework="" version="3.34.1" source="sam\drivers\usart\usart.h" changed="False" content-id="Atmel.ASF" />
         </files>
         <documentation help="http://asf.atmel.com/docs/3.34.1/common.applications.user_application.user_board.sam3u/html/index.html" />
         <offline-documentation help="" />
@@ -225,14 +228,13 @@
           </JtagDaisyChainDevices>
           <SwdClock>2000000</SwdClock>
         </InterfaceProperties>
-        <InterfaceName>JTAG</InterfaceName>
+        <InterfaceName>SWD</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
       <ToolNumber>J41800079464</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
-    <avrtoolinterface>
-    </avrtoolinterface>
+    <avrtoolinterface>SWD</avrtoolinterface>
     <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
     <ResetRule>0</ResetRule>
     <EraseKey />
@@ -282,6 +284,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -330,6 +333,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM3=true -DBOARD=USER_BOARD -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
@@ -361,6 +365,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -411,6 +416,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -460,6 +466,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -492,6 +499,7 @@
       <Value>../src/ASF/sam/drivers/rstc/example1</Value>
       <Value>../src/ASF/sam/drivers/rstc</Value>
       <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -527,6 +535,7 @@
     <Folder Include="src\ASF\sam\drivers\tc\" />
     <Folder Include="src\ASF\sam\drivers\tc\tc_capture_waveform_example\" />
     <Folder Include="src\ASF\sam\drivers\uart\" />
+    <Folder Include="src\ASF\sam\drivers\usart\" />
     <Folder Include="src\ASF\sam\drivers\wdt\" />
     <Folder Include="src\ASF\sam\utils\" />
     <Folder Include="src\ASF\sam\utils\cmsis\" />
@@ -565,16 +574,40 @@
     <Compile Include="src\ASF\sam\drivers\chipid\chipid.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\sam\drivers\usart\usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\module.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\usart\usart.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\kernel\comRS485.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\comRS485.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\modbus.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\modbus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\modbus_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\stack.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\kernel\stack.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\menu.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\menu.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\sas.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\sas.h">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\sam\drivers\chipid\chipid.h">
