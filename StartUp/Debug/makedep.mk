@@ -8,6 +8,10 @@ src\ASF\sam\drivers\chipid\chipid.c
 
 src\ASF\sam\drivers\usart\usart.c
 
+src\sas.c
+
+src\timerCallMap.c
+
 src\kernel\comRS485.c
 
 src\kernel\modbus.c

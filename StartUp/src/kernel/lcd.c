@@ -10,7 +10,6 @@
 
 #define LCD_PIN_IN_FLAGS			(PIO_TYPE_PIO_INPUT | PIO_DEFAULT)
 
-
 #define LCD_DB4						(PIO_PA0_IDX)
 #define LCD_DB4_NAME				"LCD_DB4"
 
@@ -50,7 +49,6 @@
 
 #endif
 
-
 ///LCD PRIVATE SERVICE CODES////////////////////////////////////////
 enum{
 	_LCD_WRITE_BYTE = 1,
@@ -68,6 +66,7 @@ enum{
 #define _LcdWriteByte(inst)			Lcd(_LCD_WRITE_BYTE,(uint32_t)inst)
 #define _LcdWriteInst(inst)			Lcd(_LCD_WRITE_INST,(uint32_t)inst)
 #define _LcdWriteData(data)			Lcd(_LCD_WRITE_DATA,(uint32_t)data)
+#define _LcdFindCenter(len)			Lcd(_LCD_FIND_CENTER,(uint32_t)len)
 #define _LcdEstrobe()				Lcd(_LCD_E_STROBE)
 #define _LcdEup()					Lcd(_LCD_E_UP)
 #define _LcdEdown()					Lcd(_LCD_E_DOWN)
@@ -75,7 +74,6 @@ enum{
 #define _LcdIsBusy()				Lcd(_LCD_IS_BUSY)
 #define _LcdSetDataLineOut()		Lcd(_LCD_SET_DATA_LINE_OUT)
 #define _LcdSetDataLineIn()			Lcd(_LCD_SET_DATA_LINE_IN)
-
 
 const char line2addr[]={ 0x00, 0x40, 0x14, 0x54 };
 char buf[16];
@@ -86,9 +84,10 @@ struct {
 
 #define ST_LCD_ON		0x0000001
 
-
 uint32_t Lcd(uint32_t sc, ...)
 {
+	float col;
+
 	switch(sc)
 	{
 	case LCD_NEW:
@@ -234,6 +233,17 @@ break;
 #undef _data
 		break;
 
+	case LCD_FIND_CENTER:
+
+#define _len (unsigned)pa1
+
+	col = 20 - _len;
+	col = col/2;
+	return col;
+
+#undef _len
+	break;
+
 	case _LCD_E_STROBE:
 		delay_us(500);
 		gpio_set_pin_high(LCD_E);
@@ -261,8 +271,7 @@ break;
 #undef _nLine
 #undef _nCol
 		break;
-
-
+		
 	case _LCD_IS_BUSY:
 		break;
 #define _lcdStatus	sc

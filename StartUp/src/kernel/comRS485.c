@@ -119,10 +119,8 @@ uint32_t ComRS485(uint32_t sc, ...)
 	case _COMRS485_TIMER:
 		if(comRS485.timer)
 		{
-			
 			if(--comRS485.timer==0)
 			{	//RECEIVED COMPLETE FRAME//////////////////////////////////////////////////////////////////
-				
 				switch(comRS485.state)
 				{
 				case M_WAIT_END_ACK_FRAME:
@@ -213,7 +211,6 @@ void COMRS485_Handler()
 			break;
 		}
 
-
 #else //SLAVE ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		switch(comRS485.state)
 		{
@@ -243,7 +240,6 @@ void COMRS485_Handler()
 #endif	//MASTER
 	}
 
-	
 	if((mIsBitsSet(COMRS485_USART->US_IMR,US_IMR_TXRDY))&&(dw_status & US_CSR_TXRDY))
 	{
 		if(comRS485.pRead!=comRS485.pWrite)

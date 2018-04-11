@@ -14,8 +14,6 @@ char buf[256];
 void Sablier(uint32_t sc,...);
 #define SABLIER_NEW			100
 
-
-
 int main (void)
 {
 	//osc_enable(OSC_MAINCK_XTAL);
@@ -33,9 +31,6 @@ int main (void)
 	PushTask(Appli,APPLI_NEW,0,0);
 	KernelRun();
 }
-
-
-
 
 void Sablier(uint32_t sc,...)
 {

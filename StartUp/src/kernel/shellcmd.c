@@ -4,7 +4,6 @@
  * Created: 11/03/2018 01:27:13
  *  Author: Thierry
  */
-
 #include "kernel.h"
 #include "CRC16MODBUS.h"
 #include "utils.h"
@@ -27,7 +26,6 @@ const t_command_entry cmdEntries[]={
 	//----------------------//
 	{0x0000, NULL       }
 };
-
 
 #define ST_SHELL_SHOW_UNKNOW_CRC		0x000002
 #define ST_SHELL_PROMPT_DISABLED        0x000004
@@ -131,7 +129,6 @@ void _cmd_set(uint32_t sc, void*pParam)
 	}
 }
 
-
 void _cmd_restart_proc(uint32_t sc, uint32_t timeout);
 
 void _cmd_restart_proc(uint32_t sc, uint32_t timeout)
@@ -150,7 +147,6 @@ void _cmd_restart_proc(uint32_t sc, uint32_t timeout)
 		PushTask(_cmd_restart_proc,sc,--timeout,1000);	
 	}
 }
-
 
 void _cmd_restart(uint32_t sc, void*pParam)
 {

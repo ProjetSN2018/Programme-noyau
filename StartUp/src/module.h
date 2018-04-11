@@ -6,4 +6,4 @@
  */ 
 
 #define MASTER
- #define MODBUS_PUPITRE_ADDRESS			(0x20)
+#define MODBUS_PUPITRE_ADDRESS			(0x20)

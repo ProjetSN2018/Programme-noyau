@@ -41,12 +41,10 @@ static void TCWaveformInitialize(void);
 #define TC_WAVEFORM_FREQUENCY			1000
 #define TC_WAVEFORM_DUTY_CYCLE			30
 
-
 ///////// PRIVATE SERVICES CODES //////////////////////////////////////////
 enum{
 	_TASKMAN_DELAYED_TASK_PROC	= 1
 };
-
 
 uint32_t Taskman(uint32_t sc, ...)
 {
@@ -129,7 +127,6 @@ uint32_t Taskman(uint32_t sc, ...)
 		cpu_irq_leave_critical();
 		break;
 
-
 	////////// PRIVATE SERVICES IMPLEMENTATION ///////////////////////////////////////////
 	case _TASKMAN_DELAYED_TASK_PROC:
 #define k sc
@@ -158,7 +155,6 @@ uint32_t Taskman(uint32_t sc, ...)
 	return 0;
 }
 
-
 /////////////////////////////////////////// TIMER TICK ISR HANDLER ////////////////////////////////////////////////////
 enum{
 	_SHELL_TIMER = 3
@@ -175,7 +171,6 @@ void TC0_Handler(void)
 	Shell(_SHELL_TIMER);
 	ComRS485(_COMRS485_TIMER);
 }
-
 
 /////////////////////////////////////////// TIMER TICK INITIALIZER ////////////////////////////////////////////////////
 static void TCWaveformInitialize(void)

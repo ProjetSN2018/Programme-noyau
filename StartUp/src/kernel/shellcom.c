@@ -22,8 +22,6 @@
 //#define USART_SERIAL_RXD_IDX			PIN_USART0_RXD_IDX
 //#define USART_SERIAL_RXD_FLAGS			PIN_USART0_RXD_FLAGS
 
-
-
 enum{
 	PAR_EVEN = 0,
 	PAR_ODD,
@@ -62,10 +60,8 @@ struct{
 	char	*pTxRead;
 }shellcom;
 
-
 uint32_t Shellcom(uint32_t sc, ...)
 {
-
 	switch(sc)
 	{
 	case SHELLCOM_NEW:
@@ -139,13 +135,10 @@ uint32_t Shellcom(uint32_t sc, ...)
 #undef _strLen
 #undef _nChar
 		//no break;
-
-
 	/////// INVALID SC CODE TRAP ERROR /////////////////////////////////////////////////////////////////
 	default:
 		Error(ERROR_SHELLCOM_SWITCH_BAD_SC, (uint32_t)sc);
 	}
-
 	return 0;
 }
 
@@ -176,5 +169,3 @@ void UART_Handler()
 		PushTask(Shell,_SHELL_KBHIT,UART->UART_RHR,0);
 	}
 }
-
-

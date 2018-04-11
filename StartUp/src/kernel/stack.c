@@ -4,7 +4,6 @@
  * Created: 23/03/2018 13:02:31
  *  Author: eleve
  */ 
-
  #include "kernel.h"
  #define STACK_SIGNATURE		0xabcd
  uint32_t Stack(uint32_t sc, ...)
@@ -21,8 +20,8 @@
 		_stack->sp = _org;
 		_stack->elemSize = _elemSize;
 		_stack->status = STACK_SIGNATURE; 
-			
 		break;
+
 #undef _org
 #undef _size
 #undef _elemSize
@@ -39,8 +38,8 @@
 			_stack->sp[_k] = ((char*)_elem)[_k];
 		}
 		_stack->sp+=_stack->elemSize;
-		
 		break;
+
 	case STACK_POP:
 
 		if(_stack->status != STACK_SIGNATURE) Error(ERROR_STACK_NOT_INIT, sc);
@@ -51,8 +50,8 @@
 		{
 			((char*)_elem)[_k] = _stack->sp[_k];
 		}
-	
 		break;
+
 #undef _k
 #undef _elem
 
@@ -60,10 +59,11 @@
 		if(_stack->status != STACK_SIGNATURE) Error(ERROR_STACK_NOT_INIT, sc);
 		_stack->sp = _stack->org;
 		break;
+
 #undef _stack
 
 	default:
 		Error(ERROR_STACK_SWITCH_BAD_SC, sc);	
 	}
 	return 0;
- }
+}

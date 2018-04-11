@@ -4,7 +4,6 @@
  * Created: 10/03/2018 06:59:40
  *  Author: Damien
  */
-
 #include "module.h"
 #ifdef MASTER
 #define MODULE_ADDR						0
@@ -16,7 +15,10 @@
 #endif	
 #include <asf.h>
 #include ".\kernel\kernel.h"
+#include "timerCallMap.h"
 #include "menu.h"
+
+#define BUTTON_NO_ACTIVITY_TIMEOUT		5000
 
 #define SW1_PUSHBUTTON					(PIO_PB22_IDX)
 #define SW2_PUSHBUTTON					(PIO_PB23_IDX)
@@ -63,8 +65,7 @@
 #define CMD_RELAIS_2_ACTIVE_LEVEL		1
 #define CMD_RELAIS_2_NAME				"CMD RELAIS 2"
 
-
-
+////////////////////////////////////////////////////////////////////////////////
 
 #define PENE_OUVERT						(PIO_PA14_IDX)
 #define PENE_OUVERT_FLAGS				(PIO_TYPE_PIO_INPUT | PIO_PULLUP)
@@ -118,8 +119,8 @@
 
 uint32_t Appli(uint32_t sc, ...);
 
-#define APPLI_NEW					100
-#define APPLI_RS485					102
+#define APPLI_NEW						100
+#define APPLI_RS485						102
+#define APPLI_SET_BUTTON_TIMEOUT		103
 
-
-
+#define SetButtonTimeout()				Appli(APPLI_SET_BUTTON_TIMEOUT)

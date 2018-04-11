@@ -4,8 +4,6 @@
  * Created: 10/03/2018 07:26:19
  *  Author: Thierry
  */ 
-
-
 #include "kernel.h"
 
 extern char buf[];
@@ -110,7 +108,6 @@ void Error(uint32_t sc, ...)
 				delay_ms(200);
 			}
 		}
-		
 		delay_ms(1000);
 
 #undef _param

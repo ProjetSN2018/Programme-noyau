@@ -4,7 +4,6 @@
  * Created: 10/03/2018 11:09:26
  *  Author: Thierry
  */
-
 #include "kernel.h"
 #include "CRC16MODBUS.h"
 #include "utils.h"
@@ -29,7 +28,6 @@ const char separators[]=" .;:/\\\t\r\n";
 const char hexDigits[]="0123456789ABCDEF";
 const uint32_t heartBeatRhythm[]={ 40,254,40,1352,0 };
 const char restartTimeOut[]="3";
-
 
 char shellEditBuf[SHELL_EDITBUF_LEN+1];
 char shellEscapeBuf[SHELL_ESCSEQBUF_LEN];
@@ -94,8 +92,6 @@ uint32_t Shell(uint32_t sc, ...)
 		PushTask(Shell,_SHELL_HEART_BEAT,-1,0);
 		PushTask(Shell,_SHELL_PROMPT,0,0);
 		break;
-
-
 
 	////////// PRIVATE SERVICES IMPLEMENTATION //////////////////////////////////////////////////////////
 	case _SHELL_HEART_BEAT:
@@ -179,6 +175,7 @@ uint32_t Shell(uint32_t sc, ...)
 				shell.nEscChar++;
 				shell.crc=CRC16MODBUSbyte(_kbhitchar,shell.crc);
 			break;
+
 		case EDITION:
 			shell.editTimer=SHELL_EDIT_TIMEOUT;
 			switch(_kbhitchar)
@@ -192,6 +189,7 @@ uint32_t Shell(uint32_t sc, ...)
 				shell.crc=CRC16MODBUSbyte('\e',0xFFFF);
 				shell.state=ED_ESCAPE;
 				break;
+
 			case '\t':	//tabulation
 			{
 				const char ctrl_right_arrow[]="\e[1;5C";
@@ -201,6 +199,7 @@ uint32_t Shell(uint32_t sc, ...)
 				shell.escapeTimer=1;	//Ask a ESC SEQUENCE timeout : treat as a "ctrl+right_arrow" key
 			}
 				break;
+
 			case '\b':	//backspace : 0x08
                 if(shell.nChar)
                 {
@@ -323,6 +322,7 @@ uint32_t Shell(uint32_t sc, ...)
 			shell.state=IDLE;
 			ExitEditMode();
 			break;
+
 		case ED_ESCAPE:
 			shell.state=ED_ESCAPE_SEQ;
 			//no break here to continue with ED_ESCAPE_SEQ case !
@@ -332,11 +332,13 @@ uint32_t Shell(uint32_t sc, ...)
 			shell.nEscChar++;
 			shell.crc=CRC16MODBUSbyte(_kbhitchar,shell.crc);
 			break;
+
 		default:
 			Putstr("\r\n\t***** case _SHELL_KBHIT: BAD case! ******\r\n");
 			shell.state=IDLE;
 			ExitEditMode();
 			break;
+
 		}
 #undef _kbhitchar
 		break;
@@ -523,7 +525,6 @@ uint32_t Shell(uint32_t sc, ...)
 	        {
 	        }
         }
-
 		break;
 
 	case _SHELL_PUT_ASCII_TO_HEX:
@@ -548,6 +549,7 @@ uint32_t Shell(uint32_t sc, ...)
 #undef _ch
 #undef _pSep
 	    break;
+
 	case _SHELL_CLEANUP_CMDLINE:
 #define pSrc       sc
 #define k u1
@@ -587,12 +589,9 @@ uint32_t Shell(uint32_t sc, ...)
 #undef k
 		break;
 
-
 	/////// INVALID SC CODE TRAP ERROR /////////////////////////////////////////////////////////////////
 	default:
 		Error(ERROR_SHELL_SWITCH_BAD_SC,sc);
 	}
 	return 0;
 }
-
-

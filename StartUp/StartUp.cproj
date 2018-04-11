@@ -580,6 +580,18 @@
     <Compile Include="src\module.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\sas.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\sas.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\timerCallMap.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\timerCallMap.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\ASF\sam\drivers\usart\usart.h">
       <SubType>compile</SubType>
     </None>

@@ -34,7 +34,6 @@ void set(uint32_t sc, void*pParam)
 #define TEST_NEW		100
 #define TEST_RUN		102
 
-
 void Test(uint32_t sc, uint32_t phase);
 
 enum{
@@ -114,8 +113,6 @@ void Test(uint32_t sc, uint32_t phase)
 	}
 	PushTask(Test,TEST_RUN,++phase,1000);
 }
-
-
 
 void start(uint32_t sc, void*pParam)
 {
@@ -302,7 +299,6 @@ typedef struct{
 		};
 	};
 }t_RTC_TIMR;
-
 
 void send(uint32_t sc, void*pParam)
 {

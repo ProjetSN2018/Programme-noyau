@@ -1,141 +1,140 @@
 #include <string.h>
-
-
 #include "appli.h"
-
-#include "./kernel/modbus_private.h"
 ///////////////////////////////ON CREE LE MENU!!!//////////////////////////////////////////
 
- typedef struct tt_menu {
+typedef struct tt_menu {
 	const char			 *pMenuLabel;
 	const struct tt_menu *pParentMenu;
 	const struct tt_menu *pSubMenu;
 	const t_pFunc		  pMenuFunc;
- }t_menu;
+}t_menu;
 
- extern const t_menu _mainMenu[];
- extern const t_menu _porteMenu[];
+extern const t_menu _mainMenu[];
+extern const t_menu _modesMenu[];
 
- uint32_t _menuOptionSasFunc(uint32_t sc, ...);
- uint32_t _menuPorteFermer1(uint32_t sc, ...);
- uint32_t _menuPorteFermer2(uint32_t sc, ...);
+uint32_t _menuActualMode(uint32_t sc, ...);
+uint32_t _menuDoorNumber(uint32_t sc, ...);
+uint32_t _menuPairing(uint32_t sc, ...);
 
-  uint32_t _menuEtatPorte1(uint32_t sc, ...);
-  uint32_t _menuEtatPorte2(uint32_t sc, ...);
-  uint32_t _menuEtatPortes(uint32_t sc, ...);
+//const t_menu _pairingMenu[] = {
+//{"Etat porte 1",	_modesMenu,			NULL,				_ },
+////Affichage LCD,	Menu précédent,		Sous-menu,			Fonction de ce champ//
+////////////////////////////////////////////////////////////////////////////////////
+//{ NULL, NULL, NULL	}
+//};
 
-const t_menu _etatMenu[] = {
-	{"Etat porte 1",	_porteMenu, NULL, _menuEtatPorte1 },
-	{"Etat porte 2",	_porteMenu, NULL, _menuEtatPorte2 },
-	{"Etat portes",		_porteMenu, NULL, _menuEtatPortes },
-	///////////////////////////////////////////////////////////
+const t_menu _doorNumberMenu[] = {
+	{"1 porte",			_mainMenu,			NULL,				NULL},
+	{"2 portes",		_mainMenu,			NULL,				NULL},
+	{"3 portes ou plus",_mainMenu,			NULL,				NULL},
+	//Affichage LCD,	Menu précédent,		Sous-menu,			Fonction de ce champ//
+	//////////////////////////////////////////////////////////////////////////////////
 	{ NULL, NULL, NULL	}
 };
 
-const t_menu _porteMenu[] = {
-	{"Fermer porte 1",	_mainMenu,	NULL,		_menuPorteFermer1 },
-	{"Fermer porte 2",	_mainMenu,	NULL,		_menuPorteFermer2 },
-	{"Etat portes",		_mainMenu,	_etatMenu,  NULL },
-	//////////////////////////////////////////////////////
+const t_menu _technicianMenu[] = {
+	{"Nombre de porte :",_modesMenu,		NULL,				_menuDoorNumber },
+	{"Appairage :",		_modesMenu,			NULL,				_menuPairing },
+	//Affichage LCD,	Menu précédent,		Sous-menu,			Fonction de ce champ//
+	//////////////////////////////////////////////////////////////////////////////////
 	{ NULL, NULL, NULL	}
 };
 
+const t_menu _modesMenu[] = {
+	{"Mode actuel :",	_mainMenu,			NULL,				_menuActualMode },
+	//Affichage LCD,	Menu précédent,		Sous-menu,			Fonction de ce champ//
+	//////////////////////////////////////////////////////////////////////////////////
+	{ NULL, NULL, NULL	}
+};
 
-
-const t_menu _mainMenu[]={
-	{"Option sas",		NULL,	NULL,		_menuOptionSasFunc },
-	{"Option portes",	NULL,	_porteMenu,	NULL },
-	{"Option fenetre",	NULL,	_porteMenu,	NULL },
-	{"Option trappe",	NULL,	_porteMenu,	NULL },
-
-	//////////////////////////////////////////////////////
+const t_menu _mainMenu[] = {
+	{"Mode technicien",	NULL,				_doorNumberMenu,	NULL },
+	{"Mode normal",		NULL,				_modesMenu,			NULL },
+	//Affichage LCD,	Menu précédent,		Sous-menu,			Fonction de ce champ//
+	//////////////////////////////////////////////////////////////////////////////////
 	{ NULL, NULL, NULL	}
 };
 
 /////////////////////////////////INTERRUPT TEST//////////////
-void ButtonSwitch_ISR_Handler(void);	
+void ButtonSwitch_ISR_Handler(void);
 void ButtonSelect_ISR_Handler(void);
-void ButtonClear_ISR_Handler(void);
+void ButtonBack_ISR_Handler(void);
 
 struct {
-	int				iIndexMenu;
+	int		iIndexMenu;
 	const t_menu	*pCurrentMenu;
-}menuElem,menus[MENU_DEPTH_VALUE];
-
-t_stack menuStack;
-
+}menu;
 
 uint32_t Menu(uint32_t sc, ...)
 {
 	switch(sc)
 	{
 		case MENU_NEW:
-			Putstr("\r\nMENU_NEW\r\n");
+		Putstr("MENU_NEW\r");
 
-			//Init ButtonSwitch
-			pio_set_input(PIOA, PIN_BUTTON_SWITCH, PIO_PULLUP); //A0 (Bouton Gauche)
-			pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SWITCH, PIO_IT_FALL_EDGE, ButtonSwitch_ISR_Handler);
-			pio_enable_interrupt(PIOA, PIN_BUTTON_SWITCH);
-			//Init ButtonSelect
-			pio_set_input(PIOA, PIN_BUTTON_SELECT, PIO_PULLUP); //A1 (Bouton Milieu)
-			pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SELECT, PIO_IT_FALL_EDGE, ButtonSelect_ISR_Handler);
-			pio_enable_interrupt(PIOA, PIN_BUTTON_SELECT);
-			//Init ButtonClear
-			pio_set_input(PIOA, PIN_BUTTON_CLEAR, PIO_PULLUP); //A1 (Bouton Droite)
-			pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_CLEAR, PIO_IT_FALL_EDGE, ButtonClear_ISR_Handler);
-			pio_enable_interrupt(PIOA, PIN_BUTTON_CLEAR);
+		//Init ButtonSwitch
+		pio_set_input(PIOA, PIN_BUTTON_SWITCH, PIO_PULLUP); //A0 (Bouton Gauche)
+		pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SWITCH, PIO_IT_FALL_EDGE, ButtonSwitch_ISR_Handler);
+		pio_enable_interrupt(PIOA, PIN_BUTTON_SWITCH);
+		//Init ButtonSelect
+		pio_set_input(PIOA, PIN_BUTTON_SELECT, PIO_PULLUP); //A1 (Bouton Milieu)
+		pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_SELECT, PIO_IT_FALL_EDGE, ButtonSelect_ISR_Handler);
+		pio_enable_interrupt(PIOA, PIN_BUTTON_SELECT);
+		//Init ButtonBack
+		pio_set_input(PIOA, PIN_BUTTON_BACK, PIO_PULLUP); //A1 (Bouton Droite)
+		pio_handler_set(PIOA, ID_PIOA, PIN_BUTTON_BACK, PIO_IT_FALL_EDGE, ButtonBack_ISR_Handler);
+		pio_enable_interrupt(PIOA, PIN_BUTTON_BACK);
 		
-			NVIC_EnableIRQ(PIOA_IRQn);
-			
-			
-			stackNew(&menuStack, menus, MENU_DEPTH_VALUE, MENU_ELEM_SIZE);
+		NVIC_EnableIRQ(PIOA_IRQn);
 
-			menuElem.iIndexMenu = 0;
-			menuElem.pCurrentMenu = _mainMenu;
-			break;
-		case MENU_SWITCH_BUTTON:			//Quand press bouton Gauche
-			WriteSingleCoil(0x18, 0x01, 0x01);
-			//WriteMultipleRegisters(0x20, READ_COIL, 0, 0);
-			menuElem.iIndexMenu++;
-			//gpio_toggle_pin(CMD_MOSFET);
-			//gpio_toggle_pin(CMD_MOT_SERRURE);
-			//WriteMultipleRegisters(1, READ_COILS, 6, "Hello there!");
-			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel == NULL) menuElem.iIndexMenu = 0;
+		sprintf(buf, "MENU NEW FINISHED \r\n");
+		Putstr(buf);
+		menu.iIndexMenu = 0;
+		menu.pCurrentMenu = _mainMenu;
+		break;
+		case MENU_SWITCH_BUTTON:			//Quand appui bouton Gauche
+		menu.iIndexMenu++;
+		if(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel == NULL) menu.iIndexMenu = 0;
+		Menu(MENU_PROMPT);
+		break;
+		case MENU_SELECT_BUTTON:			//Quand appui bouton Milieu
+		if(menu.pCurrentMenu[menu.iIndexMenu].pMenuFunc)
+		{
+			menu.pCurrentMenu[menu.iIndexMenu].pMenuFunc(0);
+		}
+		else if(menu.pCurrentMenu[menu.iIndexMenu].pSubMenu)
+		{
+			menu.pCurrentMenu = menu.pCurrentMenu[menu.iIndexMenu].pSubMenu;
+			menu.iIndexMenu = 0;
 			Menu(MENU_PROMPT);
-			break;
-		case MENU_SELECT_BUTTON:			//Quand press bouton Milieu
-			WriteSingleCoil(0x20, 0x01, 0x01);
-			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuFunc)
-			{
-				menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuFunc(0);
-			}
-			else if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pSubMenu)
-			{
-				stackPush(&menuStack, &menuElem);
-				menuElem.pCurrentMenu = menuElem.pCurrentMenu[menuElem.iIndexMenu].pSubMenu;
-				menuElem.iIndexMenu = 0;
-				Menu(MENU_PROMPT);
-			}
-			break;
-		case MENU_CLEAR_BUTTON:			//Quand press bouton Droite
-			if(menuElem.pCurrentMenu[menuElem.iIndexMenu].pParentMenu)
-			{
-				stackPop(&menuStack, &menuElem);
-				Menu(MENU_PROMPT);
-			}
-	
-			WriteSingleCoil(0x16, 0x01, 0x01);
-			
-			break;
-		case MENU_PROMPT:
-			LcdPutstr("                    ", 2, 0);
-			LcdPutstr((menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel),2,LcdFindHalf(strlen(menuElem.pCurrentMenu[menuElem.iIndexMenu].pMenuLabel)));
-			break;
-		case MENU_INIT:
+		}
+		break;
+		case MENU_BACK_BUTTON:				//Quand appui bouton Droite
+		if(menu.pCurrentMenu[menu.iIndexMenu].pParentMenu)
+		{
+			menu.pCurrentMenu = menu.pCurrentMenu[menu.iIndexMenu].pParentMenu;
+			menu.iIndexMenu = 0;
+			Menu(MENU_PROMPT);
+		}
+		break;
 
-			break;
+		case MENU_PROMPT:
+		SetButtonTimeout();
+		Putstr(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel);
+		LcdPutstr(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel,2,LcdFindCenter(strlen(menu.pCurrentMenu[menu.iIndexMenu].pMenuLabel)));
+		setShellStatus(ST_MENU_MENU);
+		break;
+		case MENU_INIT:
+		
+		break;
+		
+		case MENU_RETURN_HOME:
+		LcdPutstr("CPU.ACX  ATSAM3U4C",2,1);
+		LcdPutstr("www.a-2-s.net",3,4);
+		break;
+
 		default:
-			Error(ERROR_MENU_SWITCH_BAD_SC, sc);
+		Error(ERROR_MENU_SWITCH_BAD_SC, sc);
 	}
 	return 0;
 }
@@ -143,100 +142,63 @@ uint32_t Menu(uint32_t sc, ...)
 void ButtonSwitch_ISR_Handler()
 {
 	PushTask(Menu, MENU_SWITCH_BUTTON,0,0);
-	
-
-	// if(ShellGetState() == IDLE) ShellSetState(SWITCH);
 }
 
 void ButtonSelect_ISR_Handler()
 {
-
 	PushTask(Menu, MENU_SELECT_BUTTON,0,0);
-
-	//f(ShellGetState() == SWITCH) ShellSetState(IDLE);
 }
 
-void ButtonClear_ISR_Handler()
+void ButtonBack_ISR_Handler()
 {
-	PushTask(Menu, MENU_CLEAR_BUTTON,0,0);
+	PushTask(Menu, MENU_BACK_BUTTON,0,0);
 }
 
- uint32_t _menuOptionSasFunc(uint32_t sc, ...)
- {
-	switch(sc)
-	{
-	default:
-		Putstr("_menuOptionSasFunc: BAD SC");
-		LcdPutstr("                     ", 3, 0);
-		LcdPutstr("FERMETURE SAS",3,0);
-		break;
-	}
+////////////////////////////////////////////////////////////////////////////////////////////////
+///////		FONCTIONS DU MENU	////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-	return 0;
- }
-
-uint32_t _menuPorteFermer1(uint32_t sc, ...)
+uint32_t _menuActualMode(uint32_t sc, ...)
 {
 	switch(sc)
 	{
 		default:
-		Putstr("_menuPorteFermer1: BAD SC");
+		Putstr("_menuActualMode: BAD SC");
+		LcdPutstr("MODE PLACEHOLDER",
+		3,
+		LcdFindCenter(strlen("MODE PLACEHOLDER"))
+		);
 		break;
 	}
-
 	return 0;
 }
 
-uint32_t _menuPorteFermer2(uint32_t sc, ...)
+uint32_t _menuDoorNumber(uint32_t sc, ...)
 {
 	switch(sc)
 	{
 		default:
-		Putstr("_menuPorteFermer2: BAD SC");
+		Putstr("_menuDoorNumber: BAD SC");
+		LcdPutstr("DOOR NUMBER PLACEHOLDER",
+		3,
+		LcdFindCenter(strlen("DOOR NUMBER PLACEHOLDER"))
+		);
 		break;
 	}
-
 	return 0;
 }
 
-uint32_t _menuEtatPorte1(uint32_t sc, ...)
+uint32_t _menuPairing(uint32_t sc, ...)
 {
 	switch(sc)
 	{
 		default:
-		Putstr("_menuOptionSasFunc: BAD SC");
-		LcdPutstr("                     ", 3, 0);
-		LcdPutstr("ETAT PORTE 1",3,0);
+		Putstr("_menuPairing: BAD SC");
+		LcdPutstr("PAIRING PLACEHOLDER",
+		3,
+		LcdFindCenter(strlen("PAIRING PLACEHOLDER"))
+		);
 		break;
 	}
-
-	return 0;
-}
-
-uint32_t _menuEtatPorte2(uint32_t sc, ...)
-{
-	switch(sc)
-	{
-		default:
-		Putstr("_menuOptionSasFunc: BAD SC");
-		LcdPutstr("                     ", 3, 0);
-		LcdPutstr("ETAT PORTE 1",3,0);
-		break;
-	}
-
-	return 0;
-}
-
-uint32_t _menuEtatPortes(uint32_t sc, ...)
-{
-	switch(sc)
-	{
-		default:
-		Putstr("_menuOptionSasFunc: BAD SC");
-		LcdPutstr("                     ", 3, 0);
-		LcdPutstr("ETAT PORTES",3,0);
-		break;
-	}
-
 	return 0;
 }

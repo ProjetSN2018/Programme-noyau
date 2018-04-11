@@ -63,4 +63,3 @@ unsigned int CRC16MODBUSword(unsigned int wData, unsigned int wCRCWord)
 	wCRCWord = CRC16MODBUSbyte (wData&0xFF, wCRCWord);
 	return CRC16MODBUSbyte (wData>>8, wCRCWord);
 }
-

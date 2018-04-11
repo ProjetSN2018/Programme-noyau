@@ -4,7 +4,6 @@
  * Created: 24/03/2018 14:27:02
  *  Author: Thierry
  */
-
 ////////////MOBDUS PRIVATE MODULE DEFINITIONS //////////////////////////////////////////////////////
 
 #define MODBUS_EXCEPTION_ERROR_FRAME_LEN		5

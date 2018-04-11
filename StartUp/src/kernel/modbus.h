@@ -4,10 +4,9 @@
  * Created: 23/03/2018 22:16:25
  *  Author: Thierry
  */
+#define MODBUS_BROADCAST_ADDRESS				(0x7F)
 
-#define MODBUS_BROADCAST_ADDRESS		(0x7F)
-
-#define MODBUS_SYNCRONIZATION_TOKEN		0x1000
+#define MODBUS_SYNCRONIZATION_TOKEN				0x1000
 
 uint32_t Modbus(uint32_t sc,...);
 
